@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Entities/Player/Player.gd" id="1_n6ecm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sw33w"]
-size = Vector2(32, 40)
+size = Vector2(32, 47)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k7n3a"]
 atlas = ExtResource("1_mdmjy")
@@ -25,7 +25,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
@@ -33,7 +33,7 @@ collision_mask = 32
 script = ExtResource("1_n6ecm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_sw33w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

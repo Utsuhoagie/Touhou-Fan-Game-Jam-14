@@ -3,21 +3,84 @@ extends CharacterBody2D
 
 # Stats
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -450.0
+
+enum PlayerType {
+	Main,
+	Shadow
+}
+@export var type: PlayerType = PlayerType.Main
+
+@export var mirror_x: bool = false
+@export var mirror_y: bool = false
+
+# Nodes
+@onready var AnimSprite := $AnimatedSprite2D
+
+
+# DEBUG
+var counter: int = 1
 
 
 func _physics_process(delta: float) -> void:
+	counter -= 1
+
+	if mirror_y:
+		up_direction = Vector2.DOWN
+
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		var gravity_delta = get_gravity() * delta
+		if mirror_y:
+			gravity_delta.y *= -1
+
+		velocity += gravity_delta
+
+		if counter == 0:
+			print("%s = %s" % [name, velocity])
+			counter = 30
+
 
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		if mirror_y:
+			velocity.y *= -1
 
-	var direction := Input.get_axis("Left", "Right")
+	#if mirror_y:
+		#velocity.y *= -1
 
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	AnimSprite.flip_v = mirror_y
+	_handle_direction(delta)
+
+
+
 
 	move_and_slide()
+
+	if counter == 0:
+		counter = 30
+
+
+func _handle_direction(delta: float) -> void:
+	var direction := Input.get_axis("Left", "Right")
+
+	if not direction:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		AnimSprite.stop()
+		return
+
+	var actual_direction := direction
+	if mirror_x:
+		actual_direction *= -1
+
+	velocity.x = actual_direction * SPEED
+
+	AnimSprite.play("default")
+	AnimSprite.flip_h = actual_direction > 0
+
+
+func merge_into_main():
+	if type == PlayerType.Main:
+		var merged: Node2D = $"../Merged"
+		self.global_position = merged.global_position
+	elif type == PlayerType.Shadow:
+		queue_free()

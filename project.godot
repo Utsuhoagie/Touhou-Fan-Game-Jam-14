@@ -56,3 +56,4 @@ Action={
 2d_physics/layer_4="EnemyAttack"
 2d_physics/layer_6="Terrain"
 2d_physics/layer_7="Collectible"
+2d_physics/layer_8="Mirror"
