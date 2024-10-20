@@ -18,16 +18,13 @@ enum PlayerType {
 @onready var AnimSprite := $AnimatedSprite2D
 
 
-# DEBUG
-var counter: int = 1
+func _ready() -> void:
+	if mirror_y:
+		up_direction = Vector2.DOWN
+		AnimSprite.flip_v = mirror_y
 
 
 func _physics_process(delta: float) -> void:
-	counter -= 1
-
-	if mirror_y:
-		up_direction = Vector2.DOWN
-
 	if not is_on_floor():
 		var gravity_delta = get_gravity() * delta
 		if mirror_y:
@@ -35,36 +32,21 @@ func _physics_process(delta: float) -> void:
 
 		velocity += gravity_delta
 
-		if counter == 0:
-			print("%s = %s" % [name, velocity])
-			counter = 30
-
-
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		if mirror_y:
 			velocity.y *= -1
 
-	#if mirror_y:
-		#velocity.y *= -1
-
-	AnimSprite.flip_v = mirror_y
 	_handle_direction(delta)
 
-
-
-
 	move_and_slide()
-
-	if counter == 0:
-		counter = 30
 
 
 func _handle_direction(delta: float) -> void:
 	var direction := Input.get_axis("Left", "Right")
 
 	if not direction:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = 0
 		AnimSprite.stop()
 		return
 
@@ -81,6 +63,6 @@ func _handle_direction(delta: float) -> void:
 func merge_into_main():
 	if type == PlayerType.Main:
 		var merged: Node2D = $"../Merged"
-		self.global_position = merged.global_position
+		global_position = merged.global_position
 	elif type == PlayerType.Shadow:
 		queue_free()

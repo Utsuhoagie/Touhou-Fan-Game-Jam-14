@@ -3,13 +3,12 @@ extends StaticBody2D
 
 @export var required_players_count: int
 
+@export var mirror_detect_range_pixels: int = 10
+
 @onready var JoinDetector: Area2D = $"Join Detector"
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Action"):
-		get_tree().reload_current_scene()
-
 	if JoinDetector.has_overlapping_bodies():
 		var bodies := JoinDetector.get_overlapping_bodies() \
 			.filter(func(body): return body is Player)
@@ -29,13 +28,13 @@ func _process(delta: float) -> void:
 				func(coord: Vector2i): return coord.x)
 
 			var bodies_same_x := bodies_x.all(
-				func(x: int): return absi(x - bodies_x[0]) < 10)
+				func(x: int): return absi(x - bodies_x[0]) < mirror_detect_range_pixels)
 
 			var bodies_y := bodies_coords.map(
 				func(coord: Vector2i): return coord.y)
 
 			var bodies_same_y := bodies_y.all(
-				func(y: int): return absi(y - bodies_y[0]) < 10)
+				func(y: int): return absi(y - bodies_y[0]) < mirror_detect_range_pixels)
 
 			print("Bodies_x? [%s]" % ",".join(bodies_x))
 			print("Bodies_x[0] = %s" % bodies_x[0])
@@ -45,7 +44,3 @@ func _process(delta: float) -> void:
 				for body in bodies:
 					var player: Player = body
 					player.merge_into_main()
-
-				#print("Mirror activated!" +
-					#"\nNames = %s" % bodies_name +
-					#"\nCoords = %s" % bodies_coord)
