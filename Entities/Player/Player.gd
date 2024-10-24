@@ -14,6 +14,9 @@ enum PlayerType {
 @export var mirror_x: bool = false
 @export var mirror_y: bool = false
 
+# Inventory
+var inventory: Array = []
+
 # Nodes
 @onready var AnimSprite := $AnimatedSprite2D
 
