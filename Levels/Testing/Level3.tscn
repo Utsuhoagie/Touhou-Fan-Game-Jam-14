@@ -1,17 +1,17 @@
 [gd_scene load_steps=14 format=4 uid="uid://lfmb7ccwmemh"]
 
-[ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_bdvam"]
-[ext_resource type="PackedScene" uid="uid://bgod1ait53ckn" path="res://Entities/Environment/TileMap.tscn" id="1_f3vlu"]
-[ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="2_504x7"]
-[ext_resource type="Texture2D" uid="uid://dij4823o0lqa7" path="res://Assets/Pixel Platformer/Tilemap/tilemap_packed.png" id="4_e7hr0"]
-[ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/Door.tscn" id="4_wyng4"]
-[ext_resource type="Script" path="res://Entities/Environment/Key.gd" id="5_hqnt3"]
+[ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_wwh37"]
+[ext_resource type="PackedScene" uid="uid://bgod1ait53ckn" path="res://Entities/Environment/TileMap.tscn" id="2_turit"]
+[ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="3_8s5vp"]
+[ext_resource type="Script" path="res://Entities/Environment/Key.gd" id="4_l38k8"]
+[ext_resource type="Texture2D" uid="uid://dij4823o0lqa7" path="res://Assets/Pixel Platformer/Tilemap/tilemap_packed.png" id="5_y2us2"]
+[ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/Door.tscn" id="6_ifg7i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3dgen"]
 radius = 32.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7yv6j"]
-atlas = ExtResource("4_e7hr0")
+atlas = ExtResource("5_y2us2")
 region = Rect2(336, 48, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3q8mo"]
@@ -46,18 +46,18 @@ animations = [{
 size = Vector2(64, 144)
 
 [node name="Level3" type="Node2D"]
-script = ExtResource("1_bdvam")
+script = ExtResource("1_wwh37")
 
-[node name="Level TileMap" parent="." instance=ExtResource("1_f3vlu")]
+[node name="Level TileMap" parent="." instance=ExtResource("2_turit")]
 tile_map_data = PackedByteArray("AAABAAEAAgAAAAAAAAABAAIAAgAAAAAAAAABAAMAAgAAAAAAAAABAAQAAgAAAAAAAAABAAUAAgAAAAAAAAABAAYAAgAAAAAAAAABAAcAAgAAAAAAAAABAAgAAgAAAAAAAAABAAkAAgAAAAAAAAABAAoAAgAAAAAAAAABAAsAAgAAAAAAAAABAAwAAgAAAAAAAAACAAwAAgAAAAAAAAADAAwAAgAAAAAAAAAEAAwAAgAAAAAAAAAFAAwAAgAAAAAAAAAGAAwAAgAAAAAAAAAHAAwAAgAAAAAAAAAIAAwAAgAAAAAAAAAJAAwAAgAAAAAAAAAKAAwAAgAAAAAAAAALAAwAAgAAAAAAAAAMAAwAAgAAAAAAAAANAAwAAgAAAAAAAAAOAAwAAgAAAAAAAAAPAAwAAgAAAAAAAAAQAAwAAgAAAAAAAAARAAwAAgAAAAAAAAASAAwAAgAAAAAAAAATAAwAAgAAAAAAAAAUAAwAAgAAAAAAAAAVAAwAAgAAAAAAAAAWAAwAAgAAAAAAAAAWAAsAAgAAAAAAAAAWAAoAAgAAAAAAAAAWAAkAAgAAAAAAAAAWAAgAAgAAAAAAAAAWAAcAAgAAAAAAAAAWAAYAAgAAAAAAAAAWAAUAAgAAAAAAAAAWAAQAAgAAAAAAAAAWAAMAAgAAAAAAAAAWAAIAAgAAAAAAAAAWAAEAAgAAAAAAAAAVAAEAAgAAAAAAAAAUAAEAAgAAAAAAAAATAAEAAgAAAAAAAAASAAEAAgAAAAAAAAARAAEAAgAAAAAAAAAQAAEAAgAAAAAAAAAPAAEAAgAAAAAAAAAOAAEAAgAAAAAAAAANAAEAAgAAAAAAAAAMAAEAAgAAAAAAAAALAAEAAgAAAAAAAAAKAAEAAgAAAAAAAAAJAAEAAgAAAAAAAAAIAAEAAgAAAAAAAAAHAAEAAgAAAAAAAAAGAAEAAgAAAAAAAAAFAAEAAgAAAAAAAAAEAAEAAgAAAAAAAAADAAEAAgAAAAAAAAACAAEAAgAAAAAAAAAMAAcAAgAAAAAAAAAMAAgAAgAAAAAAAAALAAgAAgAAAAAAAAAKAAgAAgAAAAAAAAAHAAsAAgAIAAUAAAAJAAgAAgAAAAAAAAAFAAgAAgAAAAAAAAAEAAgAAgAAAAAAAAADAAgAAgAAAAAAAAALAAcAAgAAAAAAAAA=")
 
-[node name="Player" parent="." instance=ExtResource("2_504x7")]
+[node name="Player" parent="." instance=ExtResource("3_8s5vp")]
 position = Vector2(280, 496)
 
 [node name="Key" type="Area2D" parent="."]
 position = Vector2(216, 352)
 collision_layer = 64
-script = ExtResource("5_hqnt3")
+script = ExtResource("4_l38k8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key"]
 shape = SubResource("CircleShape2D_3dgen")
@@ -65,7 +65,7 @@ shape = SubResource("CircleShape2D_3dgen")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Key"]
 sprite_frames = SubResource("SpriteFrames_3q8mo")
 
-[node name="Door" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("4_wyng4")]
+[node name="Door" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("6_ifg7i")]
 position = Vector2(624, 336)
 key_to_unlock = NodePath("../Key")
 
@@ -79,7 +79,7 @@ shape = SubResource("RectangleShape2D_bg8g7")
 [node name="Key2" type="Area2D" parent="."]
 position = Vector2(216, 552)
 collision_layer = 64
-script = ExtResource("5_hqnt3")
+script = ExtResource("4_l38k8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key2"]
 shape = SubResource("CircleShape2D_x2hw7")
@@ -88,7 +88,7 @@ shape = SubResource("CircleShape2D_x2hw7")
 modulate = Color(1, 0.44, 0.44, 1)
 sprite_frames = SubResource("SpriteFrames_1625f")
 
-[node name="Door2" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("4_wyng4")]
+[node name="Door2" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("6_ifg7i")]
 position = Vector2(624, 432)
 key_to_unlock = NodePath("../Key2")
 
