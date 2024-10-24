@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=4 uid="uid://d2q4qvww17b1m"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_euue5"]
-[ext_resource type="PackedScene" uid="uid://bgod1ait53ckn" path="res://Entities/Environment/TileMap.tscn" id="2_28soi"]
+[ext_resource type="PackedScene" uid="uid://bgod1ait53ckn" path="res://Entities/Environment/MainTileMap/TileMap.tscn" id="2_28soi"]
 [ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="3_4385f"]
 
 [node name="Level2" type="Node2D"]
