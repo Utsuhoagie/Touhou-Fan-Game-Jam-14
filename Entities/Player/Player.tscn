@@ -1,7 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://jatj3h6ab7h7"]
+[gd_scene load_steps=13 format=3 uid="uid://jatj3h6ab7h7"]
 
 [ext_resource type="Texture2D" uid="uid://btpumnv4053mh" path="res://Assets/Pixel Platformer/Tilemap/tilemap-characters_packed.png" id="1_mdmjy"]
 [ext_resource type="Script" path="res://Entities/Player/Player.gd" id="1_n6ecm"]
+[ext_resource type="Texture2D" uid="uid://dij4823o0lqa7" path="res://Assets/Pixel Platformer/Tilemap/tilemap_packed.png" id="3_s4ilj"]
+[ext_resource type="Script" path="res://Entities/Player/Hitbox.gd" id="3_ywt3x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xd06t"]
+size = Vector2(28, 27)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4cnt4"]
+radius = 8.0
+height = 28.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k7n3a"]
 atlas = ExtResource("1_mdmjy")
@@ -25,19 +34,27 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xd06t"]
-size = Vector2(28, 27)
+[sub_resource type="CircleShape2D" id="CircleShape2D_cvqsd"]
+radius = 25.2982
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4cnt4"]
-radius = 8.0
-height = 28.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd0ph"]
+atlas = ExtResource("3_s4ilj")
+region = Rect2(288, 192, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8tq0v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yd0ph")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D" groups=["players"]]
 collision_mask = 224
 script = ExtResource("1_n6ecm")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_26esl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)
@@ -56,3 +73,24 @@ shape = SubResource("CapsuleShape2D_4cnt4")
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="Flippable" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flippable"]
+sprite_frames = SubResource("SpriteFrames_26esl")
+flip_h = true
+
+[node name="Hitbox" type="Area2D" parent="Flippable"]
+position = Vector2(48, 0)
+rotation = 1.5708
+script = ExtResource("3_ywt3x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/Hitbox"]
+shape = SubResource("CircleShape2D_cvqsd")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flippable/Hitbox"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_8tq0v")
+
+[connection signal="animation_finished" from="Flippable/Hitbox/AnimatedSprite2D" to="Flippable/Hitbox" method="_on_animated_sprite_2d_animation_finished"]

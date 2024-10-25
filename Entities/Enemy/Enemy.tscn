@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://swq672klppy0"]
+
+[ext_resource type="Script" path="res://Entities/Enemy/Enemy.gd" id="1_m5wyy"]
+[ext_resource type="Texture2D" uid="uid://btpumnv4053mh" path="res://Assets/Pixel Platformer/Tilemap/tilemap-characters_packed.png" id="1_vv60h"]
+[ext_resource type="Shape2D" uid="uid://bjmmssqn4o6qo" path="res://Entities/Enemy/EnemyCollisionShape.tres" id="2_b3hpi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b037a"]
+atlas = ExtResource("1_vv60h")
+region = Rect2(288, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m25hh"]
+atlas = ExtResource("1_vv60h")
+region = Rect2(336, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vgyyo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b037a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m25hh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4tfsa"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ho1f1"]
+size = Vector2(8, 8)
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 35
+script = ExtResource("1_m5wyy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 6)
+shape = ExtResource("2_b3hpi")
+
+[node name="Flippable" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flippable"]
+sprite_frames = SubResource("SpriteFrames_vgyyo")
+
+[node name="WallDetect" type="Area2D" parent="Flippable"]
+position = Vector2(-16, 8)
+collision_layer = 4
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/WallDetect"]
+shape = SubResource("RectangleShape2D_4tfsa")
+
+[node name="FloorDetect" type="Area2D" parent="Flippable"]
+position = Vector2(-24, 32)
+collision_layer = 4
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/FloorDetect"]
+shape = SubResource("RectangleShape2D_ho1f1")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-1, 6)
+shape = ExtResource("2_b3hpi")
+
+[connection signal="body_entered" from="Flippable/WallDetect" to="." method="_on_wall_detect_body_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
