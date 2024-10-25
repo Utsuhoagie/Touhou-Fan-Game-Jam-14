@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=4 uid="uid://c1wjmrlab1xw5"]
+
+[ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_608a7"]
+[ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="2_c7mjh"]
+[ext_resource type="PackedScene" uid="uid://bgod1ait53ckn" path="res://Entities/Environment/MainTileMap/TileMap.tscn" id="3_hmvpi"]
+[ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="4_md4u1"]
+[ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="5_kjrs5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxlph"]
+size = Vector2(64, 48)
+
+[node name="LevelRegen1" type="Node2D"]
+script = ExtResource("1_608a7")
+
+[node name="Player" parent="." instance=ExtResource("2_c7mjh")]
+position = Vector2(504, 264)
+
+[node name="Player2" parent="." instance=ExtResource("2_c7mjh")]
+position = Vector2(984, 504)
+type = 1
+mirror_x = true
+mirror_y = true
+
+[node name="Player3" parent="." instance=ExtResource("2_c7mjh")]
+position = Vector2(120, 504)
+type = 1
+mirror_y = true
+
+[node name="Player4" parent="." instance=ExtResource("2_c7mjh")]
+position = Vector2(984, 120)
+type = 1
+mirror_x = true
+
+[node name="Level TileMap" parent="." instance=ExtResource("3_hmvpi")]
+tile_map_data = PackedByteArray("AAABAAEAAgAAAAAAAAABAAIAAgAAAAAAAAABAAMAAgAAAAAAAAABAAgAAgAAAAAAAAABAAkAAgAAAAAAAAABAAoAAgAAAAAAAAABAAsAAgAAAAAAAAABAAcAAgAAAAAAAAABAAYAAgAAAAAAAAABAAUAAgAAAAAAAAABAAQAAgAAAAAAAAALAAcAAQAAAAAAAgALAAgAAgAAAAAAAAALAAkAAgAAAAAAAAALAAoAAgAAAAAAAAALAAsAAgAAAAAAAAAKAAYAAQAAAAAAAQAJAAYAAgAAAAAAAAAIAAYAAgAAAAAAAAAHAAYAAgAAAAAAAAAGAAYAAgAAAAAAAAAFAAYAAgAAAAAAAAAEAAYAAgAAAAAAAAADAAYAAgAAAAAAAAACAAYAAgAAAAAAAAAVAAYAAgAAAAAAAAAUAAYAAgAAAAAAAAATAAYAAgAAAAAAAAASAAYAAgAAAAAAAAARAAYAAgAAAAAAAAAQAAYAAgAAAAAAAAAPAAYAAgAAAAAAAAAOAAYAAgAAAAAAAAANAAYAAgAAAAAAAAADAAEAAgAAAAAAAAACAAEAAgAAAAAAAAAEAAEAAgAAAAAAAAAFAAEAAgAAAAAAAAAGAAEAAgAAAAAAAAAHAAEAAgAAAAAAAAAIAAEAAgAAAAAAAAAJAAEAAgAAAAAAAAAKAAEAAgAAAAAAAAAMAAEAAgAAAAAAAAANAAEAAgAAAAAAAAAOAAEAAgAAAAAAAAAPAAEAAgAAAAAAAAAQAAEAAgAAAAAAAAARAAEAAgAAAAAAAAASAAEAAgAAAAAAAAATAAEAAgAAAAAAAAAUAAEAAgAAAAAAAAAVAAEAAgAAAAAAAAALAAEAAgAAAAAAAAACAAsAAgAAAAAAAAADAAsAAgAAAAAAAAAEAAsAAgAAAAAAAAAFAAsAAgAAAAAAAAAGAAsAAgAAAAAAAAAHAAsAAgAAAAAAAAAIAAsAAgAAAAAAAAAJAAsAAgAAAAAAAAAKAAsAAgAAAAAAAAAMAAsAAgAAAAAAAAANAAsAAgAAAAAAAAAOAAsAAgAAAAAAAAAPAAsAAgAAAAAAAAAQAAsAAgAAAAAAAAARAAsAAgAAAAAAAAASAAsAAgAAAAAAAAATAAsAAgAAAAAAAAAUAAsAAgAAAAAAAAAVAAsAAgAAAAAAAAAVAAoAAgAAAAAAAAAVAAkAAgAAAAAAAAAVAAMAAgAAAAAAAAAVAAIAAgAAAAAAAAAVAAQAAgAAAAAAAAAVAAUAAgAAAAAAAAAVAAcAAgAAAAAAAAAVAAgAAgAAAAAAAAAMAAYAAQAAAAAAAQALAAUAAQAAAAAAAgAKAAgAAgAAAAAAAAAMAAQAAgAAAAAAAAAMAAgAAgAAAAAAAAALAAYAAQAAAAAAAQAFAAUAAgAAAAAAAAACAAMAAgAAAAAAAAAFAAIAAgAAAAAAAAAGAAQAAgAAAAAAAAAFAAQAAgAAAAAAAAADAAQAAgAAAAAAAAADAAMAAgAAAAAAAAACAAkAAgAAAAAAAAAUAAMAAgAAAAAAAAALAAMAAgAAAAAAAAADAAkAAgAAAAAAAAADAAgAAgAAAAAAAAAFAAoAAgAAAAAAAAAFAAgAAgAAAAAAAAAFAAcAAgAAAAAAAAAGAAgAAgAAAAAAAAAQAAgAAgAAAAAAAAARAAgAAgAAAAAAAAARAAcAAgAAAAAAAAATAAgAAgAAAAAAAAATAAkAAgAAAAAAAAAUAAkAAgAAAAAAAAATAAQAAgAAAAAAAAATAAMAAgAAAAAAAAARAAUAAgAAAAAAAAARAAQAAgAAAAAAAAAQAAQAAgAAAAAAAAAIAAQAAgAAAAAAAAALAAQAAgAAAAAAAAAIAAgAAgAAAAAAAAAIAAkAAgAAAAAAAAAJAAgAAgAAAAAAAAAOAAkAAgAAAAAAAAAOAAgAAgAAAAAAAAANAAgAAgAAAAAAAAAOAAMAAgAAAAAAAAAOAAQAAgAAAAAAAAANAAQAAgAAAAAAAAAIAAMAAgAAAAAAAAARAAoAAgAAAAAAAAARAAIAAgAAAAAAAAAJAAQAAgAAAAAAAAAKAAQAAgAAAAAAAAA=")
+
+[node name="Merged" type="Node2D" parent="."]
+position = Vector2(552, 0)
+
+[node name="Door" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("4_md4u1")]
+position = Vector2(480, 336)
+key_to_unlock = NodePath("../Key")
+
+[node name="TileMap" parent="Door" index="0"]
+tile_map_data = PackedByteArray("AAAAAAAAAgAIAAEAAAD///7/AgAIAAEAAAA=")
+
+[node name="CollisionShape2D" parent="Door" index="1"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_sxlph")
+
+[node name="Key" parent="." instance=ExtResource("5_kjrs5")]
+position = Vector2(120, 408)
+
+[node name="Door2" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("4_md4u1")]
+modulate = Color(0.929993, 0, 0.447184, 1)
+position = Vector2(576, 336)
+key_to_unlock = NodePath("../Key2")
+
+[node name="TileMap" parent="Door2" index="0"]
+tile_map_data = PackedByteArray("AAAAAAAAAgAIAAEAAAD///v/AgAIAAEAAAA=")
+
+[node name="CollisionShape2D" parent="Door2" index="1"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_sxlph")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Door2"]
+position = Vector2(-24, -215)
+shape = SubResource("RectangleShape2D_sxlph")
+
+[node name="Door3" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("4_md4u1")]
+modulate = Color(1.82897e-06, 0.600038, 0.614266, 1)
+position = Vector2(576, 240)
+key_to_unlock = NodePath("../Key3")
+
+[node name="TileMap" parent="Door3" index="0"]
+tile_map_data = PackedByteArray("AAAAAAAAAgAIAAEAAAD8/wAAAgAIAAEAAAA=")
+
+[node name="CollisionShape2D" parent="Door3" index="1"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_sxlph")
+
+[node name="Key2" parent="." instance=ExtResource("5_kjrs5")]
+modulate = Color(0.929993, 0, 0.447184, 1)
+position = Vector2(408, 120)
+
+[node name="Key3" parent="." instance=ExtResource("5_kjrs5")]
+modulate = Color(1.82897e-06, 0.600038, 0.614266, 1)
+position = Vector2(600, 168)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Inventory" type="HBoxContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_right = 52.0
+offset_bottom = 48.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Inventory"]
+layout_mode = 2
+text = "Items:"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Inventory"]
+layout_mode = 2
+
+[editable path="Door"]
+[editable path="Door2"]
+[editable path="Door3"]

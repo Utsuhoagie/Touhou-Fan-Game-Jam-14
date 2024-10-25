@@ -62,3 +62,8 @@ Action={
 2d_physics/layer_6="Terrain"
 2d_physics/layer_7="Collectible"
 2d_physics/layer_8="Mirror"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbuxgumy46lbi"]
+[gd_scene load_steps=2 format=3 uid="uid://dbuxgumy46lbi"]
 
 [ext_resource type="Script" path="res://Menus/main_menu.gd" id="1_erbvp"]
-[ext_resource type="PackedScene" uid="uid://b1t3a2hm6a3s7" path="res://Menus/level_select.tscn" id="2_3825w"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_erbvp")
@@ -51,12 +50,3 @@ layout_mode = 2
 focus_neighbor_bottom = NodePath("../PlayButton")
 text = "Exit
 "
-
-[node name="LevelSelect" parent="." instance=ExtResource("2_3825w")]
-visible = false
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 31.0
-offset_right = 1102.0
-offset_bottom = 598.0

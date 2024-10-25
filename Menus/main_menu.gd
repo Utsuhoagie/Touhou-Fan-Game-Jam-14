@@ -19,14 +19,11 @@ func _enter_level_select() -> void:
 	var level_select = level_select_scene.instantiate()
 	get_tree().get_root().add_child(level_select)
 	
-	
 	level_select.tree_exited.connect(_return_to_main_menu)
 	self.visible = false
 	
 
 func _exit_game() -> void:
-	
-	
 	get_tree().quit()
 	
 

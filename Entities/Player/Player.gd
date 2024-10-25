@@ -19,6 +19,7 @@ var inventory: Array = []
 
 # Nodes
 @onready var AnimSprite := $AnimatedSprite2D
+@onready var coyote_timer: Timer = $CoyoteTimer
 
 
 func _ready() -> void:
@@ -28,6 +29,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	var was_on_floor: bool = is_on_floor()
+	
 	if not is_on_floor():
 		var gravity_delta = get_gravity() * delta
 		if mirror_y:
@@ -35,7 +38,8 @@ func _physics_process(delta: float) -> void:
 
 		velocity += gravity_delta
 
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
+	if (Input.is_action_just_pressed("Jump")
+	and (is_on_floor() or not coyote_timer.is_stopped())):
 		velocity.y = JUMP_VELOCITY
 		if mirror_y:
 			velocity.y *= -1
@@ -43,6 +47,10 @@ func _physics_process(delta: float) -> void:
 	_handle_direction(delta)
 
 	move_and_slide()
+	
+	if was_on_floor and not is_on_floor():
+		coyote_timer.start()
+		
 
 
 func _handle_direction(delta: float) -> void:
