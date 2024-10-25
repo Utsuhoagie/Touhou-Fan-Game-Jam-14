@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbuxgumy46lbi"]
+
+[ext_resource type="Script" path="res://Menus/main_menu.gd" id="1_erbvp"]
+[ext_resource type="PackedScene" uid="uid://b1t3a2hm6a3s7" path="res://Menus/level_select.tscn" id="2_3825w"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_erbvp")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "(insert game title here)"
+horizontal_alignment = 1
+
+[node name="MenuButtons" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 779.0
+offset_top = 497.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuButtons"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="MenuButtons/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../ExitButton")
+text = "Play"
+
+[node name="CreditsButton" type="Button" parent="MenuButtons/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Credits"
+
+[node name="ExitButton" type="Button" parent="MenuButtons/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../PlayButton")
+text = "Exit
+"
+
+[node name="LevelSelect" parent="." instance=ExtResource("2_3825w")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 31.0
+offset_right = 1102.0
+offset_bottom = 598.0
