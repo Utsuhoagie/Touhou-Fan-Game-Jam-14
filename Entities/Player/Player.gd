@@ -2,8 +2,8 @@ class_name Player
 extends CharacterBody2D
 
 # Stats
-const SPEED = 300.0
-const JUMP_VELOCITY = -450.0
+@export var SPEED: float
+@export var JUMP_VELOCITY: float
 
 enum PlayerType {
 	Main,
@@ -18,7 +18,9 @@ enum PlayerType {
 var inventory: Array = []
 
 # Nodes
-@onready var AnimSprite := $AnimatedSprite2D
+@onready var Flippable := $Flippable
+@onready var AnimSprite := $Flippable/AnimatedSprite2D
+@onready var Hitbox := $Flippable/Hitbox
 
 
 func _ready() -> void:
@@ -60,14 +62,12 @@ func _handle_direction(delta: float) -> void:
 	velocity.x = actual_direction * SPEED
 
 	AnimSprite.play("default")
-	AnimSprite.flip_h = actual_direction > 0
+
+	Flippable.scale.x = actual_direction
 
 
 func merge_into_main():
 	if type == PlayerType.Main:
 		pass # do nothing for now
-
-		#var merged: Node2D = $"../Merged"
-		#global_position = merged.global_position
 	elif type == PlayerType.Shadow:
 		queue_free()

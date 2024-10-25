@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://jatj3h6ab7h7"]
+[gd_scene load_steps=12 format=3 uid="uid://jatj3h6ab7h7"]
 
 [ext_resource type="Texture2D" uid="uid://btpumnv4053mh" path="res://Assets/Pixel Platformer/Tilemap/tilemap-characters_packed.png" id="1_mdmjy"]
 [ext_resource type="Script" path="res://Entities/Player/Player.gd" id="1_n6ecm"]
+[ext_resource type="Script" path="res://Entities/Player/Hitbox.gd" id="3_exquw"]
+[ext_resource type="Texture2D" uid="uid://dij4823o0lqa7" path="res://Assets/Pixel Platformer/Tilemap/tilemap_packed.png" id="4_ihlsl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sw33w"]
-size = Vector2(32, 47)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3rmc"]
+size = Vector2(36, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k7n3a"]
 atlas = ExtResource("1_mdmjy")
@@ -28,13 +30,53 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_iw3dt"]
+radius = 24.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7mhl"]
+atlas = ExtResource("4_ihlsl")
+region = Rect2(432, 144, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q6yug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7mhl")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 224
 script = ExtResource("1_n6ecm")
+SPEED = 300.0
+JUMP_VELOCITY = -500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_sw33w")
+shape = SubResource("RectangleShape2D_n3rmc")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Flippable" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flippable"]
 sprite_frames = SubResource("SpriteFrames_26esl")
+flip_h = true
+
+[node name="Hitbox" type="Area2D" parent="Flippable"]
+position = Vector2(40, 0)
+rotation = 1.5708
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("3_exquw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/Hitbox"]
+shape = SubResource("CircleShape2D_iw3dt")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flippable/Hitbox"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_q6yug")
+
+[connection signal="animation_finished" from="Flippable/Hitbox/AnimatedSprite2D" to="Flippable/Hitbox" method="_on_animated_sprite_2d_animation_finished"]
