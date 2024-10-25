@@ -44,3 +44,5 @@ func _process(delta: float) -> void:
 				for body in bodies:
 					var player: Player = body
 					player.merge_into_main()
+					
+				

@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+signal shadow_merged
+
 # Stats
 const SPEED: float = 250.0
 const ACCEL: float = 1500.0
@@ -84,9 +86,10 @@ func _handle_direction(delta: float) -> void:
 
 func merge_into_main():
 	if type == PlayerType.Main:
-		pass # do nothing for now
-
+		pass
+		
 		#var merged: Node2D = $"../Merged"
 		#global_position = merged.global_position
 	elif type == PlayerType.Shadow:
+		shadow_merged.emit()
 		queue_free()
