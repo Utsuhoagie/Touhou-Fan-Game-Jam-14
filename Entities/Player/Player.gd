@@ -23,8 +23,10 @@ enum PlayerType {
 var inventory: Array = []
 
 # Nodes
-@onready var AnimSprite := $AnimatedSprite2D
 @onready var coyote_timer: Timer = $CoyoteTimer
+@onready var Flippable := $Flippable
+@onready var AnimSprite := $Flippable/AnimatedSprite2D
+@onready var Hitbox := $Flippable/Hitbox
 
 
 func _ready() -> void:
@@ -35,7 +37,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var was_on_floor: bool = is_on_floor()
-	
+
 	if not was_on_floor:
 		var gravity_delta = get_gravity() * delta
 		if mirror_y:
@@ -57,10 +59,10 @@ func _physics_process(delta: float) -> void:
 	_handle_direction(delta)
 
 	move_and_slide()
-	
+
 	if was_on_floor and not is_on_floor():
 		coyote_timer.start()
-		
+
 
 
 func _handle_direction(delta: float) -> void:
@@ -81,13 +83,13 @@ func _handle_direction(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, actual_direction * SPEED, AIR_ACCEL * delta)
 
 	AnimSprite.play("default")
-	AnimSprite.flip_h = actual_direction > 0
+	Flippable.scale.x = actual_direction
 
 
 func merge_into_main():
 	if type == PlayerType.Main:
 		pass
-		
+
 		#var merged: Node2D = $"../Merged"
 		#global_position = merged.global_position
 	elif type == PlayerType.Shadow:
