@@ -2,8 +2,11 @@ class_name Player
 extends CharacterBody2D
 
 # Stats
-const SPEED = 300.0
-const JUMP_VELOCITY = -450.0
+const SPEED: float = 250.0
+const ACCEL: float = 1500.0
+const AIR_ACCEL: float = 1000.0
+const JUMP_VELOCITY: float = -450.0
+const FRICTION: float = 1500.0
 
 enum PlayerType {
 	Main,
@@ -31,7 +34,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var was_on_floor: bool = is_on_floor()
 	
-	if not is_on_floor():
+	if not was_on_floor:
 		var gravity_delta = get_gravity() * delta
 		if mirror_y:
 			gravity_delta.y *= -1
@@ -39,10 +42,15 @@ func _physics_process(delta: float) -> void:
 		velocity += gravity_delta
 
 	if (Input.is_action_just_pressed("Jump")
-	and (is_on_floor() or not coyote_timer.is_stopped())):
+	and (was_on_floor or not coyote_timer.is_stopped())):
 		velocity.y = JUMP_VELOCITY
 		if mirror_y:
 			velocity.y *= -1
+	elif Input.is_action_just_released("Jump"):
+		if mirror_y and velocity.y > abs(JUMP_VELOCITY) / 1.75:
+			velocity.y = abs(JUMP_VELOCITY) / 1.75
+		elif not mirror_y and velocity.y < JUMP_VELOCITY / 1.75:
+			velocity.y = JUMP_VELOCITY / 1.75
 
 	_handle_direction(delta)
 
@@ -57,7 +65,7 @@ func _handle_direction(delta: float) -> void:
 	var direction := Input.get_axis("Left", "Right")
 
 	if not direction:
-		velocity.x = 0
+		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
 		AnimSprite.stop()
 		return
 
@@ -65,7 +73,10 @@ func _handle_direction(delta: float) -> void:
 	if mirror_x:
 		actual_direction *= -1
 
-	velocity.x = actual_direction * SPEED
+	if is_on_floor():
+		velocity.x = move_toward(velocity.x, actual_direction * SPEED, ACCEL * delta)
+	else:
+		velocity.x = move_toward(velocity.x, actual_direction * SPEED, AIR_ACCEL * delta)
 
 	AnimSprite.play("default")
 	AnimSprite.flip_h = actual_direction > 0
