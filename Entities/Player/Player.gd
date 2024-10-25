@@ -65,7 +65,9 @@ func _handle_direction(delta: float) -> void:
 
 func merge_into_main():
 	if type == PlayerType.Main:
-		var merged: Node2D = $"../Merged"
-		global_position = merged.global_position
+		pass # do nothing for now
+
+		#var merged: Node2D = $"../Merged"
+		#global_position = merged.global_position
 	elif type == PlayerType.Shadow:
 		queue_free()
