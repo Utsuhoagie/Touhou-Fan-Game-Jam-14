@@ -4,6 +4,7 @@ extends Node2D
 
 const MAIN_MENU_PATH: String = "res://Menus/main_menu.tscn"
 
+var pause_popup_scene = preload("res://Levels/pause_popup.tscn")
 var win_popup_scene = preload("res://Levels/win_popup.tscn")
 
 func _ready() -> void:
@@ -16,10 +17,24 @@ func _ready() -> void:
 
 		player.shadow_merged.connect(_check_win_condition)
 	
+	get_tree().paused = false
+	
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_key_input(event: InputEvent) -> void:
+	# we don't want extra inputs pls
+	if event.is_echo(): return
+	
 	if event.is_action_pressed("Reset"):
 		reset_level()
+	elif (event.is_action_pressed("ui_cancel")
+	and not get_node("CanvasLayer/PausePopup")):
+		# pause the game
+		var pause_popup := pause_popup_scene.instantiate()
+		pause_popup.return_to_menu.connect(_return_to_menu)
+			
+		get_node("CanvasLayer").add_child(pause_popup)
+		get_tree().paused = true
+		
 
 func _check_win_condition() -> void:
 	if get_tree().get_node_count_in_group("players") > 2: return
@@ -41,9 +56,12 @@ func _check_win_condition() -> void:
 	
 
 func reset_level() -> void:
+	get_tree().paused = false
 	get_tree().reload_current_scene()
+	
 
 func _return_to_menu() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file(MAIN_MENU_PATH)
 	
 
