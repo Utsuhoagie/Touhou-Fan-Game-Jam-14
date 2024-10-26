@@ -93,5 +93,5 @@ func merge_into_main():
 		#var merged: Node2D = $"../Merged"
 		#global_position = merged.global_position
 	elif type == PlayerType.Shadow:
-		shadow_merged.emit()
 		queue_free()
+		shadow_merged.emit()
