@@ -6,11 +6,11 @@
 [ext_resource type="Script" path="res://Entities/Player/Hitbox.gd" id="3_ywt3x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xd06t"]
-size = Vector2(28, 27)
+size = Vector2(40, 56)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4cnt4"]
 radius = 8.0
-height = 28.0
+height = 40.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k7n3a"]
 atlas = ExtResource("1_mdmjy")
@@ -35,7 +35,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cvqsd"]
-radius = 25.2982
+radius = 40.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yd0ph"]
 atlas = ExtResource("3_s4ilj")
@@ -57,16 +57,16 @@ collision_mask = 224
 script = ExtResource("1_n6ecm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2.5)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_xd06t")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0, -11)
+position = Vector2(0, -24)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4cnt4")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(0, 16)
+position = Vector2(0, 32)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4cnt4")
 
@@ -77,11 +77,12 @@ one_shot = true
 [node name="Flippable" type="Node2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flippable"]
+scale = Vector2(1.667, 1.667)
 sprite_frames = SubResource("SpriteFrames_26esl")
 flip_h = true
 
 [node name="Hitbox" type="Area2D" parent="Flippable"]
-position = Vector2(48, 0)
+position = Vector2(72, 0)
 rotation = 1.5708
 collision_layer = 2
 collision_mask = 4
@@ -93,6 +94,7 @@ disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flippable/Hitbox"]
 visible = false
+scale = Vector2(1.667, 1.667)
 sprite_frames = SubResource("SpriteFrames_8tq0v")
 
 [connection signal="body_entered" from="Flippable/Hitbox" to="Flippable/Hitbox" method="_on_body_entered"]

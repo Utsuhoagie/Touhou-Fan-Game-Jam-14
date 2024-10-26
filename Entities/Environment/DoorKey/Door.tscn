@@ -1,15 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://duxhr4b030gyk"]
 
 [ext_resource type="Script" path="res://Entities/Environment/DoorKey/Door.gd" id="1_kslrw"]
-[ext_resource type="PackedScene" uid="uid://bgod1ait53ckn" path="res://Entities/Environment/MainTileMap/TileMap.tscn" id="2_n8a3f"]
+[ext_resource type="PackedScene" uid="uid://bh80kvrd0tkop" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_vuyiv"]
 
 [node name="Door" type="Area2D"]
-position = Vector2(464, 432)
 script = ExtResource("1_kslrw")
 
-[node name="TileMap" parent="." instance=ExtResource("2_n8a3f")]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 2, 0, 8, 0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 0, 8, 0, 1, 0, 0, 0, 0, 0, 2, 0, 2, 0, 8, 0, 1, 0, 0, 0)
+[node name="KeyDetect" type="CollisionShape2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="TileMapLayer" parent="." instance=ExtResource("2_vuyiv")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
