@@ -4,13 +4,32 @@ extends CharacterBody2D
 @export var SPEED = 30.0
 var currentDirection := 1
 
+@export var mirror_y: bool = false
+
 @onready var Flippable := $Flippable
 @onready var FloorDetect := $Flippable/FloorDetect
 
 
+func die() -> void:
+	queue_free()
+
+
+func _ready() -> void:
+	if mirror_y:
+		up_direction = Vector2.DOWN
+		Flippable.scale.y *= -1
+
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		var gravity_delta := get_gravity() * delta
+		if mirror_y:
+			gravity_delta *= -1
+		velocity += gravity_delta
+
+	if name.contains("2"):
+		var fd_bodies: Array = FloorDetect.get_overlapping_bodies()
+		print("%s" % [", ".join(fd_bodies)])
 
 	if is_on_floor() and not FloorDetect.has_overlapping_bodies():
 		currentDirection *= -1

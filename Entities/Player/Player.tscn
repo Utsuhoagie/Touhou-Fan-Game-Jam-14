@@ -83,6 +83,8 @@ flip_h = true
 [node name="Hitbox" type="Area2D" parent="Flippable"]
 position = Vector2(48, 0)
 rotation = 1.5708
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("3_ywt3x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/Hitbox"]
@@ -93,4 +95,5 @@ disabled = true
 visible = false
 sprite_frames = SubResource("SpriteFrames_8tq0v")
 
+[connection signal="body_entered" from="Flippable/Hitbox" to="Flippable/Hitbox" method="_on_body_entered"]
 [connection signal="animation_finished" from="Flippable/Hitbox/AnimatedSprite2D" to="Flippable/Hitbox" method="_on_animated_sprite_2d_animation_finished"]

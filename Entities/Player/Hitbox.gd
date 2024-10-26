@@ -13,3 +13,9 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	Col.disabled = true
 	Sprite.visible = false
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Enemy:
+		var enemy: Enemy = body
+		enemy.die()
