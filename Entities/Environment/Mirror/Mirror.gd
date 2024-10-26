@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 			func(body: Player): return Vector2i(body.global_position))
 		var bodies_coord := "{%s}" % ",".join(bodies_coords)
 
-		print("Bodies = %s" % bodies_name)
+		#print("Bodies = %s" % bodies_name)
 
 		if bodies.size() == required_players_count:
 			var bodies_x := bodies_coords.map(
@@ -36,13 +36,11 @@ func _process(delta: float) -> void:
 			var bodies_same_y := bodies_y.all(
 				func(y: int): return absi(y - bodies_y[0]) < mirror_detect_range_pixels)
 
-			print("Bodies_x? [%s]" % ",".join(bodies_x))
-			print("Bodies_x[0] = %s" % bodies_x[0])
-			print("Bodies_same_x = %s" % bodies_same_x)
+			#print("Bodies_x? [%s]" % ",".join(bodies_x))
+			#print("Bodies_x[0] = %s" % bodies_x[0])
+			#print("Bodies_same_x = %s" % bodies_same_x)
 
 			if bodies_same_x or bodies_same_y:
 				for body in bodies:
 					var player: Player = body
 					player.merge_into_main()
-					
-				
