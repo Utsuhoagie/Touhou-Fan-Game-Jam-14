@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://b5dbdr8ljpjt5"]
+[gd_scene load_steps=8 format=4 uid="uid://b5dbdr8ljpjt5"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_38xda"]
 [ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="2_10whj"]
@@ -7,12 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://b2curoutqhb3c" path="res://Levels/canvas_layer.tscn" id="5_o7pie"]
 [ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="6_eufxp"]
 [ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="7_kqf6m"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x81es"]
-size = Vector2(64, 48)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wl4fy"]
-size = Vector2(64, 96)
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_38xda")
@@ -61,13 +55,6 @@ position = Vector2(552, 408)
 position = Vector2(864, 288)
 key_to_unlock = NodePath("../Key")
 
-[node name="TileMap" parent="Door" index="0"]
-tile_map_data = PackedByteArray("AAAAAAAAAgAIAAEAAAA=")
-
-[node name="CollisionShape2D" parent="Door" index="1"]
-position = Vector2(24, 24)
-shape = SubResource("RectangleShape2D_x81es")
-
 [node name="Key2" parent="." instance=ExtResource("7_kqf6m")]
 modulate = Color(1, 0.53, 0.804166, 1)
 position = Vector2(1032, 312)
@@ -76,13 +63,6 @@ position = Vector2(1032, 312)
 modulate = Color(1, 0.529412, 0.803922, 1)
 position = Vector2(240, 240)
 key_to_unlock = NodePath("../Key2")
-
-[node name="TileMap" parent="Door2" index="0"]
-tile_map_data = PackedByteArray("AAAAAAAAAgAIAAEAAAAAAAEAAgAIAAEAAAA=")
-
-[node name="CollisionShape2D" parent="Door2" index="1"]
-position = Vector2(24, 48)
-shape = SubResource("RectangleShape2D_wl4fy")
 
 [editable path="CanvasLayer"]
 [editable path="Door"]
