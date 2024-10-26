@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b2curoutqhb3c"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Inventory" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+offset_right = 52.0
+offset_bottom = 48.0
+
+[node name="Label" type="Label" parent="Inventory"]
+layout_mode = 2
+text = "Items:"
+
+[node name="TextureRect" type="TextureRect" parent="Inventory"]
+layout_mode = 2

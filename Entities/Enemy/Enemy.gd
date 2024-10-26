@@ -28,10 +28,6 @@ func _physics_process(delta: float) -> void:
 			gravity_delta *= -1
 		velocity += gravity_delta
 
-	if name.contains("2"):
-		var fd_bodies: Array = FloorDetect.get_overlapping_bodies()
-		print("%s" % [", ".join(fd_bodies)])
-
 	if is_on_floor() and not FloorDetect.has_overlapping_bodies():
 		currentDirection *= -1
 
