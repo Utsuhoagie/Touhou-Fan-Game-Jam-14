@@ -7,7 +7,8 @@ func _on_body_entered(body: Node2D) -> void:
 		player.inventory.append(get_instance_id())
 
 		var icon := TextureRect.new()
-		var sprite_frames := ($AnimatedSprite2D as AnimatedSprite2D).sprite_frames
-		icon.texture = sprite_frames.get_frame_texture("default", 0)
+		var texture = load("res://Assets/Actual/KeyIcon.png")
+		icon.texture = texture
+
 		$"../CanvasLayer/Inventory".add_child(icon)
 		queue_free()

@@ -33,7 +33,6 @@ tile_map_data = PackedByteArray("AAAAAAAAAwACAAAAAAAAAAEAAwACAAAAAAAAAAIAAwACAAA
 
 [node name="Player" parent="." instance=ExtResource("3_7j3x6")]
 position = Vector2(280, 440)
-mirror_x = true
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_mfcra")]
 
