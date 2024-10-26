@@ -6,7 +6,6 @@ signal shadow_merged
 # Stats
 const SPEED: float = 250.0
 const ACCEL: float = 1500.0
-const AIR_ACCEL: float = 1000.0
 const JUMP_VELOCITY: float = -450.0
 const FRICTION: float = 1500.0
 
@@ -77,10 +76,10 @@ func _handle_direction(delta: float) -> void:
 	if mirror_x:
 		actual_direction *= -1
 
-	if is_on_floor():
-		velocity.x = move_toward(velocity.x, actual_direction * SPEED, ACCEL * delta)
-	else:
-		velocity.x = move_toward(velocity.x, actual_direction * SPEED, AIR_ACCEL * delta)
+	# if is_on_floor():
+	velocity.x = move_toward(velocity.x, actual_direction * SPEED, ACCEL * delta)
+	# else:
+	# 	velocity.x = move_toward(velocity.x, actual_direction * SPEED, AIR_ACCEL * delta)
 
 	AnimSprite.play("default")
 	Flippable.scale.x = actual_direction

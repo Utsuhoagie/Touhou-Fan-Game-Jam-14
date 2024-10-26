@@ -13,13 +13,13 @@ func _process(delta: float) -> void:
 		var bodies := JoinDetector.get_overlapping_bodies() \
 			.filter(func(body): return body is Player)
 
-		var bodies_names := bodies.map(
-			func(body: Player): return body.name)
-		var bodies_name := "[%s]" % ",".join(bodies_names)
-
+		#var bodies_names := bodies.map(
+			#func(body: Player): return body.name)
+		#var bodies_name := "[%s]" % ",".join(bodies_names)
+#
 		var bodies_coords := bodies.map(
 			func(body: Player): return Vector2i(body.global_position))
-		var bodies_coord := "{%s}" % ",".join(bodies_coords)
+		#var bodies_coord := "{%s}" % ",".join(bodies_coords)
 
 		#print("Bodies = %s" % bodies_name)
 

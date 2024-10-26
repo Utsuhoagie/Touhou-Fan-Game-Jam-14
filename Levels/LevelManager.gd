@@ -28,7 +28,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Reset"):
 		reset_level()
 	elif (event.is_action_pressed("ui_cancel")
-	and not get_node("CanvasLayer/PausePopup")):
+	and not has_node("CanvasLayer/PausePopup")):
 		# pause the game
 		var pause_popup := pause_popup_scene.instantiate()
 		pause_popup.return_to_menu.connect(_return_to_menu)
