@@ -21,6 +21,8 @@ Signals="*res://Entities/Signals.gd"
 
 [display]
 
+window/size/viewport_width=1760
+window/size/viewport_height=990
 window/stretch/mode="canvas_items"
 window/main_scene="res://Levels/Testing/Level1.tscn"
 
