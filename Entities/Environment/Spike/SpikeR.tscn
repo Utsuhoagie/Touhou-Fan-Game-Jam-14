@@ -1,20 +1,20 @@
 [gd_scene load_steps=6 format=3 uid="uid://bu5fwe8v2xvfx"]
 
 [ext_resource type="Script" path="res://Entities/Environment/Spike/Spike.gd" id="1_p154k"]
-[ext_resource type="Texture2D" uid="uid://dij4823o0lqa7" path="res://Assets/Pixel Platformer/Tilemap/tilemap_packed.png" id="2_wojcn"]
+[ext_resource type="Texture2D" uid="uid://v3h226ddq4ro" path="res://Assets/Actual/Tileset1_80px.png" id="2_8saiv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8lu2"]
-size = Vector2(24, 48)
+size = Vector2(48, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_um06x"]
-atlas = ExtResource("2_wojcn")
-region = Rect2(384, 144, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvu2o"]
+atlas = ExtResource("2_8saiv")
+region = Rect2(240, 0, 80, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6ncty"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_um06x")
+"texture": SubResource("AtlasTexture_mvu2o")
 }],
 "loop": true,
 "name": &"default",
@@ -26,7 +26,7 @@ collision_layer = 8
 script = ExtResource("1_p154k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(12, 0)
+position = Vector2(16, 0)
 shape = SubResource("RectangleShape2D_l8lu2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

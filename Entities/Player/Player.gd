@@ -6,7 +6,7 @@ signal shadow_merged
 # Stats
 const SPEED: float = 250.0
 const ACCEL: float = 1500.0
-const JUMP_VELOCITY: float = -450.0
+const JUMP_VELOCITY: float = -580.0
 const FRICTION: float = 1500.0
 
 enum PlayerType {
@@ -29,9 +29,16 @@ var inventory: Array = []
 
 
 func _ready() -> void:
+	if not is_on_floor():
+		AnimSprite.animation = "jump"
+		AnimSprite.frame = 2
+
+	if type == PlayerType.Shadow:
+		AnimSprite.modulate = 0xaba5c4c3
+
 	if mirror_y:
 		up_direction = Vector2.DOWN
-		AnimSprite.flip_v = mirror_y
+		Flippable.scale.y = -1
 
 
 func _physics_process(delta: float) -> void:
@@ -69,7 +76,11 @@ func _handle_direction(delta: float) -> void:
 
 	if not direction:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
-		AnimSprite.stop()
+
+		if is_on_floor():
+			AnimSprite.play("default")
+		elif AnimSprite.animation != "jump":
+			AnimSprite.play("jump")
 		return
 
 	var actual_direction := direction
@@ -81,7 +92,10 @@ func _handle_direction(delta: float) -> void:
 	# else:
 	# 	velocity.x = move_toward(velocity.x, actual_direction * SPEED, AIR_ACCEL * delta)
 
-	AnimSprite.play("default")
+	if is_equal_approx(velocity.y, 0.0):
+		AnimSprite.play("walk")
+	elif AnimSprite.animation != "jump":
+		AnimSprite.play("jump")
 	Flippable.scale.x = actual_direction
 
 

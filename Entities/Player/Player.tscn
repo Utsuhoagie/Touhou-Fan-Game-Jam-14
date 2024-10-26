@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://jatj3h6ab7h7"]
+[gd_scene load_steps=19 format=3 uid="uid://jatj3h6ab7h7"]
 
-[ext_resource type="Texture2D" uid="uid://btpumnv4053mh" path="res://Assets/Pixel Platformer/Tilemap/tilemap-characters_packed.png" id="1_mdmjy"]
 [ext_resource type="Script" path="res://Entities/Player/Player.gd" id="1_n6ecm"]
+[ext_resource type="Texture2D" uid="uid://biond8xw3jdxl" path="res://Assets/Actual/Reflection_Sprite_Shinmyoumaru-Sheet.png" id="2_jko1j"]
 [ext_resource type="Texture2D" uid="uid://dij4823o0lqa7" path="res://Assets/Pixel Platformer/Tilemap/tilemap_packed.png" id="3_s4ilj"]
 [ext_resource type="Script" path="res://Entities/Player/Hitbox.gd" id="3_ywt3x"]
 
@@ -12,26 +12,81 @@ size = Vector2(40, 56)
 radius = 8.0
 height = 40.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k7n3a"]
-atlas = ExtResource("1_mdmjy")
-region = Rect2(96, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgyp7"]
+atlas = ExtResource("2_jko1j")
+region = Rect2(0, 0, 80, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0nbfk"]
-atlas = ExtResource("1_mdmjy")
-region = Rect2(144, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_m62fb"]
+atlas = ExtResource("2_jko1j")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g6j5"]
+atlas = ExtResource("2_jko1j")
+region = Rect2(0, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwvb7"]
+atlas = ExtResource("2_jko1j")
+region = Rect2(80, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2yru"]
+atlas = ExtResource("2_jko1j")
+region = Rect2(160, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7ght"]
+atlas = ExtResource("2_jko1j")
+region = Rect2(0, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esocj"]
+atlas = ExtResource("2_jko1j")
+region = Rect2(80, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boqaj"]
+atlas = ExtResource("2_jko1j")
+region = Rect2(160, 80, 80, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_26esl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k7n3a")
+"texture": SubResource("AtlasTexture_fgyp7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0nbfk")
+"texture": SubResource("AtlasTexture_m62fb")
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 1.6
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g6j5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwvb7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2yru")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7ght")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esocj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boqaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esocj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 4.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cvqsd"]
@@ -57,16 +112,15 @@ collision_mask = 224
 script = ExtResource("1_n6ecm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_xd06t")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0, -24)
+position = Vector2(0, -28)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4cnt4")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(0, 32)
+position = Vector2(0, 28)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4cnt4")
 
@@ -77,9 +131,8 @@ one_shot = true
 [node name="Flippable" type="Node2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flippable"]
-scale = Vector2(1.667, 1.667)
+position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_26esl")
-flip_h = true
 
 [node name="Hitbox" type="Area2D" parent="Flippable"]
 position = Vector2(72, 0)
