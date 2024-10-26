@@ -12,6 +12,7 @@ var currentDirection := 1
 
 func die() -> void:
 	queue_free()
+	Signals.enemy_died.emit()
 
 
 func _ready() -> void:

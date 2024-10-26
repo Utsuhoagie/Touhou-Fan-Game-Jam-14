@@ -36,7 +36,7 @@ size = Vector2(8, 8)
 radius = 18.0
 height = 44.0
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 4
 collision_mask = 35
 script = ExtResource("1_m5wyy")

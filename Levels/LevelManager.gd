@@ -9,6 +9,7 @@ var win_popup_scene = preload("res://Levels/win_popup.tscn")
 
 func _ready() -> void:
 	Signals.hazard_touched.connect(reset_level)
+	Signals.enemy_died.connect(_check_win_condition)
 
 	var player_instances: Array = get_tree().get_nodes_in_group("players")
 	for player: Player in player_instances:
@@ -40,7 +41,10 @@ func _check_win_condition() -> void:
 	var remaining_players := get_tree().get_nodes_in_group("players")	\
 		.filter(func(player: Player): return not player.is_queued_for_deletion())
 
-	if remaining_players.size() > 1:
+	var remaining_enemies := get_tree().get_nodes_in_group("enemies")	\
+		.filter(func(enemy: Enemy): return not enemy.is_queued_for_deletion())
+
+	if remaining_players.size() > 1 or not remaining_enemies.is_empty():
 		return
 
 	print("level complete!")
