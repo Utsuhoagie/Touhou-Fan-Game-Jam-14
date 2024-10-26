@@ -1,20 +1,20 @@
 [gd_scene load_steps=6 format=3 uid="uid://ctf5januij1ig"]
 
 [ext_resource type="Script" path="res://Entities/Environment/Spike/Spike.gd" id="1_mj5xl"]
-[ext_resource type="Texture2D" uid="uid://dij4823o0lqa7" path="res://Assets/Pixel Platformer/Tilemap/tilemap_packed.png" id="2_yd14o"]
+[ext_resource type="Texture2D" uid="uid://v3h226ddq4ro" path="res://Assets/Actual/Tileset1_80px.png" id="2_fqr4h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8lu2"]
-size = Vector2(48, 24)
+size = Vector2(64, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_um06x"]
-atlas = ExtResource("2_yd14o")
-region = Rect2(384, 144, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wjl3"]
+atlas = ExtResource("2_fqr4h")
+region = Rect2(240, 0, 80, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6ncty"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_um06x")
+"texture": SubResource("AtlasTexture_0wjl3")
 }],
 "loop": true,
 "name": &"default",
