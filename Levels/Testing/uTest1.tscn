@@ -1,44 +1,96 @@
-[gd_scene load_steps=5 format=4 uid="uid://b5dbdr8ljpjt5"]
+[gd_scene load_steps=10 format=4 uid="uid://b5dbdr8ljpjt5"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_38xda"]
 [ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="2_10whj"]
 [ext_resource type="PackedScene" uid="uid://bgod1ait53ckn" path="res://Entities/Environment/MainTileMap/TileMap.tscn" id="3_vfu0l"]
 [ext_resource type="PackedScene" uid="uid://swq672klppy0" path="res://Entities/Enemy/Enemy.tscn" id="4_ssmyo"]
+[ext_resource type="PackedScene" uid="uid://b2curoutqhb3c" path="res://Levels/canvas_layer.tscn" id="5_o7pie"]
+[ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="6_eufxp"]
+[ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="7_kqf6m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x81es"]
+size = Vector2(64, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wl4fy"]
+size = Vector2(64, 96)
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_38xda")
 
 [node name="Player" parent="." instance=ExtResource("2_10whj")]
-position = Vector2(128, 280)
+position = Vector2(1008, 168)
+mirror_x = true
 
 [node name="Player2" parent="." instance=ExtResource("2_10whj")]
-position = Vector2(128, 536)
+position = Vector2(160, 488)
 type = 1
-mirror_y = true
 
 [node name="Level TileMap" parent="." instance=ExtResource("3_vfu0l")]
-tile_map_data = PackedByteArray("AAABAAEAAgAAAAAAAAABAAIAAgAAAAAAAAABAAMAAgAAAAAAAAABAAgAAgAAAAAAAAABAAkAAgAAAAAAAAABAAoAAgAAAAAAAAABAAsAAgAAAAAAAAABAAwAAgAAAAAAAAACAAwAAgAAAAAAAAADAAwAAgAAAAAAAAAEAAwAAgAAAAAAAAAFAAwAAgAAAAAAAAAGAAwAAgAAAAAAAAAHAAwAAgAAAAAAAAAIAAwAAgAAAAAAAAAJAAwAAgAAAAAAAAAKAAwAAgAAAAAAAAALAAwAAgAAAAAAAAAMAAwAAgAAAAAAAAANAAwAAgAAAAAAAAAOAAwAAgAAAAAAAAAPAAwAAgAAAAAAAAAQAAwAAgAAAAAAAAARAAwAAgAAAAAAAAASAAwAAgAAAAAAAAATAAwAAgAAAAAAAAAUAAwAAgAAAAAAAAAVAAwAAgAAAAAAAAAWAAwAAgAAAAAAAAAWAAsAAgAAAAAAAAAWAAoAAgAAAAAAAAAWAAkAAgAAAAAAAAAWAAgAAgAAAAAAAAAWAAcAAgAAAAAAAAAWAAYAAgAAAAAAAAAWAAUAAgAAAAAAAAAWAAQAAgAAAAAAAAAWAAMAAgAAAAAAAAAWAAIAAgAAAAAAAAAWAAEAAgAAAAAAAAAVAAEAAgAAAAAAAAAUAAEAAgAAAAAAAAATAAEAAgAAAAAAAAASAAEAAgAAAAAAAAARAAEAAgAAAAAAAAAQAAEAAgAAAAAAAAAPAAEAAgAAAAAAAAAOAAEAAgAAAAAAAAANAAEAAgAAAAAAAAAMAAEAAgAAAAAAAAALAAEAAgAAAAAAAAAKAAEAAgAAAAAAAAAJAAEAAgAAAAAAAAAIAAEAAgAAAAAAAAAHAAEAAgAAAAAAAAAGAAEAAgAAAAAAAAAFAAEAAgAAAAAAAAAEAAEAAgAAAAAAAAADAAEAAgAAAAAAAAACAAEAAgAAAAAAAAABAAcAAgAAAAAAAAABAAYAAgAAAAAAAAABAAUAAgAAAAAAAAABAAQAAgAAAAAAAAAEAAcAAgAAAAAAAAAFAAcAAgAAAAAAAAAGAAcAAgAAAAAAAAACAAcAAgAAAAAAAAADAAcAAgAAAAAAAAAHAAcAAgAAAAAAAAAIAAcAAgAAAAAAAAAJAAcAAgAAAAAAAAAKAAcAAgAAAAAAAAALAAcAAgAAAAAAAAAMAAcAAgAAAAAAAAAQAAcAAgAAAAAAAAARAAcAAgAAAAAAAAASAAcAAgAAAAAAAAATAAcAAgAAAAAAAAAUAAcAAgAAAAAAAAAVAAcAAgAAAAAAAAAMAAYAAgAAAAAAAAAMAAgAAgAAAAAAAAANAAcAAQAAAAAAAQAOAAcAAQAAAAAAAQAPAAcAAQAAAAAAAQA=")
-
-[node name="Merged" type="Node2D" parent="."]
-position = Vector2(1000, 152)
+tile_map_data = PackedByteArray("AAABAAIAAgAAAAAAAAABAAMAAgAAAAAAAAABAAgAAgAAAAAAAAABAAkAAgAAAAAAAAABAAoAAgAAAAAAAAABAAsAAgAAAAAAAAABAAwAAgAAAAAAAAACAAwAAgAAAAAAAAADAAwAAgAAAAAAAAAEAAwAAgAAAAAAAAAFAAwAAgAAAAAAAAAGAAwAAgAAAAAAAAAHAAwAAgAAAAAAAAAIAAwAAgAAAAAAAAAJAAwAAgAAAAAAAAAKAAwAAgAAAAAAAAALAAwAAgAAAAAAAAAMAAwAAgAAAAAAAAAWAAwAAgAAAAAAAAAWAAsAAgAAAAAAAAAWAAoAAgAAAAAAAAAWAAkAAgAAAAAAAAAWAAgAAgAAAAAAAAAWAAcAAgAAAAAAAAAWAAYAAgAAAAAAAAAWAAUAAgAAAAAAAAAWAAQAAgAAAAAAAAAWAAMAAgAAAAAAAAAWAAIAAgAAAAAAAAAWAAEAAgAAAAAAAAAVAAEAAgAAAAAAAAAUAAEAAgAAAAAAAAATAAEAAgAAAAAAAAASAAEAAgAAAAAAAAARAAEAAgAAAAAAAAAQAAEAAgAAAAAAAAAPAAEAAgAAAAAAAAAOAAEAAgAAAAAAAAANAAEAAgAAAAAAAAAMAAEAAgAAAAAAAAALAAEAAgAAAAAAAAAKAAEAAgAAAAAAAAAJAAEAAgAAAAAAAAAIAAEAAgAAAAAAAAAHAAEAAgAAAAAAAAAGAAEAAgAAAAAAAAAFAAEAAgAAAAAAAAAEAAEAAgAAAAAAAAABAAcAAgAAAAAAAAABAAYAAgAAAAAAAAABAAUAAgAAAAAAAAABAAQAAgAAAAAAAAACAAEAAgAAAAAAAAADAAEAAgAAAAAAAAABAAEAAgAAAAAAAAACAAcAAgAAAAAAAAADAAcAAgAAAAAAAAAEAAcAAgAAAAAAAAAFAAcAAgAAAAAAAAAGAAcAAgAAAAAAAAAHAAcAAgAAAAAAAAAIAAcAAgAAAAAAAAAJAAcAAgAAAAAAAAAKAAcAAgAAAAAAAAALAAcAAgAAAAAAAAAMAAcAAgAAAAAAAAAVAAUAAgAAAAAAAAAUAAUAAgAAAAAAAAATAAUAAgAAAAAAAAASAAUAAgAAAAAAAAARAAUAAgAAAAAAAAAQAAQAAgAAAAAAAAAPAAQAAgAAAAAAAAAOAAQAAgAAAAAAAAANAAQAAgAAAAAAAAANAAUAAgAAAAAAAAAMAAUAAgAAAAAAAAALAAUAAgAAAAAAAAAKAAUAAgAAAAAAAAAJAAUAAgAAAAAAAAAJAAQAAgAAAAAAAAAIAAQAAgAAAAAAAAAHAAQAAgAAAAAAAAAGAAQAAgAAAAAAAAAFAAQAAgAAAAAAAAAQAAUAAgAAAAAAAAAFAAsAAgAAAAAAAAAFAAoAAgAAAAAAAAAGAAoAAgAIAAQAAAAHAAoAAgAIAAQAAAAKAAoAAgAHAAQAAAALAAoAAgAHAAQAAAAMAAoAAgAAAAAAAAAMAAsAAgAAAAAAAAAOAAgAAgAAAAAAAAAPAAgAAgAAAAAAAAANAAsAAgAIAAQAAAAOAAsAAgAIAAQAAAAPAAsAAgAIAAQAAAAVAAwAAgAAAAAAAAAUAAwAAgAAAAAAAAAQAAgAAgAAAAAAAAARAAgAAgAAAAAAAAASAAgAAgAAAAAAAAATAAgAAgAAAAAAAAAUAAsAAgAIAAUAAAARAAwAAQAAAAAAAwAVAAgAAQAAAAAACAANAAgAAgAAAAAAAAASAAcAAgAAAAAAAAADAAYAAgAIAAUAAAAGAAIAAQAAAAAAAgAGAAMAAQAAAAAAAgASAAwAAQAAAAAAAwAQAAwAAQAAAAAAAwATAAwAAgAAAAAAAAAIAAsAAQAAAAAAAwAJAAsAAQAAAAAAAwA=")
 
 [node name="Enemy" parent="." instance=ExtResource("4_ssmyo")]
-position = Vector2(392, 264)
+position = Vector2(776, 160)
 
 [node name="Enemy2" parent="." instance=ExtResource("4_ssmyo")]
-position = Vector2(464, 512)
+position = Vector2(544, 192)
+
+[node name="Enemy3" parent="." instance=ExtResource("4_ssmyo")]
+position = Vector2(624, 120)
+SPEED = 20.0
 mirror_y = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Enemy4" parent="." instance=ExtResource("4_ssmyo")]
+position = Vector2(456, 128)
+SPEED = 40.0
 
-[node name="Inventory" type="HBoxContainer" parent="CanvasLayer"]
-unique_name_in_owner = true
-offset_right = 52.0
-offset_bottom = 48.0
+[node name="Enemy5" parent="." instance=ExtResource("4_ssmyo")]
+position = Vector2(368, 144)
+SPEED = 50.0
+mirror_y = true
 
-[node name="Label" type="Label" parent="CanvasLayer/Inventory"]
-layout_mode = 2
-text = "Items:"
+[node name="Enemy6" parent="." instance=ExtResource("4_ssmyo")]
+position = Vector2(848, 192)
+SPEED = 10.0
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Inventory"]
-layout_mode = 2
+[node name="CanvasLayer" parent="." instance=ExtResource("5_o7pie")]
+
+[node name="Key" parent="." instance=ExtResource("7_kqf6m")]
+position = Vector2(552, 408)
+
+[node name="Door" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("6_eufxp")]
+position = Vector2(864, 288)
+key_to_unlock = NodePath("../Key")
+
+[node name="TileMap" parent="Door" index="0"]
+tile_map_data = PackedByteArray("AAAAAAAAAgAIAAEAAAA=")
+
+[node name="CollisionShape2D" parent="Door" index="1"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_x81es")
+
+[node name="Key2" parent="." instance=ExtResource("7_kqf6m")]
+modulate = Color(1, 0.53, 0.804166, 1)
+position = Vector2(1032, 312)
+
+[node name="Door2" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("6_eufxp")]
+modulate = Color(1, 0.529412, 0.803922, 1)
+position = Vector2(240, 240)
+key_to_unlock = NodePath("../Key2")
+
+[node name="TileMap" parent="Door2" index="0"]
+tile_map_data = PackedByteArray("AAAAAAAAAgAIAAEAAAAAAAEAAgAIAAEAAAA=")
+
+[node name="CollisionShape2D" parent="Door2" index="1"]
+position = Vector2(24, 48)
+shape = SubResource("RectangleShape2D_wl4fy")
+
+[connection signal="body_entered" from="Level TileMap/@Area2D@116171" to="Level TileMap/@Area2D@116171" method="_on_body_entered"]
+[connection signal="body_entered" from="Level TileMap/@Area2D@116172" to="Level TileMap/@Area2D@116172" method="_on_body_entered"]
+[connection signal="body_entered" from="Level TileMap/@Area2D@116175" to="Level TileMap/@Area2D@116175" method="_on_body_entered"]
+[connection signal="body_entered" from="Level TileMap/@Area2D@116176" to="Level TileMap/@Area2D@116176" method="_on_body_entered"]
+[connection signal="body_entered" from="Level TileMap/SpikeD" to="Level TileMap/SpikeD" method="_on_body_entered"]
+[connection signal="body_entered" from="Level TileMap/@Area2D@116181" to="Level TileMap/@Area2D@116181" method="_on_body_entered"]
+
+[editable path="CanvasLayer"]
+[editable path="Door"]
+[editable path="Door2"]

@@ -1,12 +1,20 @@
-[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://b6bgx0g1jjw4a"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://b6bgx0g1jjw4a"]
 
 [ext_resource type="PackedScene" uid="uid://bsuccekb77glj" path="res://Entities/Environment/Mirror/MirrorTileH.tscn" id="1_uionr"]
 [ext_resource type="PackedScene" uid="uid://0gkvvvxsmldn" path="res://Entities/Environment/Mirror/MirrorTileV.tscn" id="2_xwiyo"]
 [ext_resource type="Texture2D" uid="uid://dij4823o0lqa7" path="res://Assets/Pixel Platformer/Tilemap/tilemap_packed.png" id="3_cs07n"]
+[ext_resource type="PackedScene" uid="uid://ctf5januij1ig" path="res://Entities/Environment/Spike/SpikeD.tscn" id="3_ikmjw"]
+[ext_resource type="PackedScene" uid="uid://cfksjoy5r6p2s" path="res://Entities/Environment/Spike/SpikeL.tscn" id="4_vw18e"]
+[ext_resource type="PackedScene" uid="uid://cytak6248jukk" path="res://Entities/Environment/Spike/SpikeU.tscn" id="5_56mcs"]
+[ext_resource type="PackedScene" uid="uid://bu5fwe8v2xvfx" path="res://Entities/Environment/Spike/SpikeR.tscn" id="6_m5536"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_hfu54"]
 scenes/1/scene = ExtResource("1_uionr")
 scenes/2/scene = ExtResource("2_xwiyo")
+scenes/3/scene = ExtResource("3_ikmjw")
+scenes/6/scene = ExtResource("4_vw18e")
+scenes/7/scene = ExtResource("5_56mcs")
+scenes/8/scene = ExtResource("6_m5536")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wo5v3"]
 texture = ExtResource("3_cs07n")
@@ -107,6 +115,8 @@ texture_region_size = Vector2i(48, 48)
 5:4/0 = 0
 6:4/0 = 0
 7:4/0 = 0
+7:4/0/physics_layer_0/linear_velocity = Vector2(-300, 0)
+7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
 9:4/0 = 0
 10:4/0 = 0
 11:4/0 = 0
@@ -201,7 +211,7 @@ texture_region_size = Vector2i(48, 48)
 18:8/0 = 0
 19:8/0 = 0
 8:4/0 = 0
-8:4/0/physics_layer_0/linear_velocity = Vector2(500, 0)
+8:4/0/physics_layer_0/linear_velocity = Vector2(300, 0)
 8:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
 
 [resource]
