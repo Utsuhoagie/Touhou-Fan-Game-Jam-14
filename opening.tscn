@@ -137,6 +137,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_1f7oi"]
 resource_name = "opening_3"
+length = 3.0
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -145,8 +146,8 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(700, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
+"points": PackedFloat32Array(1050, -0.25, 0, 1.23333, -53.9142, 0, -1.5, 68.7048, 0.25, 0),
+"times": PackedFloat32Array(0, 3)
 }
 tracks/1/type = "value"
 tracks/1/imported = false

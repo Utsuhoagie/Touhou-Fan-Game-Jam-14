@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://rjvfsu52ina0"]
+[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://bh73en3eaay7s"]
 
 [ext_resource type="Texture2D" uid="uid://v3h226ddq4ro" path="res://Assets/Actual/Tileset1_80px.png" id="1_yfy8f"]
 [ext_resource type="PackedScene" uid="uid://bsuccekb77glj" path="res://Entities/Environment/Mirror/MirrorTileH.tscn" id="2_byvjn"]

@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://b5yhwmhv48dw2"]
+[gd_scene load_steps=9 format=4 uid="uid://cix4jqwryrfhu"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_y78g0"]
-[ext_resource type="PackedScene" uid="uid://bh80kvrd0tkop" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_jtw3g"]
+[ext_resource type="PackedScene" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_jtw3g"]
 [ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="3_7j3x6"]
 [ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="3_62yet"]
 [ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="3_lmvu1"]
-[ext_resource type="PackedScene" uid="uid://b2curoutqhb3c" path="res://Levels/canvas_layer.tscn" id="4_mfcra"]
+[ext_resource type="PackedScene" path="res://Levels/canvas_layer.tscn" id="4_mfcra"]
 [ext_resource type="PackedScene" uid="uid://swq672klppy0" path="res://Entities/Enemy/Enemy.tscn" id="7_twc6n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pmag"]
@@ -32,8 +32,7 @@ shape = SubResource("RectangleShape2D_3pmag")
 tile_map_data = PackedByteArray("AAAAAAIAAQACAAAAAAAAAAEAAQACAAAAAAAAAAAAAQACAAAAAAA=")
 
 [node name="Player" parent="." instance=ExtResource("3_7j3x6")]
-position = Vector2(280, 440)
-scale = Vector2(1.667, 1.667)
+position = Vector2(224, 736)
 mirror_x = true
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_mfcra")]
