@@ -6,7 +6,7 @@ signal shadow_merged
 # Stats
 const SPEED: float = 250.0
 const ACCEL: float = 1500.0
-const JUMP_VELOCITY: float = -450.0
+const JUMP_VELOCITY: float = -580.0
 const FRICTION: float = 1500.0
 
 enum PlayerType {
@@ -33,9 +33,12 @@ func _ready() -> void:
 		AnimSprite.animation = "jump"
 		AnimSprite.frame = 2
 
+	if type == PlayerType.Shadow:
+		AnimSprite.modulate = 0xaba5c4c3
+
 	if mirror_y:
 		up_direction = Vector2.DOWN
-		AnimSprite.flip_v = mirror_y
+		Flippable.scale.y = -1
 
 
 func _physics_process(delta: float) -> void:

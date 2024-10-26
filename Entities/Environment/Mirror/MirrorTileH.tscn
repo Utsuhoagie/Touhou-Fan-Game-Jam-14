@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Entities/Environment/Mirror/Mirror.gd" id="1_e3b3r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vieen"]
-size = Vector2(80, 2)
+size = Vector2(80, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1s5my"]
 size = Vector2(80, 16)
