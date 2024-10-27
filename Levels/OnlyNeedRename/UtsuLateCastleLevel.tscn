@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://swq672klppy0" path="res://Entities/Enemy/Enemy.tscn" id="4_6w7h3"]
 [ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="5_q6b8j"]
 [ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="6_8qx42"]
-[ext_resource type="PackedScene" uid="uid://b2curoutqhb3c" path="res://Levels/canvas_layer.tscn" id="7_iu20i"]
+[ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="7_iu20i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tt3dl"]
 size = Vector2(96, 80)

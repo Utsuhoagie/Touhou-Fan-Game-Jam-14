@@ -64,9 +64,9 @@ vertical_alignment = 1
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 100
+theme_override_constants/margin_left = 250
 theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 100
+theme_override_constants/margin_right = 250
 theme_override_constants/margin_bottom = 25
 
 [node name="LevelSelectContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]

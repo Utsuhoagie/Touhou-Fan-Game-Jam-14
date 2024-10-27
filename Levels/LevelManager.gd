@@ -88,7 +88,7 @@ func _win_after_Seija_die() -> void:
 func reset_level() -> void:
 	get_tree().paused = false
 	get_tree().reload_current_scene.call_deferred()
-
+	
 
 func _return_to_menu() -> void:
 	get_tree().paused = false
