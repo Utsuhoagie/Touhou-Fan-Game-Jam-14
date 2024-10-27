@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b1py5y4x6jq2j"]
+[gd_scene load_steps=17 format=3 uid="uid://b1py5y4x6jq2j"]
 
 [ext_resource type="Script" path="res://Levels/level_bgm_manager.gd" id="1_4i43h"]
 [ext_resource type="AudioStream" uid="uid://dv028fjb8p702" path="res://Assets/Actual/bgm/Stage Music.ogg" id="1_tg8kd"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://djb51h7fijfh8" path="res://Assets/Actual/sfx/SFXThud.ogg" id="6_w5eic"]
 [ext_resource type="AudioStream" uid="uid://becs7tkit6bnv" path="res://Assets/Actual/sfx/SFXDoor.ogg" id="7_6bi1p"]
 [ext_resource type="AudioStream" uid="uid://2opys36aowli" path="res://Assets/Actual/sfx/SFXAttack.ogg" id="7_fjvha"]
+[ext_resource type="AudioStream" uid="uid://deh5t3aixcyjt" path="res://Assets/Actual/sfx/SFXMirrorJoin.ogg" id="7_gxqhk"]
 [ext_resource type="AudioStream" uid="uid://cmp8mb7p3em0c" path="res://Assets/Actual/sfx/SFXTrampoline.ogg" id="7_mpyjr"]
 [ext_resource type="AudioStream" uid="uid://cuby6d5kpgpo1" path="res://Assets/Actual/sfx/SFXEnemyDefeat.ogg" id="8_g3hs6"]
 [ext_resource type="AudioStream" uid="uid://4t1s6emlga10" path="res://Assets/Actual/sfx/click1.ogg" id="9_il6f1"]
@@ -41,7 +42,7 @@ process_mode = 1
 stream = ExtResource("6_ocvqg")
 
 [node name="MirrorSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_ocvqg")
+stream = ExtResource("7_gxqhk")
 
 [node name="DoorUnlockSFX" type="AudioStreamPlayer2D" parent="."]
 process_mode = 1
