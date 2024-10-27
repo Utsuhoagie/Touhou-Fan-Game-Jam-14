@@ -44,7 +44,7 @@ func play_landing_sfx(tilemap: TileMapLayer, player_pos: Vector2) -> void:
 	
 	# print(floor_tile_data.texture_origin)
 	
-	if floor_tile_data.get_custom_data("Trampoline") == true:
+	if floor_tile_data and floor_tile_data.get_custom_data("Trampoline") == true:
 		trampoline_sfx.play()
 	else:
 		landing_sfx.play()
