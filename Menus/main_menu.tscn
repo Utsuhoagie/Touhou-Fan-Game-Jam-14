@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbuxgumy46lbi"]
+[gd_scene load_steps=7 format=3 uid="uid://dbuxgumy46lbi"]
 
 [ext_resource type="Script" path="res://Menus/main_menu.gd" id="1_erbvp"]
+[ext_resource type="Texture2D" uid="uid://c8cejp41q81r5" path="res://Assets/Actual/Reflection_BG_Shinmyoumaru-Adventure_Landscape.png" id="2_5fiqu"]
+[ext_resource type="AudioStream" uid="uid://c6qnlvc4j1b7q" path="res://Assets/Actual/bgm/Main Menu v2.ogg" id="3_hx35f"]
 
 [sub_resource type="Animation" id="Animation_txjju"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Transition:position")
+tracks/0/path = NodePath("Contents/Transition:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -23,7 +25,7 @@ length = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Transition:position")
+tracks/0/path = NodePath("Contents/Transition:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -42,20 +44,35 @@ _data = {
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_erbvp")
 
-[node name="Label" type="Label" parent="."]
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1760.0
+offset_bottom = 990.0
+texture = ExtResource("2_5fiqu")
+
+[node name="Contents" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Contents"]
+layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -11.5
-offset_bottom = 11.5
+offset_top = -44.0
+offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 64
 text = "(insert game title here)"
 horizontal_alignment = 1
 
-[node name="MenuButtons" type="MarginContainer" parent="."]
+[node name="MenuButtons" type="MarginContainer" parent="Contents"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -67,38 +84,42 @@ grow_vertical = 2
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuButtons"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Contents/MenuButtons"]
 layout_mode = 2
 
-[node name="PlayButton" type="Button" parent="MenuButtons/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="Contents/MenuButtons/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../ExitButton")
 text = "Play"
 
-[node name="SettingsButton" type="Button" parent="MenuButtons/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="Contents/MenuButtons/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Settings"
 
-[node name="ExitButton" type="Button" parent="MenuButtons/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="Contents/MenuButtons/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../PlayButton")
 text = "Exit
 "
 
-[node name="Transition" type="ColorRect" parent="."]
+[node name="Transition" type="ColorRect" parent="Contents"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1760.0
-offset_right = -1760.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
 libraries = {
 "": SubResource("AnimationLibrary_70jrn")
 }
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_hx35f")
+autoplay = true

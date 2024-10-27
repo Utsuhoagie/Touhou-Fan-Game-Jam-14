@@ -53,6 +53,9 @@ func _physics_process(delta: float) -> void:
 
 	if (Input.is_action_just_pressed("Jump")
 	and (was_on_floor or not coyote_timer.is_stopped())):
+		if type == PlayerType.Main:
+			LevelBGMManager.play_jump_sfx()
+		
 		velocity.y = JUMP_VELOCITY
 		if mirror_y:
 			velocity.y *= -1
@@ -61,15 +64,24 @@ func _physics_process(delta: float) -> void:
 			velocity.y = abs(JUMP_VELOCITY) / 1.75
 		elif not mirror_y and velocity.y < JUMP_VELOCITY / 1.75:
 			velocity.y = JUMP_VELOCITY / 1.75
-
+	
 	_handle_direction(delta)
-
+	
+	if was_on_floor and velocity.x != 0 and type == PlayerType.Main:
+		LevelBGMManager.play_footstep_sfx()
+	if not was_on_floor or velocity.x == 0 and type == PlayerType.Main:
+		LevelBGMManager.stop_footstep_sfx()
+	
 	move_and_slide()
-
+	
 	if was_on_floor and not is_on_floor():
 		coyote_timer.start()
-
-
+	if not was_on_floor and is_on_floor() and type == PlayerType.Main:
+		LevelBGMManager.play_landing_sfx(
+			self.get_parent().find_child("TileMapLayer", false),
+			self.global_position
+		)
+	
 
 func _handle_direction(delta: float) -> void:
 	var direction := Input.get_axis("Left", "Right")

@@ -1,6 +1,7 @@
 extends PanelContainer
 class_name PausePopup
 
+signal restart_level
 signal return_to_menu
 
 @onready var return_button: Button = %ReturnButton
@@ -13,6 +14,10 @@ func _ready() -> void:
 	restart_button.pressed.connect(_restart_level)
 	continue_button.pressed.connect(_continue_level)
 	
+	return_button.focus_entered.connect(LevelBGMManager.play_button_hover_sfx)
+	restart_button.focus_entered.connect(LevelBGMManager.play_button_hover_sfx)
+	continue_button.focus_entered.connect(LevelBGMManager.play_button_hover_sfx)
+	
 	continue_button.grab_focus()
 	
 
@@ -23,15 +28,17 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	
 
 func _return_to_menu() -> void:
+	LevelBGMManager.play_button_select_sfx()
 	return_to_menu.emit()
 	
 
 func _restart_level() -> void:
-	get_tree().paused = false
-	get_tree().reload_current_scene()
+	LevelBGMManager.play_button_select_sfx()
+	restart_level.emit()
 	
 
 func _continue_level() -> void:
+	LevelBGMManager.play_button_select_sfx()
 	get_tree().paused = false
 	self.queue_free()
 	
