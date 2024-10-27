@@ -31,13 +31,6 @@ position = Vector2(552, 0)
 position = Vector2(480, 528)
 key_to_unlock = NodePath("../Key")
 
-[node name="TileMap" parent="Door" index="0"]
-tile_map_data = PackedByteArray("AAAAAAAAAgAIAAEAAAAAAPf/AgAIAAEAAAA=")
-
-[node name="CollisionShape2D" parent="Door" index="1"]
-position = Vector2(24, 24)
-shape = SubResource("RectangleShape2D_sxlph")
-
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Door"]
 position = Vector2(24, -408)
 shape = SubResource("RectangleShape2D_sxlph")
@@ -46,13 +39,6 @@ shape = SubResource("RectangleShape2D_sxlph")
 modulate = Color(0.818046, 0.000766049, 0.858797, 1)
 position = Vector2(576, 528)
 key_to_unlock = NodePath("../Key2")
-
-[node name="TileMap" parent="Door2" index="0"]
-tile_map_data = PackedByteArray("AAAAAAAAAgAIAAEAAAAAAPf/AgAIAAEAAAA=")
-
-[node name="CollisionShape2D" parent="Door2" index="1"]
-position = Vector2(24, 24)
-shape = SubResource("RectangleShape2D_sxlph")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Door2"]
 position = Vector2(24, -408)

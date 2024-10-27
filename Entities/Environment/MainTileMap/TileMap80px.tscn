@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bh80kvrd0tkop"]
+[gd_scene load_steps=2 format=3 uid="uid://bycpahq1xuc05"]
 
 [ext_resource type="TileSet" uid="uid://rjvfsu52ina0" path="res://Entities/Environment/MainTileMap/TileSetTerrain80px.tres" id="1_akwmq"]
 

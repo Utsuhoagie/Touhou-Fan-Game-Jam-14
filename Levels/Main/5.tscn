@@ -1,15 +1,20 @@
-[gd_scene load_steps=4 format=4 uid="uid://bot0u06phn3nx"]
+[gd_scene load_steps=7 format=4 uid="uid://bot0u06phn3nx"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_efr4x"]
-[ext_resource type="PackedScene" uid="uid://bh80kvrd0tkop" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_ut2qa"]
+[ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_ut2qa"]
 [ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="2_yi07c"]
+[ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="4_sssj0"]
+[ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="5_p554n"]
 
-[node name="Level3" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ittw5"]
+size = Vector2(400, 96)
+
+[node name="Level5" type="Node2D"]
 script = ExtResource("1_efr4x")
-next_level_path = "res://Levels/Main/4.tscn"
+next_level_path = "res://Levels/Main/6.tscn"
 
 [node name="TileMapLayer" parent="." instance=ExtResource("2_ut2qa")]
-tile_map_data = PackedByteArray("AAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAABAAUAAQAAAAAAAAABAAYAAQAAAAAAAAABAAcAAQAAAAAAAAABAAgAAQAAAAAAAAABAAoAAQAAAAAAAAABAAsAAQAAAAAAAAACAAEAAQAAAAAAAAACAAsAAQAAAAAAAAADAAEAAQAAAAAAAAADAAsAAQAAAAAAAAAEAAEAAQAAAAAAAAAEAAsAAQAAAAAAAAAFAAEAAQAAAAAAAAAFAAsAAQAAAAAAAAAGAAEAAQAAAAAAAAAGAAsAAQAAAAAAAAAHAAEAAQAAAAAAAAAHAAsAAQAAAAAAAAAIAAEAAQAAAAAAAAAIAAsAAQAAAAAAAAAJAAEAAQAAAAAAAAAJAAsAAQAAAAAAAAAKAAEAAQAAAAAAAAAKAAsAAQAAAAAAAAALAAEAAQAAAAAAAAALAAsAAQAAAAAAAAAMAAEAAQAAAAAAAAAMAAsAAQAAAAAAAAANAAEAAQAAAAAAAAANAAsAAQAAAAAAAAAOAAEAAQAAAAAAAAAOAAsAAQAAAAAAAAAPAAEAAQAAAAAAAAAPAAsAAQAAAAAAAAAQAAEAAQAAAAAAAAAQAAsAAQAAAAAAAAARAAEAAQAAAAAAAAARAAsAAQAAAAAAAAASAAEAAQAAAAAAAAASAAsAAQAAAAAAAAATAAEAAQAAAAAAAAATAAsAAQAAAAAAAAATAAIAAQAAAAAAAAATAAMAAQAAAAAAAAATAAQAAQAAAAAAAAATAAUAAQAAAAAAAAATAAYAAQAAAAAAAAATAAcAAQAAAAAAAAATAAgAAQAAAAAAAAATAAkAAQAAAAAAAAATAAoAAQAAAAAAAAANAAoAAQAAAAAAAAANAAkAAQAAAAAAAAANAAgAAQAAAAAAAAANAAcAAQAAAAAAAAANAAYAAQAAAAAAAAAHAAUAAQAAAAAAAAAHAAQAAQAAAAAAAAAHAAMAAQAAAAAAAAAHAAIAAQAAAAAAAAAHAAYAAQAAAAAAAAAIAAYAAgAAAAAAAQAJAAYAAgAAAAAAAQAKAAYAAgAAAAAAAQALAAYAAgAAAAAAAQAMAAYAAgAAAAAAAQABAAkAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAABAAEAAwAAAAAAAAABAAMAAwAAAAAAAAABAAQAAwAAAAAAAAABAAUAAwAAAAAAAAABAAYAAwAAAAAAAAABAAcAAwAAAAAAAAABAAgAAwAAAAAAAAABAAoAAwAAAAAAAAABAAsAAwAAAAAAAAACAAEAAwAAAAAAAAACAAsAAwAAAAAAAAADAAEAAwAAAAAAAAADAAsAAwAAAAAAAAAEAAEAAwAAAAAAAAAEAAsAAwAAAAAAAAAFAAEAAwAAAAAAAAAFAAsAAwAAAAAAAAAGAAEAAwAAAAAAAAAGAAsAAwAAAAAAAAAHAAEAAwAAAAAAAAAHAAsAAwAAAAAAAAAIAAEAAwAAAAAAAAAIAAsAAwAAAAAAAAAJAAEAAwAAAAAAAAAJAAsAAwAAAAAAAAAKAAEAAwAAAAAAAAAKAAsAAwAAAAAAAAALAAEAAwAAAAAAAAALAAsAAwAAAAAAAAAMAAEAAwAAAAAAAAAMAAsAAwAAAAAAAAANAAsAAwAAAAAAAAAOAAsAAwAAAAAAAAAPAAEAAwAAAAAAAAAPAAsAAwAAAAAAAAAQAAEAAwAAAAAAAAAQAAsAAwAAAAAAAAARAAEAAwAAAAAAAAARAAsAAwAAAAAAAAASAAEAAwAAAAAAAAASAAsAAwAAAAAAAAATAAEAAwAAAAAAAAATAAsAAwAAAAAAAAATAAIAAwAAAAAAAAATAAMAAwAAAAAAAAATAAQAAwAAAAAAAAATAAUAAwAAAAAAAAATAAYAAwAAAAAAAAATAAcAAwAAAAAAAAATAAgAAwAAAAAAAAATAAkAAwAAAAAAAAATAAoAAwAAAAAAAAANAAoAAwAAAAAAAAANAAkAAwAAAAAAAAANAAgAAwAAAAAAAAANAAcAAwAAAAAAAAANAAYAAwAAAAAAAAAHAAUAAwAAAAAAAAAHAAQAAwAAAAAAAAAHAAMAAwAAAAAAAAAHAAIAAwAAAAAAAAAHAAYAAwAAAAAAAAAIAAYAAgAAAAAAAQAJAAYAAgAAAAAAAQAKAAYAAgAAAAAAAQALAAYAAgAAAAAAAQAMAAYAAgAAAAAAAQABAAkAAwAAAAAAAAANAAEAAwAAAAAAAAAOAAEAAwAAAAAAAAAPAAIAAwADAAEAAAAQAAIAAwADAAEAAAABAAIAAwAAAAAAAAADAAoAAwACAAEAAAAEAAoAAwACAAEAAAAFAAoAAwACAAEAAAARAAIAAwADAAEAAAAJAAoAAgAAAAAAAwALAAoAAgAAAAAAAwAJAAIAAgAAAAAABAALAAIAAgAAAAAABAAKAAoAAwACAAEAAAAKAAIAAwADAAEAAAARAAYAAgAAAAAABgACAAYAAwAAAAAAAAASAAYAAwAAAAAAAAAGAAYAAwAAAAAAAAADAAYAAgAAAAAABQAOAAYAAwAAAAAAAAARAAgAAwAAAAAAAAAQAAgAAwAAAAAAAAADAAQAAwAAAAAAAAAEAAQAAwAAAAAAAAAOAAkAAgAAAAAABQAGAAMAAgAAAAAABgA=")
 
 [node name="Player" parent="." instance=ExtResource("2_yi07c")]
 position = Vector2(200, 840)
@@ -20,4 +25,40 @@ type = 1
 mirror_x = true
 mirror_y = true
 
+[node name="Door" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("4_sssj0")]
+key_to_unlock = NodePath("../Key")
+
+[node name="KeyDetect" parent="Door" index="0"]
+position = Vector2(840, 520)
+shape = SubResource("RectangleShape2D_ittw5")
+
+[node name="TileMapLayer" parent="Door" index="1"]
+tile_map_data = PackedByteArray("AAAIAAYAAwACAAAAAAAJAAYAAwACAAAAAAAKAAYAAwACAAAAAAALAAYAAwACAAAAAAAMAAYAAwACAAAAAAA=")
+
+[node name="Key" parent="." instance=ExtResource("5_p554n")]
+position = Vector2(200, 200)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Inventory" type="HBoxContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_right = 52.0
+offset_bottom = 48.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Inventory"]
+layout_mode = 2
+text = "Items:"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Inventory"]
+layout_mode = 2
+
+[connection signal="body_entered" from="TileMapLayer/SpikeD" to="TileMapLayer/SpikeD" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@157547" to="TileMapLayer/@Area2D@157547" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/SpikeU" to="TileMapLayer/SpikeU" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@157548" to="TileMapLayer/@Area2D@157548" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/SpikeR" to="TileMapLayer/SpikeR" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/SpikeL" to="TileMapLayer/SpikeL" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@157549" to="TileMapLayer/@Area2D@157549" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@157550" to="TileMapLayer/@Area2D@157550" method="_on_body_entered"]
+
+[editable path="Door"]

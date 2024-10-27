@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=4 uid="uid://caxv71uhj6iri"]
+
+[ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_aa1c6"]
+[ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_axg46"]
+[ext_resource type="PackedScene" uid="uid://swq672klppy0" path="res://Entities/Enemy/Enemy.tscn" id="2_s5dic"]
+[ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="3_tybv0"]
+
+[node name="Level6" type="Node2D"]
+script = ExtResource("1_aa1c6")
+
+[node name="Enemy" parent="." instance=ExtResource("2_s5dic")]
+position = Vector2(608, 432)
+
+[node name="Enemy5" parent="." instance=ExtResource("2_s5dic")]
+position = Vector2(288, 832)
+mirror_y = true
+
+[node name="Enemy6" parent="." instance=ExtResource("2_s5dic")]
+position = Vector2(1488, 192)
+
+[node name="Enemy7" parent="." instance=ExtResource("2_s5dic")]
+position = Vector2(1488, 432)
+
+[node name="Enemy8" parent="." instance=ExtResource("2_s5dic")]
+position = Vector2(288, 584)
+mirror_y = true
+
+[node name="Enemy3" parent="." instance=ExtResource("2_s5dic")]
+position = Vector2(288, 192)
+
+[node name="Enemy4" parent="." instance=ExtResource("2_s5dic")]
+position = Vector2(1488, 832)
+mirror_y = true
+
+[node name="Enemy2" parent="." instance=ExtResource("2_s5dic")]
+position = Vector2(1168, 592)
+mirror_y = true
+
+[node name="TileMapLayer" parent="." instance=ExtResource("2_axg46")]
+tile_map_data = PackedByteArray("AAABAAEAAwAAAAAAAAABAAMAAwAAAAAAAAABAAQAAwAAAAAAAAABAAUAAwAAAAAAAAABAAYAAwAAAAAAAAABAAcAAwAAAAAAAAABAAgAAwAAAAAAAAABAAoAAwAAAAAAAAABAAsAAwAAAAAAAAACAAEAAwAAAAAAAAACAAsAAwAAAAAAAAADAAEAAwAAAAAAAAADAAsAAwAAAAAAAAAEAAEAAwAAAAAAAAAEAAsAAwAAAAAAAAAFAAEAAwAAAAAAAAAFAAsAAwAAAAAAAAAGAAEAAwAAAAAAAAAGAAsAAwAAAAAAAAAHAAEAAwAAAAAAAAAHAAsAAwAAAAAAAAAIAAEAAwAAAAAAAAAIAAsAAwAAAAAAAAAJAAEAAwAAAAAAAAAJAAsAAwAAAAAAAAAKAAEAAwAAAAAAAAAKAAsAAwAAAAAAAAALAAEAAwAAAAAAAAALAAsAAwAAAAAAAAAMAAEAAwAAAAAAAAAMAAsAAwAAAAAAAAANAAsAAwAAAAAAAAAOAAsAAwAAAAAAAAAPAAEAAwAAAAAAAAAPAAsAAwAAAAAAAAAQAAEAAwAAAAAAAAAQAAsAAwAAAAAAAAARAAEAAwAAAAAAAAARAAsAAwAAAAAAAAASAAEAAwAAAAAAAAASAAsAAwAAAAAAAAATAAEAAwAAAAAAAAATAAsAAwAAAAAAAAABAAkAAwAAAAAAAAANAAEAAwAAAAAAAAAOAAEAAwAAAAAAAAABAAIAAwAAAAAAAAAUAAsAAwAAAAAAAAAUAAEAAwAAAAAAAAAUAAIAAwAAAAAAAAAUAAMAAwAAAAAAAAAUAAQAAwAAAAAAAAAUAAUAAwAAAAAAAAAUAAYAAwAAAAAAAAAUAAcAAwAAAAAAAAAUAAgAAwAAAAAAAAAUAAkAAwAAAAAAAAAUAAoAAwAAAAAAAAACAAYAAwAAAAAAAAADAAYAAwAAAAAAAAAEAAYAAwAAAAAAAAAHAAYAAwAAAAAAAAAIAAYAAwAAAAAAAAAJAAYAAwAAAAAAAAAMAAYAAwAAAAAAAAANAAYAAwAAAAAAAAAOAAYAAwAAAAAAAAARAAYAAwAAAAAAAAASAAYAAwAAAAAAAAATAAYAAwAAAAAAAAAKAAYAAgAAAAAAAQALAAYAAgAAAAAAAQAFAAYAAwAAAAAAAAAGAAYAAwAAAAAAAAAQAAYAAwAAAAAAAAAPAAYAAwAAAAAAAAAFAAUAAwAAAAAAAAAGAAUAAwAAAAAAAAAGAAcAAwAAAAAAAAAFAAcAAwAAAAAAAAAQAAUAAwAAAAAAAAAPAAUAAwAAAAAAAAAPAAcAAwAAAAAAAAAQAAcAAwAAAAAAAAADAAMAAwAAAAAAAAASAAMAAwAAAAAAAAASAAkAAwAAAAAAAAADAAkAAwAAAAAAAAA=")
+
+[node name="Player" parent="." instance=ExtResource("3_tybv0")]
+position = Vector2(200, 440)
+
+[node name="Player2" parent="." instance=ExtResource("3_tybv0")]
+position = Vector2(1560, 600)
+type = 1
+mirror_x = true
+mirror_y = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Inventory" type="HBoxContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_right = 52.0
+offset_bottom = 48.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Inventory"]
+layout_mode = 2
+text = "Items:"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Inventory"]
+layout_mode = 2
