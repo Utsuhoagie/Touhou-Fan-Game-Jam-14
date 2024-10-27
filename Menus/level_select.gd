@@ -42,5 +42,6 @@ func _enter_level(chosen_level_path: String) -> void:
 	
 	print_debug("Loading level path: " + chosen_level_path)
 	get_tree().change_scene_to_file(chosen_level_path)
+	LevelBGMManager.start()
 	
 	self.queue_free()

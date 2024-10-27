@@ -1,6 +1,7 @@
 extends PanelContainer
 class_name PausePopup
 
+signal restart_level
 signal return_to_menu
 
 @onready var return_button: Button = %ReturnButton
@@ -27,8 +28,7 @@ func _return_to_menu() -> void:
 	
 
 func _restart_level() -> void:
-	get_tree().paused = false
-	get_tree().reload_current_scene()
+	restart_level.emit()
 	
 
 func _continue_level() -> void:

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1py5y4x6jq2j"]
+
+[ext_resource type="Script" path="res://Levels/level_bgm_manager.gd" id="1_4i43h"]
+[ext_resource type="AudioStream" uid="uid://dv028fjb8p702" path="res://Assets/Actual/bgm/Stage Music.ogg" id="1_tg8kd"]
+
+[node name="LevelBGMManager" type="Node"]
+process_mode = 3
+script = ExtResource("1_4i43h")
+
+[node name="LevelBGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_tg8kd")

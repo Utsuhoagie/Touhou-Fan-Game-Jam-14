@@ -1,6 +1,8 @@
 extends CanvasLayer
 class_name MainMenu
 
+@onready var button_hover_sfx: AudioStreamPlayer2D = $ButtonHoverSFX
+@onready var contents: Control = $Contents
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var play_button: Button = %PlayButton
 @onready var settings_button: Button = %SettingsButton
@@ -14,6 +16,10 @@ func _ready() -> void:
 	settings_button.pressed.connect(_enter_settings)
 	exit_button.pressed.connect(_exit_game)
 	
+	play_button.focus_entered.connect(button_hover_sfx.play)
+	settings_button.focus_entered.connect(button_hover_sfx.play)
+	exit_button.focus_entered.connect(button_hover_sfx.play)
+	
 	animation_player.play("transition_in")
 	await animation_player.animation_finished
 	
@@ -25,7 +31,7 @@ func _enter_level_select() -> void:
 	get_tree().get_root().add_child(level_select)
 	
 	level_select.tree_exited.connect(_return_to_main_menu)
-	self.hide()
+	contents.hide()
 	
 
 func _enter_settings() -> void:
@@ -33,7 +39,7 @@ func _enter_settings() -> void:
 	get_tree().get_root().add_child(settings)
 	
 	settings.tree_exited.connect(_return_to_main_menu)
-	self.hide()
+	contents.hide()
 	
 
 func _exit_game() -> void:
@@ -41,6 +47,6 @@ func _exit_game() -> void:
 	
 
 func _return_to_main_menu() -> void:
-	self.show()
+	contents.show()
 	play_button.grab_focus()
 	

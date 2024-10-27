@@ -25,7 +25,6 @@ func _ready() -> void:
 	animation_player.play("transition_in")
 	
 
-
 func _unhandled_key_input(event: InputEvent) -> void:
 	# we don't want extra inputs pls
 	if event.is_echo(): return
@@ -37,6 +36,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		# pause the game
 		var pause_popup := pause_popup_scene.instantiate()
 		pause_popup.return_to_menu.connect(_return_to_menu)
+		pause_popup.restart_level.connect(reset_level)
 
 		canvas_layer.add_child(pause_popup)
 		get_tree().paused = true
@@ -98,12 +98,15 @@ func _return_to_menu() -> void:
 	
 	animation_player.play("transition_out")
 	await animation_player.animation_finished
+	LevelBGMManager.stop()
 	get_tree().change_scene_to_file(MAIN_MENU_PATH)
-
+	
 
 func _load_next_level() -> void:
 	if not next_level_path: return
 	
+	get_tree().paused = false
 	animation_player.play("transition_out")
 	await animation_player.animation_finished
 	get_tree().change_scene_to_file(next_level_path)
+	
