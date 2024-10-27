@@ -87,6 +87,9 @@ func _win_after_Seija_die() -> void:
 
 func reset_level() -> void:
 	get_tree().paused = false
+	animation_player.play("transition_out")
+	await animation_player.animation_finished
+	
 	get_tree().reload_current_scene.call_deferred()
 	
 
