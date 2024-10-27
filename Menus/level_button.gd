@@ -1,7 +1,7 @@
 extends Button
 class_name LevelButton
 
-signal level_selected(chosen_level_path: String)
+signal level_selected(level: int, chosen_level_path: String)
 
 @export_file var level_path: String
 
@@ -14,5 +14,5 @@ func _level_selected() -> void:
 	print_debug("Player has selected level: " + level_path)
 	
 	LevelBGMManager.play_enter_level_sfx()
-	level_selected.emit(level_path)
+	level_selected.emit(int(self.text), level_path)
 	

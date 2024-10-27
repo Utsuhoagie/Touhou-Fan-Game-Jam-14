@@ -1,6 +1,7 @@
 extends Node
 
 @onready var level_bgm: AudioStreamPlayer2D = $LevelBGM
+@onready var tutorial_bgm: AudioStreamPlayer2D = $TutorialBGM
 
 @onready var button_hover_sfx: AudioStreamPlayer2D = $ButtonHoverSFX
 @onready var button_select_sfx: AudioStreamPlayer2D = $ButtonSelectSFX
@@ -16,6 +17,9 @@ extends Node
 @onready var level_complete_sfx: AudioStreamPlayer2D = $LevelCompleteSFX
 @onready var item_collect_sfx: AudioStreamPlayer2D = $ItemCollectSFX
 @onready var door_unlock_sfx: AudioStreamPlayer2D = $DoorUnlockSFX
+
+var current_level: int = 0
+
 
 func play_death_sfx() -> void:
 	death_sfx.play()
@@ -86,18 +90,48 @@ func stop_footstep_sfx() -> void:
 	
 
 func dim_volume() -> void:
-	level_bgm.volume_db = -10
+	if current_level >= 7:
+		level_bgm.volume_db = -10
+	else:
+		tutorial_bgm.volume_db = -10
 	
 
 func restore_volume() -> void:
-	level_bgm.volume_db = 0
+	if current_level >= 7:
+		level_bgm.volume_db = 0
+	else:
+		tutorial_bgm.volume_db = 0
 	
 
-func start() -> void:
-	level_bgm.play()
+func start(level: int) -> void:
+	current_level = level
+	
+	if current_level >= 7:
+		level_bgm.play()
+	else:
+		tutorial_bgm.play()
 	
 
 func stop() -> void:
 	level_bgm.volume_db = 0
+	tutorial_bgm.volume_db = 0
 	level_bgm.stop()
+	tutorial_bgm.stop()
+	
+
+func inc_level_counter() -> void:
+	current_level += 1
+	
+	if current_level >= 7:
+		# tween volume or smth idk
+		level_bgm.volume_db = -20
+		level_bgm.play()
+		
+		var tween = get_tree().create_tween().set_parallel(true)
+		(tween.tween_property(tutorial_bgm, "volume_db", -20, 1)
+		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_LINEAR))
+		(tween.tween_property(level_bgm, "volume_db", 0, 1)
+		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_LINEAR))
+		
+		tutorial_bgm.play()
 	

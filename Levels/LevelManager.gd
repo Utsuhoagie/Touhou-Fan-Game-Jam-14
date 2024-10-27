@@ -110,6 +110,7 @@ func _load_next_level() -> void:
 	if not next_level_path: return
 	
 	get_tree().paused = false
+	LevelBGMManager.inc_level_counter()
 	animation_player.play("transition_out")
 	await animation_player.animation_finished
 	get_tree().change_scene_to_file(next_level_path)

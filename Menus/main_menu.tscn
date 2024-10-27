@@ -79,16 +79,16 @@ grow_vertical = 2
 [node name="TextureRect" type="TextureRect" parent="Contents"]
 layout_mode = 2
 offset_top = -2.0
-offset_right = 1644.0
-offset_bottom = 922.0
+offset_right = 1761.0
+offset_bottom = 988.0
 texture = ExtResource("3_igdfa")
 expand_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Contents"]
 layout_mode = 2
-offset_left = 222.0
+offset_left = 246.0
 offset_top = -67.0
-offset_right = 1667.0
+offset_right = 1691.0
 offset_bottom = 746.0
 texture = ExtResource("4_re7ds")
 expand_mode = 1
@@ -98,32 +98,39 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1117.0
-offset_top = 798.0
+offset_left = 998.0
+offset_top = 712.0
 offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 150
 
-[node name="VBoxContainer" type="HBoxContainer" parent="Contents/MenuButtons"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Contents/MenuButtons"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
-[node name="PlayButton" type="Button" parent="Contents/MenuButtons/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="Contents/MenuButtons/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 focus_neighbor_top = NodePath("../ExitButton")
+theme_override_font_sizes/font_size = 64
 text = "Play"
 
-[node name="SettingsButton" type="Button" parent="Contents/MenuButtons/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="Contents/MenuButtons/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 64
 text = "Settings"
 
-[node name="ExitButton" type="Button" parent="Contents/MenuButtons/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="Contents/MenuButtons/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../PlayButton")
+theme_override_font_sizes/font_size = 64
 text = "Exit
 "
 
@@ -132,6 +139,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1760.0
+offset_right = -1760.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)

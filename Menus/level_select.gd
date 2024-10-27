@@ -38,12 +38,12 @@ func _return_to_main_menu() -> void:
 	self.queue_free()
 	
 
-func _enter_level(chosen_level_path: String) -> void:
+func _enter_level(level: int, chosen_level_path: String) -> void:
 	animation_player.play("transition_out")
 	await animation_player.animation_finished
 	
 	print_debug("Loading level path: " + chosen_level_path)
 	get_tree().change_scene_to_file(chosen_level_path)
-	LevelBGMManager.start()
+	LevelBGMManager.start(level)
 	
 	self.queue_free()

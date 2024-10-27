@@ -60,6 +60,7 @@ theme_override_constants/margin_bottom = 25
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 48
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -79,19 +80,21 @@ theme_override_constants/margin_bottom = 25
 [node name="LevelSelectContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
 columns = 5
 
 [node name="BackButton" type="Button" parent="."]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 90)
 offset_left = 28.0
 offset_top = 30.0
 offset_right = 110.0
 offset_bottom = 83.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 shortcut = SubResource("Shortcut_l4ym4")
 shortcut_in_tooltip = false
 text = "Back"
