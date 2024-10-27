@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_efr4x"]
 [ext_resource type="PackedScene" uid="uid://8l2skejebalg" path="res://Entities/Environment/Sign/sign.tscn" id="2_4r5n2"]
-[ext_resource type="PackedScene" path="res://Levels/Background.tscn" id="2_5uoig"]
+[ext_resource type="PackedScene" uid="uid://duuslj8cggp2b" path="res://Levels/Background.tscn" id="2_5uoig"]
 [ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_ut2qa"]
 [ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="2_yi07c"]
 [ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="4_sssj0"]
 [ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="5_p554n"]
 [ext_resource type="PackedScene" uid="uid://cwvwk5oh8vwjx" path="res://Entities/Environment/Sign/help_popup.tscn" id="7_1eudu"]
-[ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="8_3335k"]
+[ext_resource type="PackedScene" uid="uid://b2curoutqhb3c" path="res://Levels/canvas_layer.tscn" id="8_3335k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ittw5"]
 size = Vector2(400, 96)
@@ -63,12 +63,12 @@ help_text = "Trampolines bounce you and your reflections up to platforms normall
 If you or any of your reflections hit a spike. you die."
 
 [connection signal="body_entered" from="TileMapLayer/SpikeD" to="TileMapLayer/SpikeD" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@354593" to="TileMapLayer/@Area2D@354593" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@64449" to="TileMapLayer/@Area2D@64449" method="_on_body_entered"]
 [connection signal="body_entered" from="TileMapLayer/SpikeU" to="TileMapLayer/SpikeU" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@354594" to="TileMapLayer/@Area2D@354594" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@64450" to="TileMapLayer/@Area2D@64450" method="_on_body_entered"]
 [connection signal="body_entered" from="TileMapLayer/SpikeR" to="TileMapLayer/SpikeR" method="_on_body_entered"]
 [connection signal="body_entered" from="TileMapLayer/SpikeL" to="TileMapLayer/SpikeL" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@354595" to="TileMapLayer/@Area2D@354595" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@354596" to="TileMapLayer/@Area2D@354596" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@64451" to="TileMapLayer/@Area2D@64451" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@64452" to="TileMapLayer/@Area2D@64452" method="_on_body_entered"]
 
 [editable path="Door"]

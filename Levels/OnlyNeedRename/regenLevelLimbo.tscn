@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="3_655ka"]
 [ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="5_w61k7"]
 [ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="6_okfnv"]
-[ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="7_sxn24"]
+[ext_resource type="PackedScene" uid="uid://b2curoutqhb3c" path="res://Levels/canvas_layer.tscn" id="7_sxn24"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3hao2"]
 radius = 40.0
@@ -19,7 +19,7 @@ radius = 40.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_voxwt"]
 radius = 30.0
 
-[node name="LevelTemplate" type="Node2D"]
+[node name="LevelTemplate2" type="Node2D"]
 script = ExtResource("1_tmnt8")
 next_level_path = "res://Levels/Main/2.tscn"
 
