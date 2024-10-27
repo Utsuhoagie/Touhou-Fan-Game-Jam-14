@@ -1,9 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://8l2skejebalg"]
+[gd_scene load_steps=6 format=3 uid="uid://8l2skejebalg"]
 
 [ext_resource type="Script" path="res://Entities/Environment/Sign/sign.gd" id="1_uxwfp"]
+[ext_resource type="Texture2D" uid="uid://v3h226ddq4ro" path="res://Assets/Actual/Tileset1_80px.png" id="2_ypkxa"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jnfmw"]
-size = Vector2(80, 80)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tyyf"]
+atlas = ExtResource("2_ypkxa")
+region = Rect2(400, 160, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p51dg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tyyf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_egfxo"]
 radius = 40.7922
@@ -12,8 +25,8 @@ radius = 40.7922
 collision_layer = 32
 script = ExtResource("1_uxwfp")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_jnfmw")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p51dg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_egfxo")

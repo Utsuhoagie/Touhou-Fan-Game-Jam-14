@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_efr4x"]
 [ext_resource type="PackedScene" uid="uid://8l2skejebalg" path="res://Entities/Environment/Sign/sign.tscn" id="2_4r5n2"]
+[ext_resource type="PackedScene" uid="uid://duuslj8cggp2b" path="res://Levels/Background.tscn" id="2_5uoig"]
 [ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_ut2qa"]
 [ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="2_yi07c"]
 [ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="4_sssj0"]
 [ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="5_p554n"]
-[ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="7_0beio"]
 [ext_resource type="PackedScene" uid="uid://cwvwk5oh8vwjx" path="res://Entities/Environment/Sign/help_popup.tscn" id="7_1eudu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ittw5"]
@@ -15,6 +15,10 @@ size = Vector2(400, 96)
 [node name="Level5" type="Node2D"]
 script = ExtResource("1_efr4x")
 next_level_path = "res://Levels/Main/6.tscn"
+
+[node name="Background" parent="." instance=ExtResource("2_5uoig")]
+offset_right = 1760.0
+offset_bottom = 990.0
 
 [node name="Sign" parent="." node_paths=PackedStringArray("help_popup") instance=ExtResource("2_4r5n2")]
 position = Vector2(280, 856)
@@ -45,25 +49,24 @@ tile_map_data = PackedByteArray("AAAIAAYAAwACAAAAAAAJAAYAAwACAAAAAAAKAAYAAwACAAA
 [node name="Key" parent="." instance=ExtResource("5_p554n")]
 position = Vector2(200, 200)
 
-[node name="CanvasLayer" parent="." instance=ExtResource("7_0beio")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HelpPopup" parent="CanvasLayer" instance=ExtResource("7_1eudu")]
 visible = false
-offset_left = -600.0
-offset_top = -400.0
-offset_right = 600.0
-offset_bottom = 400.0
 help_text = "Trampolines bounce you and your reflections up to platforms normally inaccessible by jumping.
 
 If you or any of your reflections hit a spike. you die."
 
-[connection signal="body_entered" from="TileMapLayer/SpikeD" to="TileMapLayer/SpikeD" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@50521" to="TileMapLayer/@Area2D@50521" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/SpikeU" to="TileMapLayer/SpikeU" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@50522" to="TileMapLayer/@Area2D@50522" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/SpikeR" to="TileMapLayer/SpikeR" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/SpikeL" to="TileMapLayer/SpikeL" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@50523" to="TileMapLayer/@Area2D@50523" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@50524" to="TileMapLayer/@Area2D@50524" method="_on_body_entered"]
+[node name="Inventory" type="HBoxContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_right = 52.0
+offset_bottom = 48.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Inventory"]
+layout_mode = 2
+text = "Items:"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Inventory"]
+layout_mode = 2
 
 [editable path="Door"]
