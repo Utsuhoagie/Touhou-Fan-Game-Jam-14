@@ -12,6 +12,7 @@ var win_popup_scene = preload("res://Levels/win_popup.tscn")
 func _ready() -> void:
 	Signals.hazard_touched.connect(reset_level)
 	Signals.enemy_died.connect(_check_win_condition)
+	Signals.Seija_died.connect(_win_after_Seija_die)
 
 	var player_instances: Array = get_tree().get_nodes_in_group("players")
 	for player: Player in player_instances:
@@ -46,11 +47,28 @@ func _check_win_condition() -> void:
 		.filter(func(player: Player): return not player.is_queued_for_deletion())
 
 	var remaining_enemies := get_tree().get_nodes_in_group("enemies")	\
-		.filter(func(enemy: Enemy): return not enemy.is_queued_for_deletion())
+		.filter(func(enemy): return not enemy.is_queued_for_deletion())
 
 	if remaining_players.size() > 1 or not remaining_enemies.is_empty():
 		return
 
+	print("level complete!")
+
+	# display win screen popup thing
+	var win_popup := win_popup_scene.instantiate()
+	win_popup.return_to_menu.connect(_return_to_menu)
+	win_popup.to_next_level.connect(_load_next_level)
+
+	canvas_layer.add_child(win_popup)
+	if not next_level_path:
+		win_popup.next_level_button.hide()
+
+	# ideally i want the mirrors to deactivate and the player
+	# to lose control of the character, but i'll just put this for now
+	get_tree().paused = true
+
+
+func _win_after_Seija_die() -> void:
 	print("level complete!")
 
 	# display win screen popup thing

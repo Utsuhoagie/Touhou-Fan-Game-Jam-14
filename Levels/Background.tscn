@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://duuslj8cggp2b"]
+
+[ext_resource type="Texture2D" uid="uid://c8cejp41q81r5" path="res://Assets/Actual/Reflection_BG_Shinmyoumaru-Adventure_Landscape.png" id="1_5rok2"]
+
+[node name="Background" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_5rok2")
