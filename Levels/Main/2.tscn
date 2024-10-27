@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=4 uid="uid://bqt8fw24wjrb3"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_roumr"]
-[ext_resource type="PackedScene" path="res://Levels/Background.tscn" id="2_2h27n"]
+[ext_resource type="PackedScene" uid="uid://duuslj8cggp2b" path="res://Levels/Background.tscn" id="2_2h27n"]
 [ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_llg05"]
 [ext_resource type="PackedScene" uid="uid://8l2skejebalg" path="res://Entities/Environment/Sign/sign.tscn" id="2_sa8ux"]
 [ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="2_tdiqc"]
 [ext_resource type="PackedScene" uid="uid://cwvwk5oh8vwjx" path="res://Entities/Environment/Sign/help_popup.tscn" id="5_yj2tg"]
-[ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="6_rd6h1"]
+[ext_resource type="PackedScene" uid="uid://b2curoutqhb3c" path="res://Levels/canvas_layer.tscn" id="6_rd6h1"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_roumr")

@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=4 uid="uid://g7d5gp2g7qvp"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_towlb"]
-[ext_resource type="PackedScene" path="res://Levels/Background.tscn" id="2_eordw"]
+[ext_resource type="PackedScene" uid="uid://duuslj8cggp2b" path="res://Levels/Background.tscn" id="2_eordw"]
 [ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_lb2ir"]
 [ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="2_tenlm"]
 [ext_resource type="PackedScene" uid="uid://8l2skejebalg" path="res://Entities/Environment/Sign/sign.tscn" id="2_xuadf"]
 [ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="4_4d3qk"]
 [ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="5_jlrf5"]
 [ext_resource type="PackedScene" uid="uid://cwvwk5oh8vwjx" path="res://Entities/Environment/Sign/help_popup.tscn" id="7_iiu54"]
-[ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="8_qecqb"]
+[ext_resource type="PackedScene" uid="uid://b2curoutqhb3c" path="res://Levels/canvas_layer.tscn" id="8_qecqb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0h3v"]
 size = Vector2(96, 720)

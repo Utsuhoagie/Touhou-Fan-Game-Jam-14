@@ -9,6 +9,7 @@ func _on_body_entered(body: Node2D) -> void:
 		var icon := TextureRect.new()
 		var texture = load("res://Assets/Actual/KeyIcon.png")
 		icon.texture = texture
+		icon.modulate = self.modulate
 
 		$"../CanvasLayer/Inventory".add_child(icon)
 		queue_free()

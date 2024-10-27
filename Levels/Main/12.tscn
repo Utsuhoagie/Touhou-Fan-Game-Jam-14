@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=4 uid="uid://df0evhftrnut5"]
 
-[ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_4vpaa"]
-[ext_resource type="PackedScene" uid="uid://duuslj8cggp2b" path="res://Levels/Background.tscn" id="2_81lsn"]
-[ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_crj0n"]
-[ext_resource type="Texture2D" uid="uid://b4oxxnktsork2" path="res://Assets/Actual/Reflection_BG_Shinmyoumaru-Adventure_Landscape_5.png" id="3_mfqhq"]
-[ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="3_rif5q"]
-[ext_resource type="PackedScene" uid="uid://b2curoutqhb3c" path="res://Levels/canvas_layer.tscn" id="4_vfqvr"]
-[ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="5_vgtqn"]
-[ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="6_2bcxo"]
-[ext_resource type="PackedScene" uid="uid://swq672klppy0" path="res://Entities/Enemy/Enemy.tscn" id="7_rewjw"]
+[ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_rlu55"]
+[ext_resource type="PackedScene" uid="uid://duuslj8cggp2b" path="res://Levels/Background.tscn" id="2_iigcs"]
+[ext_resource type="Texture2D" uid="uid://b4oxxnktsork2" path="res://Assets/Actual/Reflection_BG_Shinmyoumaru-Adventure_Landscape_5.png" id="3_66afw"]
+[ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="4_eyedv"]
+[ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="5_iihho"]
+[ext_resource type="PackedScene" uid="uid://b2curoutqhb3c" path="res://Levels/canvas_layer.tscn" id="6_435tp"]
+[ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="7_56f4y"]
+[ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="8_cl5ea"]
+[ext_resource type="PackedScene" uid="uid://swq672klppy0" path="res://Entities/Enemy/Enemy.tscn" id="9_dccbj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xe7y7"]
 size = Vector2(96, 400)
@@ -17,30 +17,31 @@ size = Vector2(96, 400)
 size = Vector2(96, 400)
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_4vpaa")
+script = ExtResource("1_rlu55")
+next_level_path = "res://Levels/Main/13.tscn"
 
-[node name="Background" parent="." instance=ExtResource("2_81lsn")]
+[node name="Background" parent="." instance=ExtResource("2_iigcs")]
 offset_right = 1760.0
 offset_bottom = 990.0
-texture = ExtResource("3_mfqhq")
+texture = ExtResource("3_66afw")
 
-[node name="TileMapLayer" parent="." instance=ExtResource("2_crj0n")]
+[node name="TileMapLayer" parent="." instance=ExtResource("4_eyedv")]
 tile_map_data = PackedByteArray("AAAAAAEAAwAFAAAAAAAAAAAAAwAFAAAAAAALAAAAAwAFAAAAAAAMAAAAAwAFAAAAAAANAAAAAwAFAAAAAAAVAAIAAwAFAAAAAAAVAAMAAwAFAAAAAAAVAAQAAwAFAAAAAAAVAAUAAwAFAAAAAAAVAAYAAwAFAAAAAAAVAAcAAwAFAAAAAAAVAAgAAwAFAAAAAAAVAAkAAwAFAAAAAAAVAAoAAwAFAAAAAAAAAAsAAwAFAAAAAAAAAAoAAwAFAAAAAAAAAAkAAwAFAAAAAAAAAAgAAwAFAAAAAAAAAAcAAwAFAAAAAAAAAAYAAwAFAAAAAAAAAAUAAwAFAAAAAAAAAAQAAwAFAAAAAAAAAAMAAwAFAAAAAAAAAAIAAwAFAAAAAAAHAAYAAgAAAAAAAQAGAAYAAgAAAAAAAQAFAAYAAgAAAAAAAQAEAAYAAgAAAAAAAQADAAYAAgAAAAAAAQACAAYAAgAAAAAAAQABAAYAAgAAAAAAAQAIAAYAAgAAAAAAAQAJAAYAAgAAAAAAAQAKAAYAAgAAAAAAAQABAP//AwAFAAAAAAACAP//AwAFAAAAAAADAP//AwAFAAAAAAAEAP//AwAFAAAAAAAFAP//AwAFAAAAAAAGAP//AwAFAAAAAAAHAP//AwAFAAAAAAAIAP//AwAFAAAAAAAJAP//AwAFAAAAAAAKAP//AwAFAAAAAAAAAP//AwAFAAAAAAALAAYAAgAAAAAAAQAMAAYAAgAAAAAAAQANAAYAAgAAAAAAAQAOAAYAAgAAAAAAAQAPAAYAAgAAAAAAAQAQAAYAAgAAAAAAAQARAAYAAgAAAAAAAQASAAYAAgAAAAAAAQATAAYAAgAAAAAAAQAUAAYAAgAAAAAAAQASAAIAAwAFAAAAAAATAAIAAwAFAAAAAAAUAAIAAwAFAAAAAAASAAoAAwAFAAAAAAATAAoAAwAFAAAAAAAUAAoAAwAFAAAAAAAOAAIAAwAFAAAAAAAPAAIAAwAFAAAAAAAPAAoAAwAFAAAAAAAOAAoAAwAFAAAAAAANAAsAAwAFAAAAAAARAAsAAwAFAAAAAAAOAAsAAwAFAAAAAAAQAAoAAwAFAAAAAAAQAAsAAwAFAAAAAAASAAsAAwAFAAAAAAAQAAIAAwAFAAAAAAAQAAEAAwAFAAAAAAARAAEAAwAFAAAAAAASAAEAAwAFAAAAAAAOAAEAAwAFAAAAAAANAAEAAwAFAAAAAAANAAwAAwAFAAAAAAAMAAwAAwAFAAAAAAALAAwAAwAFAAAAAAAKAAwAAwAFAAAAAAAJAAwAAwAFAAAAAAAIAAwAAwAFAAAAAAAAAAwAAwAFAAAAAAABAAoAAwAFAAAAAAAHAAoAAwAFAAAAAAAGAAoAAwAFAAAAAAAFAAoAAwAFAAAAAAAEAAoAAwAFAAAAAAADAAoAAwAFAAAAAAACAAoAAwAFAAAAAAABAAwAAwAFAAAAAAACAAwAAwAFAAAAAAADAAwAAwAFAAAAAAAEAAwAAwAFAAAAAAAFAAwAAwAFAAAAAAAGAAwAAwAFAAAAAAAHAAwAAwAFAAAAAAAHAAIAAwAFAAAAAAAGAAIAAwAFAAAAAAAFAAIAAwAFAAAAAAAEAAIAAwAFAAAAAAADAAIAAwAFAAAAAAACAAIAAwAFAAAAAAABAAIAAwAFAAAAAAA=")
 
-[node name="Player" parent="." instance=ExtResource("3_rif5q")]
+[node name="Player" parent="." instance=ExtResource("5_iihho")]
 position = Vector2(120, 120)
 
-[node name="Player2" parent="." instance=ExtResource("3_rif5q")]
+[node name="Player2" parent="." instance=ExtResource("5_iihho")]
 position = Vector2(120, 920)
 type = 1
 mirror_y = true
 
-[node name="CanvasLayer" parent="." instance=ExtResource("4_vfqvr")]
+[node name="CanvasLayer" parent="." instance=ExtResource("6_435tp")]
 
-[node name="Key" parent="." instance=ExtResource("5_vgtqn")]
+[node name="Key" parent="." instance=ExtResource("7_56f4y")]
 position = Vector2(200, 360)
 
-[node name="Door" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("6_2bcxo")]
+[node name="Door" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("8_cl5ea")]
 position = Vector2(880, 80)
 key_to_unlock = NodePath("../Key")
 
@@ -51,11 +52,11 @@ shape = SubResource("RectangleShape2D_xe7y7")
 [node name="TileMapLayer" parent="Door" index="1"]
 tile_map_data = PackedByteArray("AAAAAAAAAwACAAAAAAAAAAEAAwACAAAAAAAAAAIAAwACAAAAAAAAAAMAAwACAAAAAAAAAAQAAwACAAAAAAA=")
 
-[node name="Key2" parent="." instance=ExtResource("5_vgtqn")]
+[node name="Key2" parent="." instance=ExtResource("7_56f4y")]
 modulate = Color(0.55, 1, 0.8725, 1)
 position = Vector2(200, 680)
 
-[node name="Door2" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("6_2bcxo")]
+[node name="Door2" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("8_cl5ea")]
 position = Vector2(880, 560)
 key_to_unlock = NodePath("../Key2")
 
@@ -66,30 +67,30 @@ shape = SubResource("RectangleShape2D_goe88")
 [node name="TileMapLayer" parent="Door2" index="1"]
 tile_map_data = PackedByteArray("AAAAAAAAAwACAAAAAAAAAAEAAwACAAAAAAAAAAIAAwACAAAAAAAAAAMAAwACAAAAAAAAAAQAAwACAAAAAAA=")
 
-[node name="Enemy" parent="." instance=ExtResource("7_rewjw")]
+[node name="Enemy" parent="." instance=ExtResource("9_dccbj")]
 position = Vector2(1248, 272)
 SPEED = 50.0
 mirror_y = true
 
-[node name="Enemy2" parent="." instance=ExtResource("7_rewjw")]
+[node name="Enemy2" parent="." instance=ExtResource("9_dccbj")]
 position = Vector2(1248, 744)
 SPEED = 70.0
 initialDirection = 1
 
-[node name="Enemy3" parent="." instance=ExtResource("7_rewjw")]
+[node name="Enemy3" parent="." instance=ExtResource("9_dccbj")]
 position = Vector2(448, 272)
 mirror_y = true
 
-[node name="Enemy4" parent="." instance=ExtResource("7_rewjw")]
+[node name="Enemy4" parent="." instance=ExtResource("9_dccbj")]
 position = Vector2(448, 752)
 initialDirection = 1
 
-[node name="Enemy5" parent="." instance=ExtResource("7_rewjw")]
+[node name="Enemy5" parent="." instance=ExtResource("9_dccbj")]
 position = Vector2(1624, 272)
 initialDirection = 1
 mirror_y = true
 
-[node name="Enemy6" parent="." instance=ExtResource("7_rewjw")]
+[node name="Enemy6" parent="." instance=ExtResource("9_dccbj")]
 position = Vector2(1624, 744)
 SPEED = 50.0
 
