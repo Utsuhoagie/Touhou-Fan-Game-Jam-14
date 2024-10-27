@@ -21,6 +21,7 @@ func die() -> void:
 
 func _ready() -> void:
 	currentDirection = 1 if initialDirection == Direction.Right else -1
+	$Flippable/AnimatedSprite2D.play("default")
 
 	if mirror_y:
 		up_direction = Vector2.DOWN
