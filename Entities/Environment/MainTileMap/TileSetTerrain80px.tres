@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://rjvfsu52ina0"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://rjvfsu52ina0"]
 
 [ext_resource type="Texture2D" uid="uid://v3h226ddq4ro" path="res://Assets/Actual/Tileset1_80px.png" id="1_yfy8f"]
 [ext_resource type="PackedScene" uid="uid://bsuccekb77glj" path="res://Entities/Environment/Mirror/MirrorTileH.tscn" id="2_byvjn"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cytak6248jukk" path="res://Entities/Environment/Spike/SpikeU.tscn" id="4_k8l0j"]
 [ext_resource type="PackedScene" uid="uid://cfksjoy5r6p2s" path="res://Entities/Environment/Spike/SpikeL.tscn" id="5_5q2te"]
 [ext_resource type="PackedScene" uid="uid://bu5fwe8v2xvfx" path="res://Entities/Environment/Spike/SpikeR.tscn" id="6_x7dd4"]
+[ext_resource type="PackedScene" uid="uid://8l2skejebalg" path="res://Entities/Environment/Sign/sign.tscn" id="7_8h1oi"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_bmala"]
 scenes/1/scene = ExtResource("2_byvjn")
@@ -15,6 +16,7 @@ scenes/3/scene = ExtResource("3_ad5wt")
 scenes/4/scene = ExtResource("4_k8l0j")
 scenes/5/scene = ExtResource("5_5q2te")
 scenes/6/scene = ExtResource("6_x7dd4")
+scenes/7/scene = ExtResource("7_8h1oi")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xj0j"]
 texture = ExtResource("1_yfy8f")

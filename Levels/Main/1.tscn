@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=4 uid="uid://c00b05kw6mxsw"]
+[gd_scene load_steps=6 format=4 uid="uid://c00b05kw6mxsw"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_r3ko5"]
 [ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="2_2uowc"]
 [ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_bjbqe"]
+[ext_resource type="PackedScene" uid="uid://8l2skejebalg" path="res://Entities/Environment/Sign/sign.tscn" id="3_dnbjt"]
+[ext_resource type="PackedScene" uid="uid://cwvwk5oh8vwjx" path="res://Entities/Environment/Sign/help_popup.tscn" id="5_lmwjs"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_r3ko5")
@@ -10,6 +12,10 @@ next_level_path = "res://Levels/Main/2.tscn"
 
 [node name="TileMapLayer" parent="." instance=ExtResource("2_bjbqe")]
 tile_map_data = PackedByteArray("AAABAAEAAwAAAAAAAAABAAIAAwAAAAAAAAABAAMAAwAAAAAAAAABAAQAAwAAAAAAAAABAAUAAwAAAAAAAAABAAYAAwAAAAAAAAABAAcAAwAAAAAAAAABAAgAAwAAAAAAAAABAAkAAwAAAAAAAAABAAoAAwAAAAAAAAABAAsAAwAAAAAAAAACAAEAAwAAAAAAAAADAAEAAwAAAAAAAAAEAAEAAwAAAAAAAAAFAAEAAwAAAAAAAAAGAAEAAwAAAAAAAAAHAAEAAwAAAAAAAAAIAAEAAwAAAAAAAAAJAAEAAwAAAAAAAAAKAAEAAwAAAAAAAAALAAEAAwAAAAAAAAAMAAEAAwAAAAAAAAANAAEAAwAAAAAAAAAOAAEAAwAAAAAAAAAPAAEAAwAAAAAAAAAQAAEAAwAAAAAAAAARAAEAAwAAAAAAAAASAAEAAwAAAAAAAAATAAEAAwAAAAAAAAAUAAEAAwAAAAAAAAAUAAIAAwAAAAAAAAAUAAMAAwAAAAAAAAAUAAQAAwAAAAAAAAAUAAUAAwAAAAAAAAAUAAYAAwAAAAAAAAAUAAcAAwAAAAAAAAAUAAgAAwAAAAAAAAAUAAkAAwAAAAAAAAAUAAoAAwAAAAAAAAAUAAsAAwAAAAAAAAATAAsAAwAAAAAAAAASAAsAAwAAAAAAAAARAAsAAwAAAAAAAAAQAAsAAwAAAAAAAAAPAAsAAwAAAAAAAAAOAAsAAwAAAAAAAAANAAsAAwAAAAAAAAAMAAsAAwAAAAAAAAALAAsAAwAAAAAAAAAKAAsAAwAAAAAAAAAJAAsAAwAAAAAAAAAIAAsAAwAAAAAAAAAHAAsAAwAAAAAAAAAGAAsAAwAAAAAAAAAFAAsAAwAAAAAAAAAEAAsAAwAAAAAAAAADAAsAAwAAAAAAAAACAAsAAwAAAAAAAAATAAYAAgAAAAAAAQASAAYAAgAAAAAAAQACAAYAAwAAAAAAAAADAAYAAwAAAAAAAAAEAAYAAwAAAAAAAAAFAAYAAwAAAAAAAAAGAAYAAwAAAAAAAAAHAAYAAwAAAAAAAAAIAAYAAwAAAAAAAAAJAAYAAwAAAAAAAAAPAAYAAwAAAAAAAAAQAAYAAwAAAAAAAAARAAYAAwAAAAAAAAAOAAYAAwAAAAAAAAANAAYAAwAAAAAAAAAMAAYAAwAAAAAAAAALAAYAAwAAAAAAAAAKAAYAAwAAAAAAAAAHAAUAAwAAAAAAAAAIAAUAAwAAAAAAAAAJAAUAAwAAAAAAAAAJAAcAAwAAAAAAAAAIAAcAAwAAAAAAAAAHAAcAAwAAAAAAAAANAAUAAwAAAAAAAAAOAAUAAwAAAAAAAAAGAAUAAwAAAAAAAAAGAAcAAwAAAAAAAAAMAAUAAwAAAAAAAAARAAUAAwAAAAAAAAARAAcAAwAAAAAAAAAMAAQAAwAAAAAAAAANAAQAAwAAAAAAAAAOAAQAAwAAAAAAAAAMAAcAAwAAAAAAAAANAAcAAwAAAAAAAAAOAAcAAwAAAAAAAAAOAAgAAwAAAAAAAAANAAgAAwAAAAAAAAAMAAgAAwAAAAAAAAARAAQAAwAAAAAAAAARAAgAAwAAAAAAAAA=")
+
+[node name="Sign" parent="." node_paths=PackedStringArray("help_popup") instance=ExtResource("3_dnbjt")]
+position = Vector2(352, 448)
+help_popup = NodePath("../CanvasLayer/HelpPopup")
 
 [node name="Player" parent="." instance=ExtResource("2_2uowc")]
 position = Vector2(200, 360)
@@ -21,14 +27,10 @@ mirror_y = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="."]
-z_index = -1
-offset_left = 504.0
-offset_top = 264.0
-offset_right = 772.0
-offset_bottom = 345.0
-theme_override_font_sizes/font_size = 28
-text = "Arrow keys to move
-X to jump"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="HelpPopup" parent="CanvasLayer" instance=ExtResource("5_lmwjs")]
+visible = false
+help_text = "The objective of each level is to combine with your reflection (indicated by a lower transparency) at the mirror platform.
+
+Basic Controls:
+Left & Right Arrow Keys: Move left & right
+X: Jump"

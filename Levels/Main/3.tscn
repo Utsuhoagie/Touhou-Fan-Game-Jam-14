@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=4 uid="uid://cj4yt3bp3ieta"]
+[gd_scene load_steps=6 format=4 uid="uid://cj4yt3bp3ieta"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_y2rpy"]
 [ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="2_m2b0y"]
 [ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_x5rht"]
+[ext_resource type="PackedScene" uid="uid://8l2skejebalg" path="res://Entities/Environment/Sign/sign.tscn" id="4_owqqi"]
+[ext_resource type="PackedScene" uid="uid://cwvwk5oh8vwjx" path="res://Entities/Environment/Sign/help_popup.tscn" id="5_l28rk"]
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_y2rpy")
@@ -10,6 +12,10 @@ next_level_path = "res://Levels/Main/4.tscn"
 
 [node name="TileMapLayer" parent="." instance=ExtResource("2_x5rht")]
 tile_map_data = PackedByteArray("AAABAAEAAwAAAAAAAAABAAIAAwAAAAAAAAABAAMAAwAAAAAAAAABAAQAAwAAAAAAAAABAAUAAwAAAAAAAAABAAYAAwAAAAAAAAABAAcAAwAAAAAAAAABAAgAAwAAAAAAAAABAAkAAwAAAAAAAAABAAoAAwAAAAAAAAABAAsAAwAAAAAAAAACAAEAAwAAAAAAAAACAAsAAwAAAAAAAAADAAEAAwAAAAAAAAADAAsAAwAAAAAAAAAEAAEAAwAAAAAAAAAEAAsAAwAAAAAAAAAFAAEAAwAAAAAAAAAFAAsAAwAAAAAAAAAGAAEAAwAAAAAAAAAGAAsAAwAAAAAAAAAHAAEAAwAAAAAAAAAHAAsAAwAAAAAAAAAIAAEAAwAAAAAAAAAIAAsAAwAAAAAAAAAJAAEAAwAAAAAAAAAJAAsAAwAAAAAAAAAKAAEAAwAAAAAAAAAKAAsAAwAAAAAAAAALAAEAAwAAAAAAAAALAAsAAwAAAAAAAAAMAAEAAwAAAAAAAAAMAAsAAwAAAAAAAAANAAEAAwAAAAAAAAANAAsAAwAAAAAAAAAOAAEAAwAAAAAAAAAOAAsAAwAAAAAAAAAPAAEAAwAAAAAAAAAPAAsAAwAAAAAAAAAQAAEAAwAAAAAAAAAQAAsAAwAAAAAAAAARAAEAAwAAAAAAAAARAAsAAwAAAAAAAAASAAEAAwAAAAAAAAASAAsAAwAAAAAAAAATAAEAAwAAAAAAAAATAAsAAwAAAAAAAAATAAIAAwAAAAAAAAATAAMAAwAAAAAAAAATAAQAAwAAAAAAAAATAAUAAwAAAAAAAAATAAYAAwAAAAAAAAATAAcAAwAAAAAAAAATAAgAAwAAAAAAAAATAAkAAwAAAAAAAAATAAoAAwAAAAAAAAAKAAIAAgAAAAAAAgAKAAMAAwAAAAAAAAAKAAQAAwAAAAAAAAAKAAgAAwAAAAAAAAAKAAkAAwAAAAAAAAAKAAUAAwAAAAAAAAAKAAYAAwAAAAAAAAAKAAcAAwAAAAAAAAAKAAoAAwAAAAAAAAAJAAgAAwAAAAAAAAAJAAkAAwAAAAAAAAAJAAoAAwAAAAAAAAAIAAoAAwAAAAAAAAALAAgAAwAAAAAAAAALAAkAAwAAAAAAAAALAAoAAwAAAAAAAAAMAAoAAwAAAAAAAAAEAAoAAwABAAEAAAAFAAoAAwABAAEAAAAGAAoAAwABAAEAAAAHAAoAAwABAAEAAAANAAoAAwABAAEAAQAOAAoAAwABAAEAAQAPAAoAAwABAAEAAQAQAAoAAwABAAEAAQAHAAcAAwABAAEAAQAGAAcAAwABAAEAAQAPAAcAAwABAAEAAAAQAAcAAwABAAEAAAARAAcAAwABAAEAAAAEAAQAAwABAAEAAAAFAAQAAwABAAEAAAAGAAQAAwABAAEAAAAHAAQAAwABAAEAAAAIAAQAAwABAAEAAAACAAYAAwAAAAAAAAAMAAQAAwABAAEAAQANAAQAAwABAAEAAQAOAAQAAwABAAEAAQAPAAQAAwABAAEAAQAQAAQAAwABAAEAAQASAAYAAwAAAAAAAAADAAcAAwABAAEAAAAEAAcAAwABAAEAAAAFAAcAAwABAAEAAAANAAcAAwABAAEAAAAOAAcAAwABAAEAAAA=")
+
+[node name="Sign" parent="." node_paths=PackedStringArray("help_popup") instance=ExtResource("4_owqqi")]
+position = Vector2(280, 840)
+help_popup = NodePath("../CanvasLayer/HelpPopup")
 
 [node name="Player" parent="." instance=ExtResource("2_m2b0y")]
 position = Vector2(200, 840)
@@ -20,3 +26,11 @@ type = 1
 mirror_x = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HelpPopup" parent="CanvasLayer" instance=ExtResource("5_l28rk")]
+visible = false
+offset_left = -600.0
+offset_top = -400.0
+offset_right = 600.0
+offset_bottom = 400.0
+help_text = "Convenyors move you and your reflections along a direction when standing on them. The arrows indicate the direction of movement."

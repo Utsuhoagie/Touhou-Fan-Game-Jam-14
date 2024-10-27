@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://8l2skejebalg"]
+
+[ext_resource type="Script" path="res://Entities/Environment/Sign/sign.gd" id="1_uxwfp"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jnfmw"]
+size = Vector2(80, 80)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_egfxo"]
+radius = 40.7922
+
+[node name="Sign" type="Area2D"]
+collision_layer = 32
+script = ExtResource("1_uxwfp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_jnfmw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_egfxo")
+
+[node name="Hint" type="Label" parent="."]
+offset_left = -48.0
+offset_top = -72.0
+offset_right = 47.0
+offset_bottom = -49.0
+text = "[Enter] Read"
