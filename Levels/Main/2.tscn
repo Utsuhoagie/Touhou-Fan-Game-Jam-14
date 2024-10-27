@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://bqt8fw24wjrb3"]
+[gd_scene load_steps=7 format=4 uid="uid://bqt8fw24wjrb3"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_roumr"]
 [ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_llg05"]
 [ext_resource type="PackedScene" uid="uid://8l2skejebalg" path="res://Entities/Environment/Sign/sign.tscn" id="2_sa8ux"]
 [ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="2_tdiqc"]
+[ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="5_d1ay7"]
 [ext_resource type="PackedScene" uid="uid://cwvwk5oh8vwjx" path="res://Entities/Environment/Sign/help_popup.tscn" id="5_yj2tg"]
 
 [node name="Level2" type="Node2D"]
@@ -30,10 +31,14 @@ position = Vector2(1632, 688)
 type = 1
 mirror_x = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" parent="." instance=ExtResource("5_d1ay7")]
 
 [node name="HelpPopup" parent="CanvasLayer" instance=ExtResource("5_yj2tg")]
 visible = false
+offset_left = -600.0
+offset_top = -400.0
+offset_right = 600.0
+offset_bottom = 400.0
 help_text = "Your reflections mirror your movement either horizontally, vertically or both.
 
 Press Q to restart if you happen to reach a dead end."
