@@ -42,12 +42,12 @@ func play_landing_sfx(tilemap: TileMapLayer, player_pos: Vector2) -> void:
 	var tile_of_interest_coords: Vector2i = tilemap.local_to_map(player_pos)
 	var floor_tile_data: TileData = tilemap.get_cell_tile_data(tile_of_interest_coords + Vector2i(0, 1))
 	
-	print(floor_tile_data.texture_origin)
+	# print(floor_tile_data.texture_origin)
 	
-	if floor_tile_data:
-		landing_sfx.play()
-	else:
+	if floor_tile_data.get_custom_data("Trampoline") == true:
 		trampoline_sfx.play()
+	else:
+		landing_sfx.play()
 	
 
 func play_attack_sfx() -> void:

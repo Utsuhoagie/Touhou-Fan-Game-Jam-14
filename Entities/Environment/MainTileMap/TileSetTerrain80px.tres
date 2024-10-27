@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cfksjoy5r6p2s" path="res://Entities/Environment/Spike/SpikeL.tscn" id="5_5q2te"]
 [ext_resource type="PackedScene" uid="uid://bu5fwe8v2xvfx" path="res://Entities/Environment/Spike/SpikeR.tscn" id="6_x7dd4"]
 [ext_resource type="PackedScene" uid="uid://8l2skejebalg" path="res://Entities/Environment/Sign/sign.tscn" id="7_8h1oi"]
-[ext_resource type="PackedScene" uid="uid://bo1nwb1rf6tff" path="res://Entities/Environment/OneWayPlatform.tscn" id="8_cg22e"]
+[ext_resource type="PackedScene" path="res://Entities/Environment/OneWayPlatform.tscn" id="8_cg22e"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_bmala"]
 scenes/1/scene = ExtResource("2_byvjn")
@@ -36,9 +36,11 @@ texture_region_size = Vector2i(80, 80)
 2:1/0 = 0
 2:1/0/physics_layer_0/linear_velocity = Vector2(0, -850)
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-40, -13.3333, 40, -13.3333, 40, 40, -40, 40)
+2:1/0/custom_data_0 = true
 3:1/0 = 0
 3:1/0/physics_layer_0/linear_velocity = Vector2(0, 850)
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-40, -40, 40, -40, 40, 13.3333, -40, 13.3333)
+3:1/0/custom_data_0 = true
 0:1/next_alternative_id = 2
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(-300, 0)
@@ -68,5 +70,7 @@ texture_region_size = Vector2i(80, 80)
 [resource]
 tile_size = Vector2i(80, 80)
 physics_layer_0/collision_layer = 32
+custom_data_layer_0/name = "Trampoline"
+custom_data_layer_0/type = 1
 sources/2 = SubResource("TileSetScenesCollectionSource_bmala")
 sources/3 = SubResource("TileSetAtlasSource_0xj0j")

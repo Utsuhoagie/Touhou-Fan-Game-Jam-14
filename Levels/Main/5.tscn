@@ -62,4 +62,13 @@ help_text = "Trampolines bounce you and your reflections up to platforms normall
 
 If you or any of your reflections hit a spike. you die."
 
+[connection signal="body_entered" from="TileMapLayer/SpikeD" to="TileMapLayer/SpikeD" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@353739" to="TileMapLayer/@Area2D@353739" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/SpikeU" to="TileMapLayer/SpikeU" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@353740" to="TileMapLayer/@Area2D@353740" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/SpikeR" to="TileMapLayer/SpikeR" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/SpikeL" to="TileMapLayer/SpikeL" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@353741" to="TileMapLayer/@Area2D@353741" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@353742" to="TileMapLayer/@Area2D@353742" method="_on_body_entered"]
+
 [editable path="Door"]
