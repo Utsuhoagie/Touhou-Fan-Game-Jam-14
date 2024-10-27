@@ -1,0 +1,212 @@
+[gd_scene load_steps=22 format=4 uid="uid://de2fg3eu5xqox"]
+
+[ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_mx5rn"]
+[ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_h6uoj"]
+[ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="3_pee67"]
+[ext_resource type="PackedScene" uid="uid://swq672klppy0" path="res://Entities/Enemy/Enemy.tscn" id="4_tf48c"]
+[ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="5_yqri4"]
+[ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="6_qxfmy"]
+[ext_resource type="Script" path="res://Entities/Enemy/Seija.gd" id="7_bxqwr"]
+[ext_resource type="Texture2D" uid="uid://v3h226ddq4ro" path="res://Assets/Actual/Tileset1_80px.png" id="8_8bh0k"]
+[ext_resource type="Texture2D" uid="uid://cyvtbl1s2vatx" path="res://Assets/Actual/Reflection_Sprite_Seija-Sheet.png" id="8_fg3ag"]
+[ext_resource type="PackedScene" uid="uid://b2curoutqhb3c" path="res://Levels/canvas_layer.tscn" id="9_4ajn6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pgdq"]
+size = Vector2(88, 168)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwqbf"]
+size = Vector2(88, 168)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7jkt"]
+radius = 104.307
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2rml"]
+atlas = ExtResource("8_fg3ag")
+region = Rect2(0, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5387"]
+atlas = ExtResource("8_fg3ag")
+region = Rect2(240, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa32s"]
+atlas = ExtResource("8_fg3ag")
+region = Rect2(480, 0, 240, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ue32h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2rml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5387")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oa32s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5387")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ve35"]
+size = Vector2(400, 480)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_korw1"]
+radius = 167.045
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1dq4"]
+atlas = ExtResource("8_8bh0k")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_71qp5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1dq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1dq4")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Seija Level" type="Node2D"]
+script = ExtResource("1_mx5rn")
+
+[node name="TileMapLayer" parent="." instance=ExtResource("2_h6uoj")]
+position = Vector2(-40, 0)
+tile_map_data = PackedByteArray("AAAEAAIAAgAAAAAABgAEAAMAAgAAAAAABgADAAIAAwADAAEAAAAHAAIAAwADAAEAAAAQAAcAAgAAAAAABAARAAcAAgAAAAAABAAUAAoAAwACAAEAAAAUAAUAAwADAAEAAAAQAAoAAwAAAAEAAQARAAoAAwAAAAEAAQAFAAoAAwABAAEAAwAGAAoAAwABAAEAAwAOAAkAAwAFAAAAAAAOAAgAAwAFAAAAAAAOAAcAAwAFAAAAAAAOAAYAAwAFAAAAAAAOAAUAAwAFAAAAAAAOAAQAAwAFAAAAAAAOAAMAAwAFAAAAAAAOAAIAAwAFAAAAAAAOAAEAAwAFAAAAAAAIAAEAAwAFAAAAAAAHAAEAAwAFAAAAAAAGAAEAAwAFAAAAAAAFAAEAAwAFAAAAAAAEAAEAAwAFAAAAAAADAAEAAwAFAAAAAAACAAEAAwAFAAAAAAABAAEAAwAFAAAAAAABAAIAAwAFAAAAAAABAAMAAwAFAAAAAAABAAQAAwAFAAAAAAABAAUAAwAFAAAAAAABAAYAAwAFAAAAAAABAAcAAwAFAAAAAAABAAgAAwAFAAAAAAABAAkAAwAFAAAAAAABAAoAAwAFAAAAAAABAAsAAwAFAAAAAAACAAsAAwAFAAAAAAADAAsAAwAFAAAAAAAEAAsAAwAFAAAAAAAFAAsAAwAFAAAAAAAGAAsAAwAFAAAAAAAHAAsAAwAFAAAAAAAIAAsAAwAFAAAAAAAIAAoAAwAFAAAAAAAIAAkAAwAFAAAAAAAIAAgAAwAFAAAAAAAIAAcAAwAFAAAAAAAIAAYAAwAFAAAAAAAIAAUAAwAFAAAAAAAIAAQAAwAFAAAAAAAIAAMAAwAFAAAAAAAIAAIAAwAFAAAAAAAHAAgAAwAFAAAAAAAJAAsAAwAFAAAAAAAKAAsAAwAFAAAAAAALAAsAAwAFAAAAAAALAAoAAwAFAAAAAAALAAkAAwAFAAAAAAALAAgAAwAFAAAAAAALAAcAAwAFAAAAAAALAAYAAwAFAAAAAAALAAUAAwAFAAAAAAAMAAsAAwAFAAAAAAANAAsAAwAFAAAAAAAOAAsAAwAFAAAAAAAOAAoAAwAFAAAAAAAPAAsAAwAFAAAAAAAQAAsAAwAFAAAAAAARAAsAAwAFAAAAAAASAAsAAwAFAAAAAAATAAsAAwAFAAAAAAAUAAsAAwAFAAAAAAAVAAsAAwAFAAAAAAAVAAoAAwAFAAAAAAAVAAUAAwAFAAAAAAAVAAQAAwAFAAAAAAAVAAMAAwAFAAAAAAAVAAIAAwAFAAAAAAAVAAEAAwAFAAAAAAAUAAEAAwAFAAAAAAATAAEAAwAFAAAAAAASAAEAAwAFAAAAAAARAAEAAwAFAAAAAAAQAAEAAwAFAAAAAAAPAAEAAwAFAAAAAAAUAAQAAwAFAAAAAAATAAQAAwAFAAAAAAATAAMAAwABAAEAAwASAAMAAwABAAEAAwARAAMAAwABAAEAAwAQAAMAAwABAAEAAwAQAAQAAwAFAAAAAAAQAAUAAwAFAAAAAAAQAAYAAwAFAAAAAAARAAYAAwAFAAAAAAASAAYAAwAFAAAAAAASAAcAAwAFAAAAAAATAAcAAwAFAAAAAAACAAgAAwAFAAAAAAACAAQAAwAFAAAAAAAFAAIAAwAFAAAAAAAFAAMAAwAFAAAAAAAFAAQAAwAFAAAAAAAGAAQAAwAFAAAAAAAGAAUAAwAFAAAAAAAGAAYAAwAFAAAAAAAFAAYAAwAFAAAAAAAEAAYAAwAFAAAAAAADAAYAAwAFAAAAAAAEAAcAAwAFAAAAAAAEAAgAAwAFAAAAAAAVAAYAAwAFAAAAAAAVAAcAAwAFAAAAAAAVAAgAAwAFAAAAAAAVAAkAAwAFAAAAAAAKAAgAAwAFAAEAAAAMAAgAAwAFAAEAAAAMAAoAAwACAAEAAAAKAAoAAwACAAEAAAAJAAgAAwAFAAEAAAAJAAYAAwAFAAEAAAANAAYAAwAFAAEAAAANAAgAAwAFAAEAAAAMAAYAAwAFAAAAAAAKAAYAAwAFAAAAAAAEAAoAAwABAAEAAwADAAoAAwABAAEAAwACAAoAAwABAAEAAwA=")
+
+[node name="Player" parent="." instance=ExtResource("3_pee67")]
+position = Vector2(720, 840)
+
+[node name="Player2" parent="." instance=ExtResource("3_pee67")]
+position = Vector2(1040, 840)
+type = 1
+mirror_x = true
+
+[node name="Player3" parent="." instance=ExtResource("3_pee67")]
+position = Vector2(168, 208)
+type = 1
+mirror_y = true
+
+[node name="Player4" parent="." instance=ExtResource("3_pee67")]
+position = Vector2(1592, 224)
+type = 1
+mirror_x = true
+
+[node name="Enemy" parent="." instance=ExtResource("4_tf48c")]
+position = Vector2(408, 424)
+SPEED = 15.0
+initialDirection = 1
+
+[node name="Enemy2" parent="." instance=ExtResource("4_tf48c")]
+position = Vector2(280, 792)
+SPEED = 350.0
+
+[node name="Enemy3" parent="." instance=ExtResource("4_tf48c")]
+position = Vector2(1344, 240)
+SPEED = 350.0
+
+[node name="Enemy4" parent="." instance=ExtResource("4_tf48c")]
+position = Vector2(1520, 792)
+
+[node name="Key" parent="." instance=ExtResource("5_yqri4")]
+position = Vector2(480, 280)
+
+[node name="Door" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("6_qxfmy")]
+position = Vector2(440, 720)
+key_to_unlock = NodePath("../Key")
+
+[node name="KeyDetect" parent="Door" index="0"]
+position = Vector2(116, 76)
+shape = SubResource("RectangleShape2D_5pgdq")
+
+[node name="TileMapLayer" parent="Door" index="1"]
+tile_map_data = PackedByteArray("AAABAAAAAwACAAAAAAACAAAAAwACAAAAAAADAAAAAwACAAAAAAAEAAAAAwACAAAAAAABAAEAAwACAAAAAAA=")
+
+[node name="Key2" parent="." instance=ExtResource("5_yqri4")]
+modulate = Color(1, 0.4, 0.4, 1)
+position = Vector2(1400, 384)
+
+[node name="Door2" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("6_qxfmy")]
+position = Vector2(920, 720)
+key_to_unlock = NodePath("../Key2")
+
+[node name="KeyDetect" parent="Door2" index="0"]
+position = Vector2(284, 76)
+shape = SubResource("RectangleShape2D_dwqbf")
+
+[node name="TileMapLayer" parent="Door2" index="1"]
+tile_map_data = PackedByteArray("AAAAAAAAAwACAAAAAAABAAAAAwACAAAAAAACAAAAAwACAAAAAAADAAAAAwACAAAAAAADAAEAAwACAAAAAAA=")
+
+[node name="Seija" type="Area2D" parent="." groups=["enemies"]]
+position = Vector2(880, 280)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("7_bxqwr")
+HP = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seija"]
+shape = SubResource("CircleShape2D_b7jkt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Seija"]
+sprite_frames = SubResource("SpriteFrames_ue32h")
+
+[node name="Timer" type="Timer" parent="Seija"]
+wait_time = 4.0
+
+[node name="Detect Player" type="Area2D" parent="Seija"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seija/Detect Player"]
+position = Vector2(0, 120)
+shape = SubResource("RectangleShape2D_4ve35")
+
+[node name="Hitbox" type="Area2D" parent="Seija"]
+collision_layer = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seija/Hitbox"]
+shape = SubResource("CircleShape2D_korw1")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Seija/Hitbox"]
+visible = false
+scale = Vector2(4.1, 4.1)
+sprite_frames = SubResource("SpriteFrames_71qp5")
+
+[node name="Control" type="Control" parent="Seija"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -160.0
+offset_right = 40.0
+offset_bottom = -120.0
+
+[node name="HPBar" type="ProgressBar" parent="Seija/Control"]
+layout_mode = 0
+offset_left = -160.0
+offset_right = 160.0
+offset_bottom = 27.0
+step = 1.0
+show_percentage = false
+
+[node name="CanvasLayer" parent="." instance=ExtResource("9_4ajn6")]
+
+[connection signal="body_entered" from="TileMapLayer/SpikeR" to="TileMapLayer/SpikeR" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@232228" to="TileMapLayer/@Area2D@232228" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/SpikeU" to="TileMapLayer/SpikeU" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@232229" to="TileMapLayer/@Area2D@232229" method="_on_body_entered"]
+[connection signal="body_entered" from="Seija" to="Seija" method="_on_body_entered"]
+[connection signal="body_entered" from="Seija/Detect Player" to="Seija" method="_on_detect_player_body_entered"]
+[connection signal="body_entered" from="Seija/Hitbox" to="Seija" method="_on_hitbox_body_entered"]
+[connection signal="animation_finished" from="Seija/Hitbox/AnimatedSprite2D" to="Seija" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="Seija/Hitbox/AnimatedSprite2D" to="Seija" method="_on_animated_sprite_2d_frame_changed"]
+
+[editable path="Door"]
+[editable path="Door2"]
