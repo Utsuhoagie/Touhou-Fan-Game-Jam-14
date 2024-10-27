@@ -153,5 +153,6 @@ visible = false
 scale = Vector2(1.667, 1.667)
 sprite_frames = SubResource("SpriteFrames_8tq0v")
 
+[connection signal="area_entered" from="Flippable/Hitbox" to="Flippable/Hitbox" method="_on_area_entered"]
 [connection signal="body_entered" from="Flippable/Hitbox" to="Flippable/Hitbox" method="_on_body_entered"]
 [connection signal="animation_finished" from="Flippable/Hitbox/AnimatedSprite2D" to="Flippable/Hitbox" method="_on_animated_sprite_2d_animation_finished"]

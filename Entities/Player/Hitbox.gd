@@ -19,3 +19,9 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Enemy:
 		var enemy: Enemy = body
 		enemy.die()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area is Seija:
+		var seija: Seija = area
+		seija.take_damage()
