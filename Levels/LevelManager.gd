@@ -58,6 +58,7 @@ func _check_win_condition() -> void:
 	var win_popup := win_popup_scene.instantiate()
 	win_popup.return_to_menu.connect(_return_to_menu)
 	win_popup.to_next_level.connect(_load_next_level)
+	LevelBGMManager.play_level_complete_sfx()
 
 	canvas_layer.add_child(win_popup)
 	if not next_level_path:
@@ -83,10 +84,11 @@ func _win_after_Seija_die() -> void:
 	# ideally i want the mirrors to deactivate and the player
 	# to lose control of the character, but i'll just put this for now
 	get_tree().paused = true
-
+	
 
 func reset_level() -> void:
 	get_tree().paused = false
+	LevelBGMManager.play_death_sfx()
 	animation_player.play("transition_out")
 	await animation_player.animation_finished
 	

@@ -12,6 +12,7 @@ var level_button_scene = preload("res://Menus/level_button.tscn")
 
 func _ready() -> void:
 	back_button.pressed.connect(_return_to_main_menu)
+	back_button.focus_entered.connect(LevelBGMManager.play_button_hover_sfx)
 	
 	levels_dir.list_dir_begin()
 	var level_file_name = levels_dir.get_next()
@@ -33,6 +34,7 @@ func _ready() -> void:
 	
 
 func _return_to_main_menu() -> void:
+	LevelBGMManager.play_button_select_sfx()
 	self.queue_free()
 	
 

@@ -5,17 +5,14 @@ signal level_selected(chosen_level_path: String)
 
 @export_file var level_path: String
 
-@onready var select_sfx: AudioStreamPlayer2D = $SelectSFX
-@onready var hover_sfx: AudioStreamPlayer2D = $HoverSFX
-
 func _ready() -> void:
 	self.pressed.connect(_level_selected)
-	self.focus_entered.connect(hover_sfx.play)
+	self.focus_entered.connect(LevelBGMManager.play_button_hover_sfx)
 	
 
 func _level_selected() -> void:
 	print_debug("Player has selected level: " + level_path)
 	
-	select_sfx.play()
+	LevelBGMManager.play_enter_level_sfx()
 	level_selected.emit(level_path)
 	

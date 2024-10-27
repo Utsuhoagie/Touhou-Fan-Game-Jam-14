@@ -1,7 +1,7 @@
 extends CanvasLayer
 class_name MainMenu
 
-@onready var button_hover_sfx: AudioStreamPlayer2D = $ButtonHoverSFX
+
 @onready var contents: Control = $Contents
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var play_button: Button = %PlayButton
@@ -16,9 +16,9 @@ func _ready() -> void:
 	settings_button.pressed.connect(_enter_settings)
 	exit_button.pressed.connect(_exit_game)
 	
-	play_button.focus_entered.connect(button_hover_sfx.play)
-	settings_button.focus_entered.connect(button_hover_sfx.play)
-	exit_button.focus_entered.connect(button_hover_sfx.play)
+	play_button.focus_entered.connect(LevelBGMManager.play_button_hover_sfx)
+	settings_button.focus_entered.connect(LevelBGMManager.play_button_hover_sfx)
+	exit_button.focus_entered.connect(LevelBGMManager.play_button_hover_sfx)
 	
 	animation_player.play("transition_in")
 	await animation_player.animation_finished
@@ -32,6 +32,7 @@ func _enter_level_select() -> void:
 	
 	level_select.tree_exited.connect(_return_to_main_menu)
 	contents.hide()
+	LevelBGMManager.play_button_select_sfx()
 	
 
 func _enter_settings() -> void:
@@ -40,9 +41,11 @@ func _enter_settings() -> void:
 	
 	settings.tree_exited.connect(_return_to_main_menu)
 	contents.hide()
+	LevelBGMManager.play_button_select_sfx()
 	
 
 func _exit_game() -> void:
+	LevelBGMManager.play_button_select_sfx()
 	get_tree().quit()
 	
 

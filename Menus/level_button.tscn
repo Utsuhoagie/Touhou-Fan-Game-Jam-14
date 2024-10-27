@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwb5xg5e7cxp4"]
+[gd_scene load_steps=2 format=3 uid="uid://cwb5xg5e7cxp4"]
 
 [ext_resource type="Script" path="res://Menus/level_button.gd" id="1_db36u"]
-[ext_resource type="AudioStream" uid="uid://6y4in3vqdo4e" path="res://Assets/Actual/sfx/select_001.ogg" id="2_v18fy"]
-[ext_resource type="AudioStream" uid="uid://4t1s6emlga10" path="res://Assets/Actual/sfx/click1.ogg" id="3_2mxsx"]
 
 [node name="LevelButton" type="Button"]
 custom_minimum_size = Vector2(200, 0)
@@ -11,10 +9,3 @@ offset_bottom = 8.0
 theme_override_font_sizes/font_size = 64
 text = "x"
 script = ExtResource("1_db36u")
-
-[node name="SelectSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_v18fy")
-
-[node name="HoverSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_2mxsx")
-max_polyphony = 5

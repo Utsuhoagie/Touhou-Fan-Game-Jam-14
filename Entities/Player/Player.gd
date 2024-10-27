@@ -26,8 +26,6 @@ var inventory: Array = []
 @onready var Flippable := $Flippable
 @onready var AnimSprite := $Flippable/AnimatedSprite2D
 @onready var Hitbox := $Flippable/Hitbox
-@onready var footstep_sfx: AudioStreamPlayer2D = $FootstepSFX
-@onready var jump_sfx: AudioStreamPlayer2D = $JumpSFX
 
 
 func _ready() -> void:
@@ -55,7 +53,8 @@ func _physics_process(delta: float) -> void:
 
 	if (Input.is_action_just_pressed("Jump")
 	and (was_on_floor or not coyote_timer.is_stopped())):
-		jump_sfx.play()
+		if type == PlayerType.Main:
+			LevelBGMManager.play_jump_sfx()
 		
 		velocity.y = JUMP_VELOCITY
 		if mirror_y:
@@ -68,15 +67,20 @@ func _physics_process(delta: float) -> void:
 	
 	_handle_direction(delta)
 	
-	if was_on_floor and velocity.x != 0 and not footstep_sfx.playing:
-		footstep_sfx.play()
-	if not was_on_floor or (velocity.x == 0 and footstep_sfx.playing):
-		footstep_sfx.stop()
+	if was_on_floor and velocity.x != 0 and type == PlayerType.Main:
+		LevelBGMManager.play_footstep_sfx()
+	if not was_on_floor or velocity.x == 0 and type == PlayerType.Main:
+		LevelBGMManager.stop_footstep_sfx()
 	
 	move_and_slide()
 	
 	if was_on_floor and not is_on_floor():
 		coyote_timer.start()
+	if not was_on_floor and is_on_floor() and type == PlayerType.Main:
+		LevelBGMManager.play_landing_sfx(
+			self.get_parent().find_child("TileMapLayer", false),
+			self.global_position
+		)
 	
 
 func _handle_direction(delta: float) -> void:

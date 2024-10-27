@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbuxgumy46lbi"]
+[gd_scene load_steps=7 format=3 uid="uid://dbuxgumy46lbi"]
 
 [ext_resource type="Script" path="res://Menus/main_menu.gd" id="1_erbvp"]
 [ext_resource type="Texture2D" uid="uid://c8cejp41q81r5" path="res://Assets/Actual/Reflection_BG_Shinmyoumaru-Adventure_Landscape.png" id="2_5fiqu"]
 [ext_resource type="AudioStream" uid="uid://c6qnlvc4j1b7q" path="res://Assets/Actual/bgm/Main Menu v2.ogg" id="3_hx35f"]
-[ext_resource type="AudioStream" uid="uid://4t1s6emlga10" path="res://Assets/Actual/sfx/click1.ogg" id="4_6vysw"]
 
 [sub_resource type="Animation" id="Animation_txjju"]
 length = 0.001
@@ -116,6 +115,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
 libraries = {
 "": SubResource("AnimationLibrary_70jrn")
 }
@@ -123,7 +123,3 @@ libraries = {
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_hx35f")
 autoplay = true
-
-[node name="ButtonHoverSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_6vysw")
-max_polyphony = 5
