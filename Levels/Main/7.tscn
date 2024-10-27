@@ -28,12 +28,12 @@ key_to_unlock = NodePath("../Key")
 position = Vector2(1400, 360)
 shape = SubResource("RectangleShape2D_yac10")
 
+[node name="TileMapLayer" parent="Door" index="1"]
+tile_map_data = PackedByteArray("AAAQAAQAAwACAAAAAAARAAQAAwACAAAAAAASAAQAAwACAAAAAAATAAcAAwACAAAAAAA=")
+
 [node name="KeyDetect2" type="CollisionShape2D" parent="Door"]
 position = Vector2(1560, 600)
 shape = SubResource("RectangleShape2D_ih1uf")
-
-[node name="TileMapLayer" parent="Door" index="2"]
-tile_map_data = PackedByteArray("AAAQAAQAAwACAAAAAAARAAQAAwACAAAAAAASAAQAAwACAAAAAAATAAcAAwACAAAAAAA=")
 
 [node name="Enemy" parent="." instance=ExtResource("4_5yioe")]
 position = Vector2(544, 832)
