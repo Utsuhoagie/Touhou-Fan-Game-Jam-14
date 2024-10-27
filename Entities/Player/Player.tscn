@@ -1,9 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://jatj3h6ab7h7"]
+[gd_scene load_steps=25 format=3 uid="uid://jatj3h6ab7h7"]
 
 [ext_resource type="Script" path="res://Entities/Player/Player.gd" id="1_n6ecm"]
 [ext_resource type="Texture2D" uid="uid://biond8xw3jdxl" path="res://Assets/Actual/Reflection_Sprite_Shinmyoumaru-Sheet.png" id="2_jko1j"]
-[ext_resource type="Texture2D" uid="uid://dij4823o0lqa7" path="res://Assets/Pixel Platformer/Tilemap/tilemap_packed.png" id="3_s4ilj"]
 [ext_resource type="Script" path="res://Entities/Player/Hitbox.gd" id="3_ywt3x"]
+[ext_resource type="Texture2D" uid="uid://dpyiwakv2y3ve" path="res://Assets/Actual/Shinmyoumaru_Adventure_Attack-Sheet.png" id="4_0tdy1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xd06t"]
 size = Vector2(40, 56)
@@ -92,19 +92,70 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_cvqsd"]
 radius = 40.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yd0ph"]
-atlas = ExtResource("3_s4ilj")
-region = Rect2(288, 192, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl5s8"]
+atlas = ExtResource("4_0tdy1")
+region = Rect2(0, 0, 160, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bhbd"]
+atlas = ExtResource("4_0tdy1")
+region = Rect2(0, 80, 160, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c70qj"]
+atlas = ExtResource("4_0tdy1")
+region = Rect2(0, 160, 160, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogek3"]
+atlas = ExtResource("4_0tdy1")
+region = Rect2(0, 240, 160, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joj1t"]
+atlas = ExtResource("4_0tdy1")
+region = Rect2(0, 320, 160, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32ych"]
+atlas = ExtResource("4_0tdy1")
+region = Rect2(0, 400, 160, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fslmf"]
+atlas = ExtResource("4_0tdy1")
+region = Rect2(0, 480, 160, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8tq0v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yd0ph")
+"texture": SubResource("AtlasTexture_cl5s8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bhbd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c70qj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c70qj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogek3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogek3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joj1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joj1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32ych")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fslmf")
 }],
 "loop": false,
 "name": &"default",
-"speed": 5.0
+"speed": 16.0
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["players"]]
@@ -136,8 +187,7 @@ sprite_frames = SubResource("SpriteFrames_26esl")
 animation = &"walk"
 
 [node name="Hitbox" type="Area2D" parent="Flippable"]
-position = Vector2(72, 0)
-rotation = 1.5708
+position = Vector2(96, 0)
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("3_ywt3x")
@@ -148,9 +198,12 @@ disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flippable/Hitbox"]
 visible = false
-scale = Vector2(1.667, 1.667)
+position = Vector2(-32, 0)
 sprite_frames = SubResource("SpriteFrames_8tq0v")
+frame = 9
+frame_progress = 1.0
 
 [connection signal="area_entered" from="Flippable/Hitbox" to="Flippable/Hitbox" method="_on_area_entered"]
 [connection signal="body_entered" from="Flippable/Hitbox" to="Flippable/Hitbox" method="_on_body_entered"]
 [connection signal="animation_finished" from="Flippable/Hitbox/AnimatedSprite2D" to="Flippable/Hitbox" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="Flippable/Hitbox/AnimatedSprite2D" to="Flippable/Hitbox" method="_on_animated_sprite_2d_frame_changed"]
