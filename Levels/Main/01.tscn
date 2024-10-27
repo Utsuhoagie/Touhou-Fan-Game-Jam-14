@@ -10,7 +10,7 @@
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_r3ko5")
-next_level_path = "res://Levels/Main/2.tscn"
+next_level_path = "res://Levels/Main/02.tscn"
 
 [node name="TextureRect" parent="." instance=ExtResource("2_wtuv3")]
 

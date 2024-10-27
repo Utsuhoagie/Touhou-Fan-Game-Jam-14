@@ -1,5 +1,32 @@
 [gd_scene load_steps=5 format=3 uid="uid://b52qa8gdinhd6"]
 
+[sub_resource type="Animation" id="Animation_jo03h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_y55vs"]
 resource_name = "transition_in"
 length = 0.25
@@ -56,33 +83,6 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_jo03h"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6s3gv"]
 _data = {
 "RESET": SubResource("Animation_jo03h"),
@@ -92,16 +92,30 @@ _data = {
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
-[node name="Inventory" type="HBoxContainer" parent="."]
-unique_name_in_owner = true
-offset_right = 52.0
-offset_bottom = 48.0
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 632.0
+offset_bottom = 120.0
 
-[node name="Label" type="Label" parent="Inventory"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 12
+
+[node name="Inventory" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/Inventory"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Items:"
 
-[node name="TextureRect" type="TextureRect" parent="Inventory"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/Inventory"]
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]

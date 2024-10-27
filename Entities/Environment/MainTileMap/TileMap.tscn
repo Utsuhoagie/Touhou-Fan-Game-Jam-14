@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgod1ait53ckn"]
-
-[ext_resource type="TileSet" uid="uid://b6bgx0g1jjw4a" path="res://Entities/Environment/MainTileMap/TileSetTerrain.tres" id="1_st2qx"]
-
-[node name="TileMap" type="TileMapLayer"]
-tile_set = ExtResource("1_st2qx")

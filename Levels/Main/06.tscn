@@ -11,7 +11,7 @@
 
 [node name="Level6" type="Node2D"]
 script = ExtResource("1_aa1c6")
-next_level_path = "res://Levels/Main/7.tscn"
+next_level_path = "res://Levels/Main/07.tscn"
 
 [node name="Background" parent="." instance=ExtResource("2_pgmvd")]
 offset_right = 1760.0
@@ -71,6 +71,6 @@ offset_left = -600.0
 offset_top = -400.0
 offset_right = 600.0
 offset_bottom = 400.0
-help_text = "Some levels contain enemies that roam around platforms and must be cleared out in order to proceed. Press Z to use your Miracle Mallet to attack them.
+help_text = "Some levels contain enemies that roam around platforms and must be cleared out in order to proceed. Press Z to use your needle to attack them.
 
 (P.S.: a reminder that you can press Q to restart)"

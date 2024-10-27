@@ -1,30 +1,30 @@
-[gd_scene load_steps=5 format=4 uid="uid://bc7lag10c7wgf"]
+[gd_scene load_steps=7 format=4 uid="uid://bc7lag10c7wgf"]
 
-[ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_36ptk"]
-[ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_xaryw"]
-[ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="6_1bkl5"]
-[ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="7_ks4bx"]
+[ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_sqjbb"]
+[ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_7fljl"]
+[ext_resource type="PackedScene" path="res://Levels/Background.tscn" id="2_bcyn4"]
+[ext_resource type="Texture2D" uid="uid://cf5bhi6rsvjkb" path="res://Assets/Actual/Reflection_BG_Shinmyoumaru-Adventure_Landscape_3.png" id="3_3hsxg"]
+[ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="3_rwoej"]
+[ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="4_ff77w"]
 
 [node name="LevelTemplate" type="Node2D"]
-script = ExtResource("1_36ptk")
-next_level_path = "res://Levels/Main/2.tscn"
+script = ExtResource("1_sqjbb")
+next_level_path = "res://Levels/Main/09.tscn"
 
-[node name="TileMapLayer" parent="." instance=ExtResource("2_xaryw")]
+[node name="Background" parent="." instance=ExtResource("2_bcyn4")]
+offset_right = 1760.0
+offset_bottom = 990.0
+texture = ExtResource("3_3hsxg")
+
+[node name="TileMapLayer" parent="." instance=ExtResource("2_7fljl")]
 tile_map_data = PackedByteArray("AAABAAEAAwAAAAAAAAABAAIAAwAEAAAAAAABAAMAAwAEAAAAAAABAAQAAwAEAAAAAAABAAUAAwAEAAAAAAABAAYAAwAEAAAAAAABAAcAAwAEAAAAAAABAAgAAwAEAAAAAAABAAkAAwAEAAAAAAABAAoAAwAEAAAAAAABAAsAAwAEAAAAAAACAAEAAwAAAAAAAAADAAEAAwAAAAAAAAAEAAEAAwAAAAAAAAAFAAEAAwAAAAAAAAAGAAEAAwAAAAAAAAAHAAEAAwAAAAAAAAAIAAEAAwAAAAAAAAAJAAEAAwAAAAAAAAAKAAEAAwAAAAAAAAALAAEAAwAAAAAAAAAMAAEAAwAAAAAAAAANAAEAAwAAAAAAAAAOAAEAAwAAAAAAAAAPAAEAAwAAAAAAAAAQAAEAAwAAAAAAAAARAAEAAwAAAAAAAAASAAEAAwAAAAAAAAATAAEAAwAAAAAAAAAUAAEAAwAAAAAAAAAUAAIAAwAEAAAAAAAUAAMAAwAEAAAAAAAUAAQAAwAEAAAAAAAUAAUAAwAEAAAAAAAUAAYAAwAEAAAAAAAUAAcAAwAEAAAAAAAUAAgAAwAEAAAAAAAUAAkAAwAEAAAAAAAUAAoAAwAEAAAAAAAUAAsAAwAEAAAAAAATAAsAAwAEAAAAAAASAAsAAwAEAAAAAAARAAsAAwAEAAAAAAAQAAsAAwAEAAAAAAAPAAsAAwAEAAAAAAAOAAsAAwAEAAAAAAANAAsAAwAEAAAAAAAMAAsAAwAEAAAAAAALAAsAAwAEAAAAAAAKAAsAAwAEAAAAAAAJAAsAAwAEAAAAAAAIAAsAAwAEAAAAAAAHAAsAAwAEAAAAAAAGAAsAAwAEAAAAAAAFAAsAAwAEAAAAAAAEAAsAAwAEAAAAAAADAAsAAwAAAAAAAAACAAsAAwAAAAAAAAAGAAIAAwAEAAAAAAAHAAIAAwAEAAAAAAACAAcAAgAAAAAAAQADAAcAAgAAAAAAAQAEAAcAAgAAAAAAAQAFAAcAAgAAAAAAAQAGAAcAAgAAAAAAAQAHAAcAAgAAAAAAAQAIAAcAAgAAAAAAAQAJAAcAAgAAAAAAAQAKAAcAAgAAAAAAAQALAAcAAgAAAAAAAQAMAAcAAgAAAAAAAQANAAcAAgAAAAAAAQAOAAcAAgAAAAAAAQAPAAcAAgAAAAAAAQAQAAcAAwAEAAAAAAASAAcAAwAEAAAAAAATAAcAAgAAAAAAAQAGAAoAAwAAAAAAAAAHAAoAAwAAAAAAAAAIAAoAAwAAAAAAAAAJAAoAAwAAAAAAAAAKAAoAAwAAAAAAAAALAAoAAwAAAAAAAAAFAAoAAwAAAAAAAAAFAAIAAwAEAAAAAAAIAAIAAwAEAAAAAAAJAAIAAwAEAAAAAAAKAAIAAwAEAAAAAAALAAIAAwAEAAAAAAAMAAIAAwAEAAAAAAAOAAIAAwAEAAAAAAAPAAIAAwAEAAAAAAAQAAIAAwAEAAAAAAARAAIAAwAEAAAAAAANAAIAAwAEAAAAAAAMAAoAAwAAAAAAAAANAAoAAwAAAAAAAAAOAAoAAwAAAAAAAAAPAAoAAwAAAAAAAAAQAAoAAwAAAAAAAAARAAoAAwAAAAAAAAAEAAIAAwAEAAAAAAASAAIAAwAEAAAAAAATAAIAAwAEAAAAAAAEAAoAAwAAAAAAAAAMAAMAAwAEAAAAAAANAAMAAwAEAAAAAAAOAAMAAwAEAAAAAAAPAAMAAwAEAAAAAAAQAAMAAwAEAAAAAAARAAMAAwAEAAAAAAASAAMAAwAEAAAAAAATAAMAAwAEAAAAAAASAAoAAwAAAAAAAAATAAoAAwAEAAAAAAABAAwAAwAEAAAAAAACAAwAAwAEAAAAAAADAAwAAwAEAAAAAAAEAAwAAwAEAAAAAAAFAAwAAwAEAAAAAAAGAAwAAwAEAAAAAAAHAAwAAwAEAAAAAAAIAAwAAwAEAAAAAAAJAAwAAwAEAAAAAAAKAAwAAwAEAAAAAAALAAwAAwAEAAAAAAAMAAwAAwAEAAAAAAANAAwAAwAEAAAAAAAOAAwAAwAEAAAAAAAPAAwAAwAEAAAAAAAQAAwAAwAEAAAAAAATAAwAAwAEAAAAAAAUAAwAAwAEAAAAAAASAAwAAwAEAAAAAAARAAwAAwAEAAAAAAAKAAMAAwAEAAAAAAALAAMAAwAEAAAAAAARAAQAAwAEAAAAAAASAAQAAwAEAAAAAAATAAQAAwAEAAAAAAAQAAQAAwAEAAAAAAATAAUAAwAEAAAAAAATAAkAAwAEAAAAAAAIAAkAAgAAAAAAAwAGAAMAAgAAAAAABAANAAQAAgAAAAAABAAOAAkAAgAAAAAAAwALAAkAAgAAAAAAAwAQAAgAAgAAAAAABAARAAcAAwAEAAAAAAA=")
 
-[node name="Player" parent="." instance=ExtResource("6_1bkl5")]
+[node name="Player" parent="." instance=ExtResource("3_rwoej")]
 position = Vector2(200, 843)
 
-[node name="Player2" parent="." instance=ExtResource("6_1bkl5")]
+[node name="Player2" parent="." instance=ExtResource("3_rwoej")]
 position = Vector2(200, 200)
 type = 1
 mirror_y = true
 
-[node name="CanvasLayer" parent="." instance=ExtResource("7_ks4bx")]
-
-[connection signal="body_entered" from="TileMapLayer/SpikeD" to="TileMapLayer/SpikeD" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/SpikeU" to="TileMapLayer/SpikeU" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@188077" to="TileMapLayer/@Area2D@188077" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@188078" to="TileMapLayer/@Area2D@188078" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@188079" to="TileMapLayer/@Area2D@188079" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@188080" to="TileMapLayer/@Area2D@188080" method="_on_body_entered"]
+[node name="CanvasLayer" parent="." instance=ExtResource("4_ff77w")]

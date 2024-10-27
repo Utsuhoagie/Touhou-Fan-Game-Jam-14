@@ -15,7 +15,7 @@ size = Vector2(400, 96)
 
 [node name="Level5" type="Node2D"]
 script = ExtResource("1_efr4x")
-next_level_path = "res://Levels/Main/6.tscn"
+next_level_path = "res://Levels/Main/06.tscn"
 
 [node name="Background" parent="." instance=ExtResource("2_5uoig")]
 offset_right = 1760.0

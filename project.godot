@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="[4.3] - Touhou Reflect"
+config/name="Split Inchling"
 run/main_scene="res://opening.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
@@ -24,6 +24,8 @@ LevelBGMManager="*res://Levels/level_bgm_manager.tscn"
 
 window/size/viewport_width=1760
 window/size/viewport_height=990
+window/size/window_width_override=1200
+window/size/window_height_override=675
 window/stretch/mode="canvas_items"
 window/main_scene="res://Levels/Testing/Level1.tscn"
 

@@ -1,17 +1,17 @@
-[gd_scene load_steps=24 format=4 uid="uid://de2fg3eu5xqox"]
+[gd_scene load_steps=28 format=4 uid="uid://de2fg3eu5xqox"]
 
-[ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_mx5rn"]
-[ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_h6uoj"]
-[ext_resource type="PackedScene" uid="uid://duuslj8cggp2b" path="res://Levels/Background.tscn" id="2_lcfa5"]
-[ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="3_pee67"]
-[ext_resource type="Texture2D" uid="uid://b4oxxnktsork2" path="res://Assets/Actual/Reflection_BG_Shinmyoumaru-Adventure_Landscape_5.png" id="3_sw1tr"]
-[ext_resource type="PackedScene" uid="uid://swq672klppy0" path="res://Entities/Enemy/Enemy.tscn" id="4_tf48c"]
-[ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="5_yqri4"]
-[ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="6_qxfmy"]
-[ext_resource type="Script" path="res://Entities/Enemy/Seija.gd" id="7_bxqwr"]
-[ext_resource type="Texture2D" uid="uid://v3h226ddq4ro" path="res://Assets/Actual/Tileset1_80px.png" id="8_8bh0k"]
-[ext_resource type="Texture2D" uid="uid://cyvtbl1s2vatx" path="res://Assets/Actual/Reflection_Sprite_Seija-Sheet.png" id="8_fg3ag"]
-[ext_resource type="PackedScene" uid="uid://b2curoutqhb3c" path="res://Levels/canvas_layer.tscn" id="9_4ajn6"]
+[ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_muop0"]
+[ext_resource type="PackedScene" path="res://Levels/Background.tscn" id="2_inhot"]
+[ext_resource type="Texture2D" uid="uid://b4oxxnktsork2" path="res://Assets/Actual/Reflection_BG_Shinmyoumaru-Adventure_Landscape_5.png" id="3_2cnuk"]
+[ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="4_aoj2g"]
+[ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="5_vnh4i"]
+[ext_resource type="PackedScene" uid="uid://swq672klppy0" path="res://Entities/Enemy/Enemy.tscn" id="6_dycjj"]
+[ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="7_wvboc"]
+[ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="8_icjok"]
+[ext_resource type="Script" path="res://Entities/Enemy/Seija.gd" id="9_cbgvx"]
+[ext_resource type="Texture2D" uid="uid://cyvtbl1s2vatx" path="res://Assets/Actual/Reflection_Sprite_Seija-Sheet.png" id="10_623mt"]
+[ext_resource type="Texture2D" uid="uid://c14uxxp8r815i" path="res://Assets/Actual/Seija_Attack-Sheet.png" id="11_5pfva"]
+[ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="12_i850s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pgdq"]
 size = Vector2(88, 168)
@@ -23,15 +23,15 @@ size = Vector2(88, 168)
 radius = 104.307
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r2rml"]
-atlas = ExtResource("8_fg3ag")
+atlas = ExtResource("10_623mt")
 region = Rect2(0, 0, 240, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h5387"]
-atlas = ExtResource("8_fg3ag")
+atlas = ExtResource("10_623mt")
 region = Rect2(240, 0, 240, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oa32s"]
-atlas = ExtResource("8_fg3ag")
+atlas = ExtResource("10_623mt")
 region = Rect2(480, 0, 240, 240)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ue32h"]
@@ -60,18 +60,46 @@ size = Vector2(400, 480)
 [sub_resource type="CircleShape2D" id="CircleShape2D_korw1"]
 radius = 167.045
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u1dq4"]
-atlas = ExtResource("8_8bh0k")
-region = Rect2(80, 0, 80, 80)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyhoi"]
+atlas = ExtResource("11_5pfva")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqme6"]
+atlas = ExtResource("11_5pfva")
+region = Rect2(0, 320, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_veu3p"]
+atlas = ExtResource("11_5pfva")
+region = Rect2(0, 640, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_povi6"]
+atlas = ExtResource("11_5pfva")
+region = Rect2(0, 960, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0we8"]
+atlas = ExtResource("11_5pfva")
+region = Rect2(0, 1280, 320, 320)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_71qp5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u1dq4")
+"texture": SubResource("AtlasTexture_gyhoi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u1dq4")
+"texture": SubResource("AtlasTexture_qqme6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veu3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_povi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0we8")
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": false,
 "name": &"default",
@@ -79,55 +107,55 @@ animations = [{
 }]
 
 [node name="Seija Level" type="Node2D"]
-script = ExtResource("1_mx5rn")
+script = ExtResource("1_muop0")
 
-[node name="Background" parent="." instance=ExtResource("2_lcfa5")]
+[node name="Background" parent="." instance=ExtResource("2_inhot")]
 offset_right = 1760.0
 offset_bottom = 990.0
-texture = ExtResource("3_sw1tr")
+texture = ExtResource("3_2cnuk")
 
-[node name="TileMapLayer" parent="." instance=ExtResource("2_h6uoj")]
+[node name="TileMapLayer" parent="." instance=ExtResource("4_aoj2g")]
 position = Vector2(-40, 0)
 tile_map_data = PackedByteArray("AAAEAAIAAgAAAAAABgAEAAMAAgAAAAAABgADAAIAAwADAAEAAAAHAAIAAwADAAEAAAAQAAcAAgAAAAAABAARAAcAAgAAAAAABAAUAAoAAwACAAEAAAAUAAUAAwADAAEAAAAQAAoAAwAAAAEAAQARAAoAAwAAAAEAAQAFAAoAAwABAAEAAwAGAAoAAwABAAEAAwAOAAkAAwAFAAAAAAAOAAgAAwAFAAAAAAAOAAcAAwAFAAAAAAAOAAYAAwAFAAAAAAAOAAUAAwAFAAAAAAAOAAQAAwAFAAAAAAAOAAMAAwAFAAAAAAAOAAIAAwAFAAAAAAAOAAEAAwAFAAAAAAAIAAEAAwAFAAAAAAAHAAEAAwAFAAAAAAAGAAEAAwAFAAAAAAAFAAEAAwAFAAAAAAAEAAEAAwAFAAAAAAADAAEAAwAFAAAAAAACAAEAAwAFAAAAAAABAAEAAwAFAAAAAAABAAIAAwAFAAAAAAABAAMAAwAFAAAAAAABAAQAAwAFAAAAAAABAAUAAwAFAAAAAAABAAYAAwAFAAAAAAABAAcAAwAFAAAAAAABAAgAAwAFAAAAAAABAAkAAwAFAAAAAAABAAoAAwAFAAAAAAABAAsAAwAFAAAAAAACAAsAAwAFAAAAAAADAAsAAwAFAAAAAAAEAAsAAwAFAAAAAAAFAAsAAwAFAAAAAAAGAAsAAwAFAAAAAAAHAAsAAwAFAAAAAAAIAAsAAwAFAAAAAAAIAAoAAwAFAAAAAAAIAAkAAwAFAAAAAAAIAAgAAwAFAAAAAAAIAAcAAwAFAAAAAAAIAAYAAwAFAAAAAAAIAAUAAwAFAAAAAAAIAAQAAwAFAAAAAAAIAAMAAwAFAAAAAAAIAAIAAwAFAAAAAAAHAAgAAwAFAAAAAAAJAAsAAwAFAAAAAAAKAAsAAwAFAAAAAAALAAsAAwAFAAAAAAALAAoAAwAFAAAAAAALAAkAAwAFAAAAAAALAAgAAwAFAAAAAAALAAcAAwAFAAAAAAALAAYAAwAFAAAAAAALAAUAAwAFAAAAAAAMAAsAAwAFAAAAAAANAAsAAwAFAAAAAAAOAAsAAwAFAAAAAAAOAAoAAwAFAAAAAAAPAAsAAwAFAAAAAAAQAAsAAwAFAAAAAAARAAsAAwAFAAAAAAASAAsAAwAFAAAAAAATAAsAAwAFAAAAAAAUAAsAAwAFAAAAAAAVAAsAAwAFAAAAAAAVAAoAAwAFAAAAAAAVAAUAAwAFAAAAAAAVAAQAAwAFAAAAAAAVAAMAAwAFAAAAAAAVAAIAAwAFAAAAAAAVAAEAAwAFAAAAAAAUAAEAAwAFAAAAAAATAAEAAwAFAAAAAAASAAEAAwAFAAAAAAARAAEAAwAFAAAAAAAQAAEAAwAFAAAAAAAPAAEAAwAFAAAAAAAUAAQAAwAFAAAAAAATAAQAAwAFAAAAAAATAAMAAwABAAEAAwASAAMAAwABAAEAAwARAAMAAwABAAEAAwAQAAMAAwABAAEAAwAQAAQAAwAFAAAAAAAQAAUAAwAFAAAAAAAQAAYAAwAFAAAAAAARAAYAAwAFAAAAAAASAAYAAwAFAAAAAAASAAcAAwAFAAAAAAATAAcAAwAFAAAAAAACAAgAAwAFAAAAAAACAAQAAwAFAAAAAAAFAAIAAwAFAAAAAAAFAAMAAwAFAAAAAAAFAAQAAwAFAAAAAAAGAAQAAwAFAAAAAAAGAAUAAwAFAAAAAAAGAAYAAwAFAAAAAAAFAAYAAwAFAAAAAAAEAAYAAwAFAAAAAAADAAYAAwAFAAAAAAAEAAcAAwAFAAAAAAAEAAgAAwAFAAAAAAAVAAYAAwAFAAAAAAAVAAcAAwAFAAAAAAAVAAgAAwAFAAAAAAAVAAkAAwAFAAAAAAAKAAgAAwAFAAEAAAAMAAgAAwAFAAEAAAAMAAoAAwACAAEAAAAKAAoAAwACAAEAAAAJAAgAAwAFAAEAAAAJAAYAAwAFAAEAAAANAAYAAwAFAAEAAAANAAgAAwAFAAEAAAAMAAYAAwAFAAAAAAAKAAYAAwAFAAAAAAAEAAoAAwABAAEAAwADAAoAAwABAAEAAwACAAoAAwABAAEAAwA=")
 
-[node name="Player" parent="." instance=ExtResource("3_pee67")]
+[node name="Player" parent="." instance=ExtResource("5_vnh4i")]
 position = Vector2(720, 840)
 
-[node name="Player2" parent="." instance=ExtResource("3_pee67")]
+[node name="Player2" parent="." instance=ExtResource("5_vnh4i")]
 position = Vector2(1040, 840)
 type = 1
 mirror_x = true
 
-[node name="Player3" parent="." instance=ExtResource("3_pee67")]
+[node name="Player3" parent="." instance=ExtResource("5_vnh4i")]
 position = Vector2(168, 208)
 type = 1
 mirror_y = true
 
-[node name="Player4" parent="." instance=ExtResource("3_pee67")]
+[node name="Player4" parent="." instance=ExtResource("5_vnh4i")]
 position = Vector2(1592, 224)
 type = 1
 mirror_x = true
 
-[node name="Enemy" parent="." instance=ExtResource("4_tf48c")]
+[node name="Enemy" parent="." instance=ExtResource("6_dycjj")]
 position = Vector2(408, 424)
 SPEED = 15.0
 initialDirection = 1
 
-[node name="Enemy2" parent="." instance=ExtResource("4_tf48c")]
+[node name="Enemy2" parent="." instance=ExtResource("6_dycjj")]
 position = Vector2(280, 792)
 SPEED = 350.0
 
-[node name="Enemy3" parent="." instance=ExtResource("4_tf48c")]
+[node name="Enemy3" parent="." instance=ExtResource("6_dycjj")]
 position = Vector2(1344, 240)
 SPEED = 350.0
 
-[node name="Enemy4" parent="." instance=ExtResource("4_tf48c")]
+[node name="Enemy4" parent="." instance=ExtResource("6_dycjj")]
 position = Vector2(1520, 792)
 
-[node name="Key" parent="." instance=ExtResource("5_yqri4")]
+[node name="Key" parent="." instance=ExtResource("7_wvboc")]
 position = Vector2(480, 280)
 
-[node name="Door" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("6_qxfmy")]
+[node name="Door" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("8_icjok")]
 position = Vector2(440, 720)
 key_to_unlock = NodePath("../Key")
 
@@ -138,11 +166,11 @@ shape = SubResource("RectangleShape2D_5pgdq")
 [node name="TileMapLayer" parent="Door" index="1"]
 tile_map_data = PackedByteArray("AAABAAAAAwACAAAAAAACAAAAAwACAAAAAAADAAAAAwACAAAAAAAEAAAAAwACAAAAAAABAAEAAwACAAAAAAA=")
 
-[node name="Key2" parent="." instance=ExtResource("5_yqri4")]
+[node name="Key2" parent="." instance=ExtResource("7_wvboc")]
 modulate = Color(1, 0.4, 0.4, 1)
 position = Vector2(1400, 384)
 
-[node name="Door2" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("6_qxfmy")]
+[node name="Door2" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("8_icjok")]
 position = Vector2(920, 720)
 key_to_unlock = NodePath("../Key2")
 
@@ -157,7 +185,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAwACAAAAAAABAAAAAwACAAAAAAACAAAAAwACAAA
 position = Vector2(880, 280)
 collision_layer = 4
 collision_mask = 3
-script = ExtResource("7_bxqwr")
+script = ExtResource("9_cbgvx")
 HP = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Seija"]
@@ -185,8 +213,10 @@ disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Seija/Hitbox"]
 visible = false
-scale = Vector2(4.1, 4.1)
+scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_71qp5")
+frame = 5
+frame_progress = 1.0
 
 [node name="Control" type="Control" parent="Seija"]
 layout_mode = 3
@@ -203,12 +233,12 @@ offset_bottom = 27.0
 step = 1.0
 show_percentage = false
 
-[node name="CanvasLayer" parent="." instance=ExtResource("9_4ajn6")]
+[node name="CanvasLayer" parent="." instance=ExtResource("12_i850s")]
 
 [connection signal="body_entered" from="TileMapLayer/SpikeR" to="TileMapLayer/SpikeR" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@36906" to="TileMapLayer/@Area2D@36906" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@120051" to="TileMapLayer/@Area2D@120051" method="_on_body_entered"]
 [connection signal="body_entered" from="TileMapLayer/SpikeU" to="TileMapLayer/SpikeU" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@36907" to="TileMapLayer/@Area2D@36907" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@120052" to="TileMapLayer/@Area2D@120052" method="_on_body_entered"]
 [connection signal="body_entered" from="Seija" to="Seija" method="_on_body_entered"]
 [connection signal="body_entered" from="Seija/Detect Player" to="Seija" method="_on_detect_player_body_entered"]
 [connection signal="body_entered" from="Seija/Hitbox" to="Seija" method="_on_hitbox_body_entered"]
