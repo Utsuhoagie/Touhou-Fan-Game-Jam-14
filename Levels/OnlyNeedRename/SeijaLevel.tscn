@@ -1,8 +1,10 @@
-[gd_scene load_steps=22 format=4 uid="uid://de2fg3eu5xqox"]
+[gd_scene load_steps=24 format=4 uid="uid://de2fg3eu5xqox"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_mx5rn"]
 [ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_h6uoj"]
+[ext_resource type="PackedScene" uid="uid://duuslj8cggp2b" path="res://Levels/Background.tscn" id="2_lcfa5"]
 [ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="3_pee67"]
+[ext_resource type="Texture2D" uid="uid://b4oxxnktsork2" path="res://Assets/Actual/Reflection_BG_Shinmyoumaru-Adventure_Landscape_5.png" id="3_sw1tr"]
 [ext_resource type="PackedScene" uid="uid://swq672klppy0" path="res://Entities/Enemy/Enemy.tscn" id="4_tf48c"]
 [ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="5_yqri4"]
 [ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="6_qxfmy"]
@@ -78,6 +80,11 @@ animations = [{
 
 [node name="Seija Level" type="Node2D"]
 script = ExtResource("1_mx5rn")
+
+[node name="Background" parent="." instance=ExtResource("2_lcfa5")]
+offset_right = 1760.0
+offset_bottom = 990.0
+texture = ExtResource("3_sw1tr")
 
 [node name="TileMapLayer" parent="." instance=ExtResource("2_h6uoj")]
 position = Vector2(-40, 0)
@@ -199,9 +206,9 @@ show_percentage = false
 [node name="CanvasLayer" parent="." instance=ExtResource("9_4ajn6")]
 
 [connection signal="body_entered" from="TileMapLayer/SpikeR" to="TileMapLayer/SpikeR" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@232228" to="TileMapLayer/@Area2D@232228" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@36906" to="TileMapLayer/@Area2D@36906" method="_on_body_entered"]
 [connection signal="body_entered" from="TileMapLayer/SpikeU" to="TileMapLayer/SpikeU" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@232229" to="TileMapLayer/@Area2D@232229" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@36907" to="TileMapLayer/@Area2D@36907" method="_on_body_entered"]
 [connection signal="body_entered" from="Seija" to="Seija" method="_on_body_entered"]
 [connection signal="body_entered" from="Seija/Detect Player" to="Seija" method="_on_detect_player_body_entered"]
 [connection signal="body_entered" from="Seija/Hitbox" to="Seija" method="_on_hitbox_body_entered"]

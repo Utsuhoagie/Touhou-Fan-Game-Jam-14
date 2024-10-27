@@ -1,29 +1,43 @@
-[gd_scene load_steps=10 format=3 uid="uid://swq672klppy0"]
+[gd_scene load_steps=12 format=3 uid="uid://swq672klppy0"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/Enemy.gd" id="1_m5wyy"]
-[ext_resource type="Texture2D" uid="uid://btpumnv4053mh" path="res://Assets/Pixel Platformer/Tilemap/tilemap-characters_packed.png" id="1_vv60h"]
 [ext_resource type="Shape2D" uid="uid://bjmmssqn4o6qo" path="res://Entities/Enemy/EnemyCollisionShape.tres" id="2_b3hpi"]
+[ext_resource type="Texture2D" uid="uid://cho8gsxxebl32" path="res://Assets/Actual/Reflection_Sprite_Enemy-Sheet.png" id="3_mysbq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b037a"]
-atlas = ExtResource("1_vv60h")
-region = Rect2(288, 48, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_53iuu"]
+atlas = ExtResource("3_mysbq")
+region = Rect2(0, 0, 80, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m25hh"]
-atlas = ExtResource("1_vv60h")
-region = Rect2(336, 48, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv2xi"]
+atlas = ExtResource("3_mysbq")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loc4l"]
+atlas = ExtResource("3_mysbq")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpcdx"]
+atlas = ExtResource("3_mysbq")
+region = Rect2(240, 0, 80, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vgyyo"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b037a")
+"texture": SubResource("AtlasTexture_53iuu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m25hh")
+"texture": SubResource("AtlasTexture_fv2xi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_loc4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpcdx")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4tfsa"]
@@ -50,7 +64,6 @@ position = Vector2(-1, 7)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flippable"]
 position = Vector2(-3, -4)
-scale = Vector2(1.667, 1.667)
 sprite_frames = SubResource("SpriteFrames_vgyyo")
 
 [node name="WallDetect" type="Area2D" parent="Flippable"]

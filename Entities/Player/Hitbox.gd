@@ -7,7 +7,6 @@ extends Area2D
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Action"):
-		Col.disabled = false
 		Sprite.visible = true
 		Sprite.play("default")
 		LevelBGMManager.play_attack_sfx()
@@ -29,3 +28,8 @@ func _on_area_entered(area: Area2D) -> void:
 	if area is Seija:
 		var seija: Seija = area
 		seija.take_damage()
+
+
+func _on_animated_sprite_2d_frame_changed() -> void:
+	if Sprite.frame == 2:
+		Col.disabled = false
