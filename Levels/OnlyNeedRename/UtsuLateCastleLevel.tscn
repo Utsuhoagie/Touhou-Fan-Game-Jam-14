@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=4 uid="uid://b5dbdr8ljpjt5"]
+[gd_scene load_steps=12 format=4 uid="uid://b5dbdr8ljpjt5"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_7okfi"]
 [ext_resource type="PackedScene" uid="uid://duuslj8cggp2b" path="res://Levels/Background.tscn" id="2_8qay4"]
 [ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="2_w2ks4"]
+[ext_resource type="Texture2D" uid="uid://b4oxxnktsork2" path="res://Assets/Actual/Reflection_BG_Shinmyoumaru-Adventure_Landscape_5.png" id="3_eyonu"]
 [ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="3_indmr"]
 [ext_resource type="PackedScene" uid="uid://swq672klppy0" path="res://Entities/Enemy/Enemy.tscn" id="4_6w7h3"]
 [ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="5_q6b8j"]
 [ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="6_8qx42"]
-[ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="7_iu20i"]
+[ext_resource type="PackedScene" uid="uid://b2curoutqhb3c" path="res://Levels/canvas_layer.tscn" id="7_iu20i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tt3dl"]
 size = Vector2(96, 80)
@@ -21,6 +22,7 @@ script = ExtResource("1_7okfi")
 [node name="Background" parent="." instance=ExtResource("2_8qay4")]
 offset_right = 1760.0
 offset_bottom = 990.0
+texture = ExtResource("3_eyonu")
 
 [node name="Player" parent="." instance=ExtResource("2_w2ks4")]
 position = Vector2(280, 808)
@@ -92,6 +94,13 @@ shape = SubResource("RectangleShape2D_pkswd")
 tile_map_data = PackedByteArray("AAAAAAAAAwACAAAAAAAAAAEAAwACAAAAAAA=")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("7_iu20i")]
+
+[connection signal="body_entered" from="TileMapLayer/SpikeD" to="TileMapLayer/SpikeD" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@40056" to="TileMapLayer/@Area2D@40056" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@40057" to="TileMapLayer/@Area2D@40057" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@40058" to="TileMapLayer/@Area2D@40058" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/SpikeR" to="TileMapLayer/SpikeR" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@40059" to="TileMapLayer/@Area2D@40059" method="_on_body_entered"]
 
 [editable path="Door"]
 [editable path="Door2"]

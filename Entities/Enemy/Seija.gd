@@ -22,7 +22,7 @@ func _ready() -> void:
 
 
 func take_damage() -> void:
-	current_HP -= 5
+	current_HP -= 8
 	HPBar.value = current_HP
 
 	print("HP = %s" % current_HP)
