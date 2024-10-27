@@ -8,6 +8,7 @@ class_name LevelSelect
 const LEVELS_FOLDER_PATH: String = "res://Levels/Main/"
 
 var levels_dir := DirAccess.open(LEVELS_FOLDER_PATH)
+var level_button_scene = preload("res://Menus/level_button.tscn")
 
 func _ready() -> void:
 	back_button.pressed.connect(_return_to_main_menu)
@@ -17,7 +18,7 @@ func _ready() -> void:
 	var level_counter: int = 1
 	
 	while level_file_name != "":
-		var new_level_button := LevelButton.new()
+		var new_level_button := level_button_scene.instantiate()
 		new_level_button.text = str(level_counter)
 		new_level_button.level_path = LEVELS_FOLDER_PATH + level_file_name
 		new_level_button.level_selected.connect(_enter_level)
@@ -27,7 +28,8 @@ func _ready() -> void:
 		level_file_name = levels_dir.get_next()
 		level_counter += 1
 	
-	# back_button.grab_focus()
+	# focus on first level
+	level_select_container.get_children()[0].grab_focus()
 	
 
 func _return_to_main_menu() -> void:

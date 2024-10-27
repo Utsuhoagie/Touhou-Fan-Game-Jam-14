@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://duxhr4b030gyk"]
 
 [ext_resource type="Script" path="res://Entities/Environment/DoorKey/Door.gd" id="1_kslrw"]
-[ext_resource type="PackedScene" uid="uid://bh80kvrd0tkop" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_vuyiv"]
+[ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_vuyiv"]
 
 [node name="Door" type="Area2D"]
 script = ExtResource("1_kslrw")

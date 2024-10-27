@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=4 uid="uid://b7y563tvnyehs"]
+
+[ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_tmnt8"]
+[ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_ufm3v"]
+[ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="3_655ka"]
+[ext_resource type="PackedScene" uid="uid://swq672klppy0" path="res://Entities/Enemy/Enemy.tscn" id="4_njh4j"]
+[ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="5_w61k7"]
+[ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="6_okfnv"]
+[ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="7_sxn24"]
+
+[node name="LevelTemplate" type="Node2D"]
+script = ExtResource("1_tmnt8")
+next_level_path = "res://Levels/Main/2.tscn"
+
+[node name="TileMapLayer" parent="." instance=ExtResource("2_ufm3v")]
+tile_map_data = PackedByteArray("AAABAAEAAwAAAAAAAAABAAIAAwAEAAAAAAABAAMAAwAEAAAAAAABAAQAAwAEAAAAAAABAAUAAwAEAAAAAAABAAYAAwAEAAAAAAABAAcAAwAEAAAAAAABAAgAAwAEAAAAAAABAAkAAwAEAAAAAAABAAoAAwAEAAAAAAABAAsAAwAEAAAAAAACAAEAAwAAAAAAAAADAAEAAwAAAAAAAAAEAAEAAwAAAAAAAAAFAAEAAwAAAAAAAAAGAAEAAwAAAAAAAAAHAAEAAwAAAAAAAAAIAAEAAwAAAAAAAAAJAAEAAwAAAAAAAAAKAAEAAwAAAAAAAAALAAEAAwAAAAAAAAAMAAEAAwAAAAAAAAANAAEAAwAAAAAAAAAOAAEAAwAAAAAAAAAPAAEAAwAAAAAAAAAQAAEAAwAAAAAAAAARAAEAAwAAAAAAAAASAAEAAwAAAAAAAAATAAEAAwAAAAAAAAAUAAEAAwAAAAAAAAAUAAIAAwAEAAAAAAAUAAMAAwAEAAAAAAAUAAQAAwAEAAAAAAAUAAUAAwAEAAAAAAAUAAYAAwAEAAAAAAAUAAcAAwAEAAAAAAAUAAgAAwAEAAAAAAAUAAkAAwAEAAAAAAAUAAoAAwAEAAAAAAAUAAsAAwAEAAAAAAATAAsAAwAAAAAAAAASAAsAAwAAAAAAAAARAAsAAwAAAAAAAAAQAAsAAwAAAAAAAAAPAAsAAwAAAAAAAAAOAAsAAwAAAAAAAAANAAsAAwAAAAAAAAAMAAsAAwAAAAAAAAALAAsAAwAAAAAAAAAKAAsAAwAAAAAAAAAJAAsAAwAAAAAAAAAIAAsAAwAAAAAAAAAHAAsAAwAAAAAAAAAGAAsAAwAAAAAAAAAFAAsAAwAAAAAAAAAEAAsAAwAAAAAAAAADAAsAAwAAAAAAAAACAAsAAwAAAAAAAAA=")
+
+[node name="Door" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("3_655ka")]
+key_to_unlock = NodePath("../Key")
+
+[node name="Enemy" parent="." instance=ExtResource("4_njh4j")]
+position = Vector2(1568, 832)
+
+[node name="Key" parent="." instance=ExtResource("5_w61k7")]
+position = Vector2(1504, 232)
+
+[node name="Player" parent="." instance=ExtResource("6_okfnv")]
+position = Vector2(200, 360)
+
+[node name="Player2" parent="." instance=ExtResource("6_okfnv")]
+position = Vector2(200, 680)
+type = 1
+mirror_y = true
+
+[node name="CanvasLayer" parent="." instance=ExtResource("7_sxn24")]
+
+[editable path="Door"]
