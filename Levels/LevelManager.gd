@@ -2,8 +2,10 @@ extends Node2D
 
 @export_file var next_level_path: String
 
-const MAIN_MENU_PATH: String = "res://Menus/main_menu.tscn"
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var animation_player: AnimationPlayer = $CanvasLayer/AnimationPlayer
 
+const MAIN_MENU_PATH: String = "res://Menus/main_menu.tscn"
 var pause_popup_scene = preload("res://Levels/pause_popup.tscn")
 var win_popup_scene = preload("res://Levels/win_popup.tscn")
 
@@ -17,8 +19,10 @@ func _ready() -> void:
 			continue
 
 		player.shadow_merged.connect(_check_win_condition)
-
+	
 	get_tree().paused = false
+	animation_player.play("transition_in")
+	
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -33,7 +37,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		var pause_popup := pause_popup_scene.instantiate()
 		pause_popup.return_to_menu.connect(_return_to_menu)
 
-		get_node("CanvasLayer").add_child(pause_popup)
+		canvas_layer.add_child(pause_popup)
 		get_tree().paused = true
 
 
@@ -54,7 +58,7 @@ func _check_win_condition() -> void:
 	win_popup.return_to_menu.connect(_return_to_menu)
 	win_popup.to_next_level.connect(_load_next_level)
 
-	get_node("CanvasLayer").add_child(win_popup)
+	canvas_layer.add_child(win_popup)
 	if not next_level_path:
 		win_popup.next_level_button.hide()
 
@@ -70,10 +74,15 @@ func reset_level() -> void:
 
 func _return_to_menu() -> void:
 	get_tree().paused = false
+	
+	animation_player.play("transition_out")
+	await animation_player.animation_finished
 	get_tree().change_scene_to_file(MAIN_MENU_PATH)
 
 
 func _load_next_level() -> void:
 	if not next_level_path: return
-
+	
+	animation_player.play("transition_out")
+	await animation_player.animation_finished
 	get_tree().change_scene_to_file(next_level_path)

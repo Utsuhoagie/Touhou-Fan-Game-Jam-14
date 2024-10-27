@@ -1,6 +1,7 @@
 extends CanvasLayer
 class_name MainMenu
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var play_button: Button = %PlayButton
 @onready var credits_button: Button = %CreditsButton
 @onready var exit_button: Button = %ExitButton
@@ -12,7 +13,11 @@ func _ready() -> void:
 	# credits_button.pressed.connect(_enter_level_select)
 	exit_button.pressed.connect(_exit_game)
 	
+	animation_player.play("transition_in")
+	await animation_player.animation_finished
+	
 	play_button.grab_focus()
+	
 	
 
 func _enter_level_select() -> void:

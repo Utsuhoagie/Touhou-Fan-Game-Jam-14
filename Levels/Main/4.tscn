@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://g7d5gp2g7qvp"]
+[gd_scene load_steps=11 format=4 uid="uid://g7d5gp2g7qvp"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_towlb"]
 [ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_lb2ir"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://8l2skejebalg" path="res://Entities/Environment/Sign/sign.tscn" id="2_xuadf"]
 [ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="4_4d3qk"]
 [ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="5_jlrf5"]
+[ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="7_07mjb"]
 [ext_resource type="PackedScene" uid="uid://cwvwk5oh8vwjx" path="res://Entities/Environment/Sign/help_popup.tscn" id="7_iiu54"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0h3v"]
@@ -66,23 +67,15 @@ position = Vector2(1000, 200)
 modulate = Color(0.903442, 0.305278, 1, 1)
 position = Vector2(680, 200)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" parent="." instance=ExtResource("7_07mjb")]
 
 [node name="HelpPopup" parent="CanvasLayer" instance=ExtResource("7_iiu54")]
 visible = false
+offset_left = -600.0
+offset_top = -400.0
+offset_right = 600.0
+offset_bottom = 400.0
 help_text = "Lock blocks (indicated by the presence of a keyhole) require a key to open. When a key is collected, it will appear at the top of the screen."
-
-[node name="Inventory" type="HBoxContainer" parent="CanvasLayer"]
-unique_name_in_owner = true
-offset_right = 52.0
-offset_bottom = 48.0
-
-[node name="Label" type="Label" parent="CanvasLayer/Inventory"]
-layout_mode = 2
-text = "Items:"
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Inventory"]
-layout_mode = 2
 
 [editable path="Door"]
 [editable path="Door2"]
