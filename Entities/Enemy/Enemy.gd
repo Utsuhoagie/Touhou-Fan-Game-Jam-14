@@ -2,6 +2,10 @@ class_name Enemy
 extends CharacterBody2D
 
 @export var SPEED = 30.0
+
+enum Direction { Left, Right }
+
+@export var initialDirection: Direction
 var currentDirection := 1
 
 @export var mirror_y: bool = false
@@ -16,6 +20,8 @@ func die() -> void:
 
 
 func _ready() -> void:
+	currentDirection = 1 if initialDirection == Direction.Right else -1
+
 	if mirror_y:
 		up_direction = Vector2.DOWN
 		Flippable.scale.y *= -1
