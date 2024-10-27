@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwrm7h78ys8fr"]
+
+[sub_resource type="GDScript" id="GDScript_simeh"]
+script/source = "extends CanvasLayer
+class_name LoadingScreen
+
+signal loading_screen_has_full_coverage()
+
+
+func start_outro_animation() -> void:
+	self.queue_free()
+	
+"
+
+[node name="LoadingScreen" type="CanvasLayer"]
+script = SubResource("GDScript_simeh")

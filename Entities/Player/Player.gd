@@ -25,7 +25,6 @@ var inventory: Array = []
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var Flippable := $Flippable
 @onready var AnimSprite := $Flippable/AnimatedSprite2D
-@onready var Hitbox := $Flippable/Hitbox
 
 
 func _ready() -> void:

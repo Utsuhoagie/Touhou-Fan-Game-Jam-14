@@ -28,6 +28,7 @@ func _ready() -> void:
 func _unhandled_key_input(event: InputEvent) -> void:
 	# we don't want extra inputs pls
 	if event.is_echo(): return
+	print("wtf is going on")
 
 	if event.is_action_pressed("Reset"):
 		reset_level()

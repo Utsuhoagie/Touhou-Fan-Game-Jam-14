@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://0gkvvvxsmldn"]
+[gd_scene load_steps=5 format=3 uid="uid://0gkvvvxsmldn"]
 
 [ext_resource type="Script" path="res://Entities/Environment/Mirror/Mirror.gd" id="1_inn3h"]
+[ext_resource type="Texture2D" uid="uid://p5w6ylrberob" path="res://Assets/Actual/mirror_v.png" id="2_xjd5w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vieen"]
 size = Vector2(8, 80)
@@ -13,6 +14,10 @@ collision_layer = 32
 collision_mask = 0
 script = ExtResource("1_inn3h")
 required_players_count = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.172996, 0.172996)
+texture = ExtResource("2_xjd5w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vieen")

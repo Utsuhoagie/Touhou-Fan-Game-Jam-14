@@ -28,11 +28,17 @@ func _ready() -> void:
 
 func _enter_level_select() -> void:
 	var level_select = level_select_scene.instantiate()
+	level_select.entering_level.connect(_prep_entering_level.bind(level_select))
 	get_tree().get_root().add_child(level_select)
 	
 	level_select.tree_exited.connect(_return_to_main_menu)
 	contents.hide()
 	LevelBGMManager.play_button_select_sfx()
+	
+
+func _prep_entering_level(level_select: LevelSelect) -> void:
+	level_select.tree_exited.disconnect(_return_to_main_menu)
+	level_select.queue_free()
 	
 
 func _enter_settings() -> void:

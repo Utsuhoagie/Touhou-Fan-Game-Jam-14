@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://b1py5y4x6jq2j"]
+[gd_scene load_steps=19 format=3 uid="uid://b1py5y4x6jq2j"]
 
 [ext_resource type="Script" path="res://Levels/level_bgm_manager.gd" id="1_4i43h"]
 [ext_resource type="AudioStream" uid="uid://dv028fjb8p702" path="res://Assets/Actual/bgm/Stage Music.ogg" id="1_tg8kd"]
 [ext_resource type="AudioStream" uid="uid://ivd0ikm6hfj5" path="res://Assets/Actual/sfx/Tutorial Music.ogg" id="3_i86fr"]
 [ext_resource type="AudioStream" uid="uid://7tjt4ii5l7bp" path="res://Assets/Actual/sfx/SFXPlayerDefeat.ogg" id="3_r7odc"]
+[ext_resource type="AudioStream" uid="uid://dpa3ykrtp35h4" path="res://Assets/Actual/bgm/Boss Music.ogg" id="4_m1g25"]
 [ext_resource type="AudioStream" uid="uid://dje1xrahvkru3" path="res://Assets/Actual/sfx/SFXFootsteps.ogg" id="4_uh0pg"]
 [ext_resource type="AudioStream" uid="uid://bwiwviquttcdm" path="res://Assets/Actual/sfx/SFXJumping.ogg" id="5_weg3o"]
 [ext_resource type="AudioStream" uid="uid://bm5ilb54wds34" path="res://Assets/Actual/sfx/SFXPickup.ogg" id="6_ocvqg"]
@@ -27,6 +28,9 @@ stream = ExtResource("1_tg8kd")
 
 [node name="TutorialBGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_i86fr")
+
+[node name="BossBGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_m1g25")
 
 [node name="DeathSFX" type="AudioStreamPlayer2D" parent="."]
 process_mode = 1
