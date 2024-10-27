@@ -22,6 +22,10 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		
 		if sequence_counter == 4:
 			await animation_player.animation_finished
-			print(is_inside_tree())
 			get_tree().change_scene_to_file(MAIN_MENU_PATH)
-	
+			
+	elif event.is_action_pressed("ui_cancel"):
+		animation_player.play(opening_sequence[4])
+		await animation_player.animation_finished
+		get_tree().change_scene_to_file(MAIN_MENU_PATH)
+		
