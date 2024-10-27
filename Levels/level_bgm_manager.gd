@@ -11,8 +11,11 @@ extends Node
 @onready var landing_sfx: AudioStreamPlayer2D = $LandingSFX
 @onready var attack_sfx: AudioStreamPlayer2D = $AttackSFX
 @onready var enemy_death_sfx: AudioStreamPlayer2D = $EnemyDeathSFX
+@onready var mirror_sfx: AudioStreamPlayer2D = $MirrorSFX
 @onready var trampoline_sfx: AudioStreamPlayer2D = $TrampolineSFX
 @onready var level_complete_sfx: AudioStreamPlayer2D = $LevelCompleteSFX
+@onready var item_collect_sfx: AudioStreamPlayer2D = $ItemCollectSFX
+@onready var door_unlock_sfx: AudioStreamPlayer2D = $DoorUnlockSFX
 
 func play_death_sfx() -> void:
 	death_sfx.play()
@@ -28,6 +31,18 @@ func play_button_hover_sfx() -> void:
 
 func play_button_select_sfx() -> void:
 	button_select_sfx.play()
+	
+
+func play_item_collect_sfx() -> void:
+	item_collect_sfx.play()
+	
+
+func play_mirror_sfx() -> void:
+	mirror_sfx.play()
+	
+
+func play_door_unlock_sfx() -> void:
+	door_unlock_sfx.play()
 	
 
 func play_enter_level_sfx() -> void:
@@ -70,10 +85,19 @@ func stop_footstep_sfx() -> void:
 		footstep_sfx.stop()
 	
 
+func dim_volume() -> void:
+	level_bgm.volume_db = -10
+	
+
+func restore_volume() -> void:
+	level_bgm.volume_db = 0
+	
+
 func start() -> void:
 	level_bgm.play()
 	
 
 func stop() -> void:
+	level_bgm.volume_db = 0
 	level_bgm.stop()
 	

@@ -13,4 +13,5 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		var player: Player = body
 		if player.inventory.has(key_to_unlock_id):
+			LevelBGMManager.play_door_unlock_sfx()
 			queue_free()

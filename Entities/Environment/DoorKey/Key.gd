@@ -11,4 +11,5 @@ func _on_body_entered(body: Node2D) -> void:
 		icon.texture = texture
 
 		$"../CanvasLayer/Inventory".add_child(icon)
+		LevelBGMManager.play_item_collect_sfx()
 		queue_free()

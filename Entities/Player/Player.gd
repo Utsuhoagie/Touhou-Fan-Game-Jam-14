@@ -118,5 +118,6 @@ func merge_into_main():
 		#var merged: Node2D = $"../Merged"
 		#global_position = merged.global_position
 	elif type == PlayerType.Shadow:
+		LevelBGMManager.play_mirror_sfx()
 		queue_free()
 		shadow_merged.emit()

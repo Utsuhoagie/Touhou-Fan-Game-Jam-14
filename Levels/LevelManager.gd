@@ -39,6 +39,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		pause_popup.restart_level.connect(reset_level)
 
 		canvas_layer.add_child(pause_popup)
+		LevelBGMManager.dim_volume()
 		get_tree().paused = true
 
 

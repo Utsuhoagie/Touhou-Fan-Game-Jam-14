@@ -39,6 +39,7 @@ func _restart_level() -> void:
 
 func _continue_level() -> void:
 	LevelBGMManager.play_button_select_sfx()
+	LevelBGMManager.restore_volume()
 	get_tree().paused = false
 	self.queue_free()
 	
