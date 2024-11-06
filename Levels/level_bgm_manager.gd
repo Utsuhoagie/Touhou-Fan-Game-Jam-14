@@ -62,7 +62,11 @@ func play_landing_sfx(tilemap: TileMapLayer, player_pos: Vector2) -> void:
 	var tile_of_interest_coords: Vector2i = tilemap.local_to_map(player_pos)
 	var floor_tile_data: TileData = tilemap.get_cell_tile_data(tile_of_interest_coords + Vector2i(0, 1))
 	
-	# print(floor_tile_data.texture_origin)
+	if not floor_tile_data:
+		# player is standing on ledge, check immediate surrounding blocks
+		floor_tile_data = tilemap.get_cell_tile_data(tile_of_interest_coords + Vector2i(-1, 1))
+		if not floor_tile_data:
+			floor_tile_data = tilemap.get_cell_tile_data(tile_of_interest_coords + Vector2i(1, 1))
 	
 	if floor_tile_data and floor_tile_data.get_custom_data("Trampoline") == true:
 		trampoline_sfx.play()
@@ -91,21 +95,15 @@ func stop_footstep_sfx() -> void:
 	
 
 func dim_volume() -> void:
-	if current_level == 15:
-		boss_bgm.volume_db = -10
-	elif current_level >= 7:
-		level_bgm.volume_db = -10
-	else:
-		tutorial_bgm.volume_db = -10
+	boss_bgm.volume_db = -10
+	level_bgm.volume_db = -10
+	tutorial_bgm.volume_db = -10
 	
 
 func restore_volume() -> void:
-	if current_level == 15:
-		boss_bgm.volume_db = 0
-	elif current_level >= 7:
-		level_bgm.volume_db = 0
-	else:
-		tutorial_bgm.volume_db = 0
+	boss_bgm.volume_db = 0
+	level_bgm.volume_db = 0
+	tutorial_bgm.volume_db = 0
 	
 
 func start(level: int) -> void:
@@ -142,7 +140,7 @@ func inc_level_counter() -> void:
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_LINEAR))
 		
 		level_bgm.stop()
-	elif current_level >= 7:
+	elif current_level == 7:
 		# tween volume or smth idk
 		level_bgm.volume_db = -20
 		level_bgm.play()

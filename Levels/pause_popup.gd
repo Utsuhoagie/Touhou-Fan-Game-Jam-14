@@ -34,6 +34,7 @@ func _return_to_menu() -> void:
 
 func _restart_level() -> void:
 	LevelBGMManager.play_button_select_sfx()
+	LevelBGMManager.restore_volume()
 	restart_level.emit()
 	
 

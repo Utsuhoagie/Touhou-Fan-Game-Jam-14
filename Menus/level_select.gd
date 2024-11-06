@@ -19,6 +19,7 @@ func _ready() -> void:
 	levels_dir.list_dir_begin()
 	var level_file_name = levels_dir.get_next()
 	var level_counter: int = 1
+	var prev_level_button
 	
 	while level_file_name != "":
 		var new_level_button := level_button_scene.instantiate()
@@ -29,7 +30,19 @@ func _ready() -> void:
 		
 		level_select_container.add_child(new_level_button)
 		level_file_name = levels_dir.get_next()
+		
+		if level_counter == 1:
+			new_level_button.focus_neighbor_left = back_button.get_path()
+			back_button.focus_neighbor_right = new_level_button.get_path()
+			back_button.focus_neighbor_bottom = new_level_button.get_path()
+		if level_counter <= 5:
+			new_level_button.focus_neighbor_top = back_button.get_path()
+		elif level_counter % 5 == 1:
+			prev_level_button.focus_neighbor_right = new_level_button.get_path()
+			new_level_button.focus_neighbor_left = prev_level_button.get_path()
+		
 		level_counter += 1
+		prev_level_button = new_level_button
 	
 	# focus on first level
 	level_select_container.get_children()[0].grab_focus()

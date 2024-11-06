@@ -71,6 +71,6 @@ offset_left = -600.0
 offset_top = -400.0
 offset_right = 600.0
 offset_bottom = 400.0
-help_text = "Some levels contain enemies that roam around platforms and must be cleared out in order to proceed. Press Z to use your needle to attack them.
+help_text = "Some levels contain enemies that roam around platforms and must all be destroyed in order to proceed to the next level. Press Z to attack them with your needle.
 
-(P.S.: a reminder that you can press Q to restart)"
+(P.S.: if you accidentally merged your reflection too early and can't reach the enemies on the other side, here's a reminder that you can press Q to restart)"

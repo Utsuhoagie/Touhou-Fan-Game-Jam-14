@@ -6,7 +6,7 @@ extends Area2D
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("Action"):
+	if event.is_action_pressed("Action") and not Sprite.is_playing():
 		Sprite.visible = true
 		Sprite.play("default")
 		LevelBGMManager.play_attack_sfx()

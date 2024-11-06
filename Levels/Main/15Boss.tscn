@@ -1,8 +1,9 @@
-[gd_scene load_steps=28 format=4 uid="uid://de2fg3eu5xqox"]
+[gd_scene load_steps=30 format=4 uid="uid://de2fg3eu5xqox"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_muop0"]
 [ext_resource type="PackedScene" path="res://Levels/Background.tscn" id="2_inhot"]
 [ext_resource type="Texture2D" uid="uid://b4oxxnktsork2" path="res://Assets/Actual/Reflection_BG_Shinmyoumaru-Adventure_Landscape_5.png" id="3_2cnuk"]
+[ext_resource type="PackedScene" uid="uid://8l2skejebalg" path="res://Entities/Environment/Sign/sign.tscn" id="4_8r6np"]
 [ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="4_aoj2g"]
 [ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="5_vnh4i"]
 [ext_resource type="PackedScene" uid="uid://swq672klppy0" path="res://Entities/Enemy/Enemy.tscn" id="6_dycjj"]
@@ -12,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cyvtbl1s2vatx" path="res://Assets/Actual/Reflection_Sprite_Seija-Sheet.png" id="10_623mt"]
 [ext_resource type="Texture2D" uid="uid://c14uxxp8r815i" path="res://Assets/Actual/Seija_Attack-Sheet.png" id="11_5pfva"]
 [ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="12_i850s"]
+[ext_resource type="PackedScene" uid="uid://cwvwk5oh8vwjx" path="res://Entities/Environment/Sign/help_popup.tscn" id="13_mwogn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pgdq"]
 size = Vector2(88, 168)
@@ -114,6 +116,10 @@ offset_right = 1760.0
 offset_bottom = 990.0
 texture = ExtResource("3_2cnuk")
 
+[node name="Sign" parent="." node_paths=PackedStringArray("help_popup") instance=ExtResource("4_8r6np")]
+position = Vector2(1600, 280)
+help_popup = NodePath("../CanvasLayer/HelpPopup")
+
 [node name="TileMapLayer" parent="." instance=ExtResource("4_aoj2g")]
 position = Vector2(-40, 0)
 tile_map_data = PackedByteArray("AAAEAAIAAgAAAAAABgAEAAMAAgAAAAAABgADAAIAAwADAAEAAAAHAAIAAwADAAEAAAAQAAcAAgAAAAAABAARAAcAAgAAAAAABAAUAAoAAwACAAEAAAAUAAUAAwADAAEAAAAQAAoAAwAAAAEAAQARAAoAAwAAAAEAAQAFAAoAAwABAAEAAwAGAAoAAwABAAEAAwAOAAkAAwAFAAAAAAAOAAgAAwAFAAAAAAAOAAcAAwAFAAAAAAAOAAYAAwAFAAAAAAAOAAUAAwAFAAAAAAAOAAQAAwAFAAAAAAAOAAMAAwAFAAAAAAAOAAIAAwAFAAAAAAAOAAEAAwAFAAAAAAAIAAEAAwAFAAAAAAAHAAEAAwAFAAAAAAAGAAEAAwAFAAAAAAAFAAEAAwAFAAAAAAAEAAEAAwAFAAAAAAADAAEAAwAFAAAAAAACAAEAAwAFAAAAAAABAAEAAwAFAAAAAAABAAIAAwAFAAAAAAABAAMAAwAFAAAAAAABAAQAAwAFAAAAAAABAAUAAwAFAAAAAAABAAYAAwAFAAAAAAABAAcAAwAFAAAAAAABAAgAAwAFAAAAAAABAAkAAwAFAAAAAAABAAoAAwAFAAAAAAABAAsAAwAFAAAAAAACAAsAAwAFAAAAAAADAAsAAwAFAAAAAAAEAAsAAwAFAAAAAAAFAAsAAwAFAAAAAAAGAAsAAwAFAAAAAAAHAAsAAwAFAAAAAAAIAAsAAwAFAAAAAAAIAAoAAwAFAAAAAAAIAAkAAwAFAAAAAAAIAAgAAwAFAAAAAAAIAAcAAwAFAAAAAAAIAAYAAwAFAAAAAAAIAAUAAwAFAAAAAAAIAAQAAwAFAAAAAAAIAAMAAwAFAAAAAAAIAAIAAwAFAAAAAAAHAAgAAwAFAAAAAAAJAAsAAwAFAAAAAAAKAAsAAwAFAAAAAAALAAsAAwAFAAAAAAALAAoAAwAFAAAAAAALAAkAAwAFAAAAAAALAAgAAwAFAAAAAAALAAcAAwAFAAAAAAALAAYAAwAFAAAAAAALAAUAAwAFAAAAAAAMAAsAAwAFAAAAAAANAAsAAwAFAAAAAAAOAAsAAwAFAAAAAAAOAAoAAwAFAAAAAAAPAAsAAwAFAAAAAAAQAAsAAwAFAAAAAAARAAsAAwAFAAAAAAASAAsAAwAFAAAAAAATAAsAAwAFAAAAAAAUAAsAAwAFAAAAAAAVAAsAAwAFAAAAAAAVAAoAAwAFAAAAAAAVAAUAAwAFAAAAAAAVAAQAAwAFAAAAAAAVAAMAAwAFAAAAAAAVAAIAAwAFAAAAAAAVAAEAAwAFAAAAAAAUAAEAAwAFAAAAAAATAAEAAwAFAAAAAAASAAEAAwAFAAAAAAARAAEAAwAFAAAAAAAQAAEAAwAFAAAAAAAPAAEAAwAFAAAAAAAUAAQAAwAFAAAAAAATAAQAAwAFAAAAAAATAAMAAwABAAEAAwASAAMAAwABAAEAAwARAAMAAwABAAEAAwAQAAMAAwABAAEAAwAQAAQAAwAFAAAAAAAQAAUAAwAFAAAAAAAQAAYAAwAFAAAAAAARAAYAAwAFAAAAAAASAAYAAwAFAAAAAAASAAcAAwAFAAAAAAATAAcAAwAFAAAAAAACAAgAAwAFAAAAAAACAAQAAwAFAAAAAAAFAAIAAwAFAAAAAAAFAAMAAwAFAAAAAAAFAAQAAwAFAAAAAAAGAAQAAwAFAAAAAAAGAAUAAwAFAAAAAAAGAAYAAwAFAAAAAAAFAAYAAwAFAAAAAAAEAAYAAwAFAAAAAAADAAYAAwAFAAAAAAAEAAcAAwAFAAAAAAAEAAgAAwAFAAAAAAAVAAYAAwAFAAAAAAAVAAcAAwAFAAAAAAAVAAgAAwAFAAAAAAAVAAkAAwAFAAAAAAAKAAgAAwAFAAEAAAAMAAgAAwAFAAEAAAAMAAoAAwACAAEAAAAKAAoAAwACAAEAAAAJAAgAAwAFAAEAAAAJAAYAAwAFAAEAAAANAAYAAwAFAAEAAAANAAgAAwAFAAEAAAAMAAYAAwAFAAAAAAAKAAYAAwAFAAAAAAAEAAoAAwABAAEAAwADAAoAAwABAAEAAwACAAoAAwABAAEAAwA=")
@@ -179,6 +185,7 @@ position = Vector2(284, 76)
 shape = SubResource("RectangleShape2D_dwqbf")
 
 [node name="TileMapLayer" parent="Door2" index="1"]
+modulate = Color(1, 0.4, 0.4, 1)
 tile_map_data = PackedByteArray("AAAAAAAAAwACAAAAAAABAAAAAwACAAAAAAACAAAAAwACAAAAAAADAAAAAwACAAAAAAADAAEAAwACAAAAAAA=")
 
 [node name="Seija" type="Area2D" parent="." groups=["enemies"]]
@@ -235,10 +242,14 @@ show_percentage = false
 
 [node name="CanvasLayer" parent="." instance=ExtResource("12_i850s")]
 
+[node name="HelpPopup" parent="CanvasLayer" instance=ExtResource("13_mwogn")]
+visible = false
+help_text = "There she is, the one who'd started it all. Defeat her and restore order to the palace! Be careful though, she will attack you once in a while, and one hit of hers will knock you out."
+
 [connection signal="body_entered" from="TileMapLayer/SpikeR" to="TileMapLayer/SpikeR" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@120051" to="TileMapLayer/@Area2D@120051" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@152788" to="TileMapLayer/@Area2D@152788" method="_on_body_entered"]
 [connection signal="body_entered" from="TileMapLayer/SpikeU" to="TileMapLayer/SpikeU" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@120052" to="TileMapLayer/@Area2D@120052" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@152789" to="TileMapLayer/@Area2D@152789" method="_on_body_entered"]
 [connection signal="body_entered" from="Seija" to="Seija" method="_on_body_entered"]
 [connection signal="body_entered" from="Seija/Detect Player" to="Seija" method="_on_detect_player_body_entered"]
 [connection signal="body_entered" from="Seija/Hitbox" to="Seija" method="_on_hitbox_body_entered"]

@@ -22,6 +22,7 @@ func _ready() -> void:
 		player.shadow_merged.connect(_check_win_condition)
 	
 	get_tree().paused = false
+	canvas_layer.find_child("LevelLabel").text = "Level " + str(LevelBGMManager.current_level)
 	animation_player.play("transition_in")
 	
 

@@ -155,7 +155,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 16.0
+"speed": 18.0
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["players"]]
@@ -176,7 +176,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4cnt4")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.125
 one_shot = true
 
 [node name="Flippable" type="Node2D" parent="."]

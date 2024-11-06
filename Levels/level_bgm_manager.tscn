@@ -39,7 +39,6 @@ stream = ExtResource("3_r7odc")
 [node name="FootstepSFX" type="AudioStreamPlayer2D" parent="."]
 process_mode = 1
 stream = ExtResource("4_uh0pg")
-max_polyphony = 2
 
 [node name="JumpSFX" type="AudioStreamPlayer2D" parent="."]
 process_mode = 1
@@ -59,10 +58,12 @@ stream = ExtResource("7_6bi1p")
 [node name="LandingSFX" type="AudioStreamPlayer2D" parent="."]
 process_mode = 1
 stream = ExtResource("6_w5eic")
+max_polyphony = 2
 
 [node name="TrampolineSFX" type="AudioStreamPlayer2D" parent="."]
 process_mode = 1
 stream = ExtResource("7_mpyjr")
+max_polyphony = 2
 
 [node name="AttackSFX" type="AudioStreamPlayer2D" parent="."]
 process_mode = 1
