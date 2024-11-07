@@ -58,15 +58,24 @@ func play_jump_sfx() -> void:
 	jump_sfx.play()
 	
 
-func play_landing_sfx(tilemap: TileMapLayer, player_pos: Vector2) -> void:
+func play_landing_sfx(tilemap: TileMapLayer, player_pos: Vector2, is_mirrored_y: bool) -> void:
 	var tile_of_interest_coords: Vector2i = tilemap.local_to_map(player_pos)
-	var floor_tile_data: TileData = tilemap.get_cell_tile_data(tile_of_interest_coords + Vector2i(0, 1))
-	
+	if is_mirrored_y:
+		tile_of_interest_coords.y -= 1
+	else:
+		tile_of_interest_coords.y += 1
+		
+	var floor_tile_data: TileData = tilemap.get_cell_tile_data(tile_of_interest_coords)
 	if not floor_tile_data:
 		# player is standing on ledge, check immediate surrounding blocks
-		floor_tile_data = tilemap.get_cell_tile_data(tile_of_interest_coords + Vector2i(-1, 1))
-		if not floor_tile_data:
-			floor_tile_data = tilemap.get_cell_tile_data(tile_of_interest_coords + Vector2i(1, 1))
+		var offset_x = player_pos.x - tilemap.map_to_local(tile_of_interest_coords).x
+		# print(offset_x)
+		if offset_x < 0:
+			# the ledge is to the right of the player
+			floor_tile_data = tilemap.get_cell_tile_data(tile_of_interest_coords + Vector2i(-1, 0))
+		else:
+			# the ledge is to the left of the player
+			floor_tile_data = tilemap.get_cell_tile_data(tile_of_interest_coords + Vector2i(1, 0))
 	
 	if floor_tile_data and floor_tile_data.get_custom_data("Trampoline") == true:
 		trampoline_sfx.play()

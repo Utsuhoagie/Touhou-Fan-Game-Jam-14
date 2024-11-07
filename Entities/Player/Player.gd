@@ -77,7 +77,8 @@ func _physics_process(delta: float) -> void:
 	if not was_on_floor and is_on_floor():
 		LevelBGMManager.play_landing_sfx(
 			self.get_parent().find_child("TileMapLayer", false),
-			self.global_position
+			self.global_position,
+			self.mirror_y
 		)
 	
 

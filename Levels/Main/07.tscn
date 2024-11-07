@@ -1,13 +1,15 @@
-[gd_scene load_steps=11 format=4 uid="uid://cp8uyethg4quy"]
+[gd_scene load_steps=13 format=4 uid="uid://cp8uyethg4quy"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_36ptk"]
 [ext_resource type="PackedScene" path="res://Levels/Background.tscn" id="2_7pfxh"]
 [ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_xaryw"]
 [ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="3_f2t4x"]
+[ext_resource type="PackedScene" uid="uid://8l2skejebalg" path="res://Entities/Environment/Sign/sign.tscn" id="4_3jm01"]
 [ext_resource type="PackedScene" uid="uid://swq672klppy0" path="res://Entities/Enemy/Enemy.tscn" id="4_5yioe"]
 [ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="5_imosm"]
 [ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="6_1bkl5"]
 [ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="7_ks4bx"]
+[ext_resource type="PackedScene" uid="uid://cwvwk5oh8vwjx" path="res://Entities/Environment/Sign/help_popup.tscn" id="10_m8lrg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yac10"]
 size = Vector2(240, 96)
@@ -26,6 +28,10 @@ offset_bottom = 990.0
 [node name="TileMapLayer" parent="." instance=ExtResource("2_xaryw")]
 tile_map_data = PackedByteArray("AAABAAEAAwAAAAAAAAABAAIAAwAEAAAAAAABAAMAAwAEAAAAAAABAAQAAwAEAAAAAAABAAUAAwAEAAAAAAABAAYAAwAEAAAAAAABAAcAAwAEAAAAAAABAAgAAwAEAAAAAAABAAkAAwAEAAAAAAABAAoAAwAEAAAAAAABAAsAAwAEAAAAAAACAAEAAwAAAAAAAAADAAEAAwAAAAAAAAAEAAEAAwAAAAAAAAAFAAEAAwAAAAAAAAAGAAEAAwAAAAAAAAAHAAEAAwAAAAAAAAAIAAEAAwAAAAAAAAAJAAEAAwAAAAAAAAAKAAEAAwAAAAAAAAALAAEAAwAAAAAAAAAMAAEAAwAAAAAAAAANAAEAAwAAAAAAAAAOAAEAAwAAAAAAAAAPAAEAAwAAAAAAAAAQAAEAAwAAAAAAAAARAAEAAwAAAAAAAAASAAEAAwAAAAAAAAATAAEAAwAAAAAAAAASAAsAAwAEAAAAAAARAAsAAwAEAAAAAAAQAAsAAwAEAAAAAAAPAAsAAwAEAAAAAAAOAAsAAwAEAAAAAAANAAsAAwAEAAAAAAAMAAsAAwAEAAAAAAALAAsAAwAEAAAAAAAKAAsAAwAEAAAAAAAJAAsAAwAEAAAAAAAIAAsAAwAEAAAAAAAHAAsAAwAEAAAAAAAGAAsAAwAEAAAAAAAFAAsAAwAEAAAAAAAEAAsAAwAEAAAAAAADAAsAAwAEAAAAAAACAAsAAwAEAAAAAAATAAsAAwAEAAAAAAAUAAEAAwAAAAAAAAAUAAsAAwAEAAAAAAAUAAIAAwAEAAAAAAAUAAMAAwAEAAAAAAAUAAQAAwAEAAAAAAAUAAUAAwAEAAAAAAAUAAYAAwAEAAAAAAAUAAcAAwAEAAAAAAAUAAgAAwAEAAAAAAAUAAkAAwAEAAAAAAAUAAoAAwAEAAAAAAACAAIAAwAEAAAAAAADAAIAAwAEAAAAAAAEAAIAAwAEAAAAAAAHAAIAAwAEAAAAAAAIAAIAAwAEAAAAAAAJAAIAAwAEAAAAAAAKAAIAAwAEAAAAAAALAAIAAwAEAAAAAAAMAAIAAwAEAAAAAAANAAIAAwAEAAAAAAAOAAIAAwAEAAAAAAAPAAIAAwAEAAAAAAAQAAIAAwAEAAAAAAARAAIAAwAEAAAAAAASAAIAAwAEAAAAAAATAAIAAwAEAAAAAAACAAYAAgAAAAAAAQADAAYAAwAEAAAAAAAEAAYAAgAAAAAAAQAFAAYAAwAEAAAAAAAGAAYAAgAAAAAAAQAHAAYAAwAEAAAAAAAIAAYAAgAAAAAAAQAJAAYAAwAEAAAAAAAKAAYAAwAEAAAAAAALAAYAAwAEAAAAAAAMAAYAAwAEAAAAAAANAAYAAwAEAAAAAAAOAAYAAwAEAAAAAAAPAAYAAwAEAAAAAAAQAAYAAwAEAAAAAAARAAYAAwAEAAAAAAASAAYAAwAEAAAAAAATAAYAAwAEAAAAAAACAAkAAwAEAAAAAAAGAAgAAwAEAAAAAAAOAAgAAwAEAAAAAAAPAAgAAwAEAAAAAAAQAAgAAwAEAAAAAAARAAgAAwAEAAAAAAASAAgAAwAEAAAAAAATAAgAAwAEAAAAAAATAAkAAwAEAAAAAAASAAkAAwAEAAAAAAARAAkAAwAEAAAAAAAQAAkAAwAEAAAAAAAPAAkAAwAEAAAAAAAOAAkAAwAEAAAAAAANAAkAAwAEAAAAAAALAAkAAwAEAAAAAAAKAAkAAwAEAAAAAAAIAAkAAwAEAAAAAAAHAAkAAwAEAAAAAAAGAAkAAwAEAAAAAAAFAAkAAwAEAAAAAAAEAAkAAwAEAAAAAAADAAkAAwAEAAAAAAAGAAIAAwAEAAAAAAACAAQAAwAEAAAAAAADAAQAAwAEAAAAAAAEAAQAAwAEAAAAAAAFAAQAAwAEAAAAAAAGAAQAAwAEAAAAAAAHAAQAAwAEAAAAAAAIAAQAAwAEAAAAAAAJAAQAAwAEAAAAAAAKAAQAAwAEAAAAAAALAAQAAwAEAAAAAAAMAAQAAwAEAAAAAAANAAQAAwAEAAAAAAAOAAQAAwAEAAAAAAAPAAQAAwAEAAAAAAATAAQAAwAEAAAAAAACAAgAAwAEAAAAAAADAAgAAwAEAAAAAAAEAAgAAwAEAAAAAAAFAAgAAwAEAAAAAAAHAAgAAwAEAAAAAAAJAAkAAwAEAAAAAAAIAAgAAwAEAAAAAAAKAAgAAwAEAAAAAAAJAAgAAwAEAAAAAAA=")
 
+[node name="Sign" parent="." node_paths=PackedStringArray("help_popup") instance=ExtResource("4_3jm01")]
+position = Vector2(280, 840)
+help_popup = NodePath("../CanvasLayer/HelpPopup")
+
 [node name="Door" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("3_f2t4x")]
 key_to_unlock = NodePath("../Key")
 
@@ -41,7 +47,8 @@ position = Vector2(1560, 600)
 shape = SubResource("RectangleShape2D_ih1uf")
 
 [node name="Enemy" parent="." instance=ExtResource("4_5yioe")]
-position = Vector2(544, 832)
+position = Vector2(400, 832)
+initialDirection = 1
 
 [node name="Enemy2" parent="." instance=ExtResource("4_5yioe")]
 position = Vector2(1424, 832)
@@ -77,5 +84,9 @@ type = 1
 mirror_y = true
 
 [node name="CanvasLayer" parent="." instance=ExtResource("7_ks4bx")]
+
+[node name="HelpPopup" parent="CanvasLayer" instance=ExtResource("10_m8lrg")]
+visible = false
+help_text = "Tip: You and your reflections aren't linked together by movement, meaning you can \"desync\" from your reflections by blocking one player character with a wall and letting the other move by itself. Try doing this here!"
 
 [editable path="Door"]

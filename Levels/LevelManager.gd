@@ -8,6 +8,7 @@ extends Node2D
 const MAIN_MENU_PATH: String = "res://Menus/main_menu.tscn"
 var pause_popup_scene = preload("res://Levels/pause_popup.tscn")
 var win_popup_scene = preload("res://Levels/win_popup.tscn")
+var is_resetting_level: bool = false
 
 func _ready() -> void:
 	Signals.hazard_touched.connect(reset_level)
@@ -29,7 +30,6 @@ func _ready() -> void:
 func _unhandled_key_input(event: InputEvent) -> void:
 	# we don't want extra inputs pls
 	if event.is_echo(): return
-	print("wtf is going on")
 
 	if event.is_action_pressed("Reset"):
 		reset_level()
@@ -51,10 +51,14 @@ func _check_win_condition() -> void:
 
 	var remaining_enemies := get_tree().get_nodes_in_group("enemies")	\
 		.filter(func(enemy): return not enemy.is_queued_for_deletion())
-
-	if remaining_players.size() > 1 or not remaining_enemies.is_empty():
+	
+	if remaining_players.size() > 1:
 		return
-
+	
+	if not remaining_enemies.is_empty():
+		canvas_layer.find_child("IdiotProofMessage").show()
+		return
+	
 	print("level complete!")
 
 	# display win screen popup thing
@@ -91,7 +95,10 @@ func _win_after_Seija_die() -> void:
 	
 
 func reset_level() -> void:
+	if is_resetting_level: return
+	
 	get_tree().paused = false
+	is_resetting_level = true
 	LevelBGMManager.play_death_sfx()
 	animation_player.play("transition_out")
 	await animation_player.animation_finished
