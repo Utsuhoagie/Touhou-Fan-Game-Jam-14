@@ -246,10 +246,6 @@ show_percentage = false
 visible = false
 help_text = "There she is, the one who'd started it all. Defeat her and restore order to the palace! Be careful though, she will attack you once in a while, and one hit of hers will knock you out."
 
-[connection signal="body_entered" from="TileMapLayer/SpikeR" to="TileMapLayer/SpikeR" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@152788" to="TileMapLayer/@Area2D@152788" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/SpikeU" to="TileMapLayer/SpikeU" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@152789" to="TileMapLayer/@Area2D@152789" method="_on_body_entered"]
 [connection signal="body_entered" from="Seija" to="Seija" method="_on_body_entered"]
 [connection signal="body_entered" from="Seija/Detect Player" to="Seija" method="_on_detect_player_body_entered"]
 [connection signal="body_entered" from="Seija/Hitbox" to="Seija" method="_on_hitbox_body_entered"]

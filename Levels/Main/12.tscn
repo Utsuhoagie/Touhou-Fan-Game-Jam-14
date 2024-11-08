@@ -71,15 +71,5 @@ shape = SubResource("RectangleShape2D_1rc8w")
 [node name="TileMapLayer" parent="Door2" index="1"]
 tile_map_data = PackedByteArray("AAAAAAAAAwACAAAAAAAAAAEAAwACAAAAAAAAAAIAAwACAAAAAAAAAAMAAwACAAAAAAA=")
 
-[connection signal="body_entered" from="TileMapLayer/SpikeL" to="TileMapLayer/SpikeL" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@138493" to="TileMapLayer/@Area2D@138493" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/SpikeU" to="TileMapLayer/SpikeU" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@138494" to="TileMapLayer/@Area2D@138494" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@138495" to="TileMapLayer/@Area2D@138495" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@138496" to="TileMapLayer/@Area2D@138496" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@138497" to="TileMapLayer/@Area2D@138497" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@138498" to="TileMapLayer/@Area2D@138498" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@138499" to="TileMapLayer/@Area2D@138499" method="_on_body_entered"]
-
 [editable path="Door"]
 [editable path="Door2"]

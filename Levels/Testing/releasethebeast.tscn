@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=4 uid="uid://b0c2jskpshuqa"]
+
+[ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_4v12q"]
+[ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_3wkuf"]
+[ext_resource type="PackedScene" uid="uid://swq672klppy0" path="res://Entities/Enemy/Enemy.tscn" id="4_g00n5"]
+[ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="6_jim32"]
+[ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="7_kn5q6"]
+
+[node name="LevelTemplate" type="Node2D"]
+script = ExtResource("1_4v12q")
+next_level_path = "res://Levels/Main/2.tscn"
+
+[node name="TileMapLayer" parent="." instance=ExtResource("2_3wkuf")]
+tile_map_data = PackedByteArray("AAABAAEAAwAFAAAAAAABAAIAAwAFAAAAAAABAAMAAwAFAAAAAAABAAQAAwAFAAAAAAABAAUAAwAFAAAAAAABAAYAAwAFAAAAAAABAAcAAwAFAAAAAAABAAgAAwAFAAAAAAABAAkAAwAFAAAAAAABAAoAAwAFAAAAAAABAAsAAwAFAAAAAAACAAEAAwAFAAAAAAADAAEAAwAFAAAAAAAEAAEAAwAFAAAAAAAFAAEAAwAFAAAAAAAGAAEAAwAFAAAAAAAHAAEAAwAFAAAAAAAIAAEAAwAFAAAAAAAJAAEAAwAFAAAAAAAKAAEAAwAFAAAAAAALAAEAAwAFAAAAAAAMAAEAAwAFAAAAAAANAAEAAwAFAAAAAAAOAAEAAwAFAAAAAAAPAAEAAwAFAAAAAAAQAAEAAwAFAAAAAAARAAEAAwAFAAAAAAASAAEAAwAFAAAAAAATAAEAAwAFAAAAAAASAAsAAwAFAAAAAAARAAsAAwAFAAAAAAAQAAsAAwAFAAAAAAAPAAsAAwAFAAAAAAAOAAsAAwAFAAAAAAANAAsAAwAFAAAAAAAMAAsAAwAFAAAAAAALAAsAAwAFAAAAAAAKAAsAAwAFAAAAAAAJAAsAAwAFAAAAAAAIAAsAAwAFAAAAAAAHAAsAAwAFAAAAAAAGAAsAAwAFAAAAAAAFAAsAAwAFAAAAAAAEAAsAAwAFAAAAAAADAAsAAwAFAAAAAAACAAsAAwAFAAAAAAATAAsAAwAFAAAAAAAVAAEAAwAFAAAAAAAVAAIAAwAFAAAAAAAVAAMAAwAFAAAAAAAVAAQAAwAFAAAAAAAVAAUAAwAFAAAAAAAVAAYAAwAFAAAAAAAVAAcAAwAFAAAAAAAVAAgAAwAFAAAAAAAVAAkAAwAFAAAAAAAVAAoAAwAFAAAAAAAVAAsAAwAFAAAAAAAUAAsAAwAFAAAAAAAUAAEAAwAFAAAAAAALAAoAAwAFAAAAAAALAAkAAwAFAAAAAAALAAgAAwAFAAAAAAALAAcAAwAFAAAAAAALAAYAAwAFAAAAAAALAAUAAgAAAAAAAgALAAQAAgAAAAAAAgALAAMAAgAAAAAAAgALAAIAAgAAAAAAAgAJAAYAAwAFAAAAAAAKAAYAAwADAAEAAAAMAAYAAwADAAEAAAANAAYAAwAFAAAAAAAIAAYAAwADAAEAAAAOAAYAAwADAAEAAAADAAoAAwAFAAAAAAAHAAgAAwAFAAAAAAAFAAkAAwAFAAAAAAATAAIAAwAFAAAAAAARAAMAAwAFAAAAAAAPAAQAAwAFAAAAAAAHAAQAAwAFAAAAAAAFAAMAAwAFAAAAAAADAAIAAwAFAAAAAAAPAAgAAwAFAAAAAAARAAkAAwAFAAAAAAATAAoAAwAFAAAAAAAPAAMAAwAFAAAAAAAPAAIAAwAFAAAAAAARAAIAAwAFAAAAAAAHAAIAAwAFAAAAAAAHAAMAAwAFAAAAAAAFAAIAAwAFAAAAAAA=")
+
+[node name="Enemy" parent="." instance=ExtResource("4_g00n5")]
+position = Vector2(448, 672)
+
+[node name="Enemy3" parent="." instance=ExtResource("4_g00n5")]
+position = Vector2(1240, 752)
+initialDirection = 1
+mirror_y = true
+
+[node name="Enemy4" parent="." instance=ExtResource("4_g00n5")]
+position = Vector2(1408, 832)
+mirror_y = true
+
+[node name="Enemy2" parent="." instance=ExtResource("4_g00n5")]
+position = Vector2(600, 592)
+initialDirection = 1
+
+[node name="Player" parent="." instance=ExtResource("6_jim32")]
+position = Vector2(200, 801)
+
+[node name="Player2" parent="." instance=ExtResource("6_jim32")]
+position = Vector2(1640, 239)
+type = 1
+mirror_x = true
+mirror_y = true
+
+[node name="CanvasLayer" parent="." instance=ExtResource("7_kn5q6")]
