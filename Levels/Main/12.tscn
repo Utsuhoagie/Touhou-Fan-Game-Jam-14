@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=4 uid="uid://b5yhwmhv48dw2"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_rlu55"]
-[ext_resource type="PackedScene" path="res://Levels/Background.tscn" id="2_iigcs"]
+[ext_resource type="PackedScene" uid="uid://duuslj8cggp2b" path="res://Levels/Background.tscn" id="2_iigcs"]
 [ext_resource type="Texture2D" uid="uid://x0uckqw5ginn" path="res://Assets/Actual/Reflection_BG_Shinmyoumaru-Adventure_Landscape_4.png" id="3_s4l1h"]
 [ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="4_eyedv"]
 [ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="5_iihho"]
@@ -26,7 +26,7 @@ offset_bottom = 990.0
 texture = ExtResource("3_s4l1h")
 
 [node name="TileMapLayer" parent="." instance=ExtResource("4_eyedv")]
-tile_map_data = PackedByteArray("AAD//wAAAwAEAAAAAAD//wEAAwAEAAAAAAD//wIAAwAEAAAAAAD//wMAAwAEAAAAAAD//wQAAwAEAAAAAAD//wUAAwAEAAAAAAD//wYAAwAEAAAAAAD//wcAAwAEAAAAAAD//wgAAwAEAAAAAAD//wkAAwAEAAAAAAD//woAAwAEAAAAAAD//wsAAwAEAAAAAAAAAAsAAwAAAAAAAAABAAsAAwAAAAAAAAACAAsAAwAAAAAAAAADAAsAAwAAAAAAAAAAAP//AwAEAAAAAAABAP//AwAEAAAAAAACAP//AwAEAAAAAAADAP//AwAEAAAAAAAEAP//AwAEAAAAAAAFAP//AwAEAAAAAAAGAP//AwAEAAAAAAAHAP//AwAEAAAAAAAIAP//AwAEAAAAAAABAAcAAwAAAAAAAAAAAAcAAwAAAAAAAAAEAAQAAwAAAAAAAAAFAAQAAwAAAAAAAAAAAAIAAwAAAAAAAAABAAIAAwAAAAAAAAADAAoAAwACAAEAAAABAAYAAwACAAEAAAAEAAMAAwACAAEAAAAEAAsAAwAAAAAAAAAUAAIAAwAFAAAAAAAVAAIAAwAFAAAAAAAVAAEAAwAFAAAAAAAVAAAAAwAFAAAAAAAVAP//AwAFAAAAAAAUAP//AwAFAAAAAAATAAIAAwAFAAAAAAATAAAAAgAAAAAAAgATAAEAAgAAAAAAAgATAP//AwAFAAAAAAASAAIAAwAFAAAAAAASAAMAAwAFAAAAAAASAAQAAwAFAAAAAAARAAQAAwAFAAAAAAAQAAQAAwAFAAAAAAAPAAQAAwAFAAAAAAAOAAQAAwAFAAAAAAAPAP//AwAFAAAAAAAOAP//AwAFAAAAAAANAP//AwAFAAAAAAAMAP//AwAFAAAAAAALAP//AwAFAAAAAAAKAP//AwAFAAAAAAAJAP//AwAFAAAAAAALAAIAAwAFAAAAAAAKAAAAAwAFAAAAAAAKAAEAAwAFAAAAAAAKAAIAAwAFAAAAAAALAAAAAgAAAAAABQALAAEAAgAAAAAABQAPAAUAAgAAAAAABAAQAAUAAgAAAAAABAARAAUAAgAAAAAABAASAAUAAgAAAAAABAAOAAUAAgAAAAAABAAKAAMAAgAAAAAABAALAAMAAgAAAAAABAAHAAsAAwACAAEAAAAMAAsAAwACAAEAAAANAAcAAwACAAEAAAA=")
+tile_map_data = PackedByteArray("AAD//wAAAwAEAAAAAAD//wEAAwAEAAAAAAD//wIAAwAEAAAAAAD//wMAAwAEAAAAAAD//wQAAwAEAAAAAAD//wUAAwAEAAAAAAD//wYAAwAEAAAAAAD//wcAAwAEAAAAAAD//wgAAwAEAAAAAAD//wkAAwAEAAAAAAD//woAAwAEAAAAAAD//wsAAwAEAAAAAAAAAAsAAwAAAAAAAAABAAsAAwAAAAAAAAACAAsAAwAAAAAAAAADAAsAAwAAAAAAAAAAAP//AwAEAAAAAAABAP//AwAEAAAAAAACAP//AwAEAAAAAAADAP//AwAEAAAAAAAEAP//AwAEAAAAAAAFAP//AwAEAAAAAAAEAAQAAwACAAEAAAAAAAIAAwAAAAAAAAABAAIAAwAAAAAAAAAEAAsAAwAAAAAAAAAUAAIAAwAFAAAAAAAVAAIAAwAFAAAAAAAVAAEAAwAFAAAAAAAVAAAAAwAFAAAAAAAVAP//AwAFAAAAAAAUAP//AwAFAAAAAAATAAIAAwAFAAAAAAATAAAAAgAAAAAAAgATAAEAAgAAAAAAAgATAP//AwAFAAAAAAASAAIAAwAFAAAAAAASAAMAAwAFAAAAAAASAAQAAwAFAAAAAAARAAQAAwAFAAAAAAAQAAQAAwAFAAAAAAAPAAQAAwAFAAAAAAAOAAQAAwAFAAAAAAAPAP//AwAFAAAAAAAOAP//AwAFAAAAAAANAP//AwAFAAAAAAAMAP//AwAFAAAAAAALAP//AwAFAAAAAAAKAP//AwAFAAAAAAAJAP//AwAFAAAAAAALAAIAAwAFAAAAAAAKAAAAAwAFAAAAAAAKAAEAAwAFAAAAAAAKAAIAAwAFAAAAAAALAAAAAgAAAAAABQALAAEAAgAAAAAABQAPAAUAAwAFAAAAAAAQAAUAAwAFAAAAAAARAAUAAwAFAAAAAAASAAUAAwAFAAAAAAAOAAUAAwAFAAAAAAAKAAMAAwAFAAAAAAALAAMAAwAFAAAAAAAJAAAAAwAFAAAAAAAJAAEAAwAFAAAAAAAJAAIAAwAFAAAAAAAIAAQAAwAFAAAAAAAIAAMAAwAFAAAAAAAIAAIAAwAFAAAAAAAIAAEAAwAFAAAAAAAIAAAAAwAFAAAAAAAIAP//AwAFAAAAAAAJAAMAAwAFAAAAAAAJAAQAAwAFAAAAAAAKAAQAAwAFAAAAAAALAAQAAwAFAAAAAAAVAAMAAwAFAAAAAAAUAAMAAwAFAAAAAAATAAMAAwAFAAAAAAATAAQAAwAFAAAAAAATAAUAAwAFAAAAAAAFAAwAAgAAAAAAAwAGAAwAAgAAAAAAAwAHAAwAAgAAAAAAAwAIAAwAAgAAAAAAAwAJAAwAAgAAAAAAAwAKAAwAAgAAAAAAAwALAAwAAgAAAAAAAwAMAAwAAgAAAAAAAwANAAwAAgAAAAAAAwAOAAwAAgAAAAAAAwAPAAwAAgAAAAAAAwAQAAwAAgAAAAAAAwARAAwAAgAAAAAAAwASAAwAAgAAAAAAAwATAAwAAgAAAAAAAwAUAAwAAgAAAAAAAwAVAAwAAgAAAAAAAwAOAAYAAgAAAAAABAAPAAYAAgAAAAAABAAQAAYAAgAAAAAABAARAAYAAgAAAAAABAASAAYAAgAAAAAABAATAAYAAgAAAAAABAAUAAQAAgAAAAAABAAVAAQAAgAAAAAABAAAAAgAAwAAAAAAAAABAAgAAwAAAAAAAAABAAcAAwACAAEAAAAEAAoAAwACAAEAAAAEAAUAAwAAAAAAAAAHAAMAAgAAAAAABgAHAAIAAgAAAAAABgAHAAEAAgAAAAAABgAHAAAAAgAAAAAABgAHAAQAAgAAAAAABgALAAUAAgAAAAAABAAJAAUAAwAFAAAAAAAKAAUAAgAAAAAABAAJAAYAAgAAAAAABAAIAAUAAgAAAAAABAANAAcAAwACAAEAAAANAAsAAwACAAEAAAAIAAsAAwACAAEAAAA=")
 
 [node name="Key" parent="." instance=ExtResource("7_56f4y")]
 position = Vector2(40, 120)
@@ -40,7 +40,7 @@ position = Vector2(400, 116)
 shape = SubResource("RectangleShape2D_3pmag")
 
 [node name="TileMapLayer" parent="Door" index="1"]
-tile_map_data = PackedByteArray("AAAAAAEAAwACAAAAAAAAAAAAAwACAAAAAAABAAAAAwACAAAAAAACAAAAAwACAAAAAAADAAAAAwACAAAAAAAEAAAAAwACAAAAAAAFAAAAAwACAAAAAAAGAAAAAwACAAAAAAAHAAAAAwACAAAAAAAIAAAAAwACAAAAAAAJAAAAAwACAAAAAAAJAAEAAwACAAAAAAAKAAIAAwADAAAAAAALAAIAAwADAAAAAAAMAAIAAwADAAAAAAANAAIAAwADAAAAAAAOAAIAAwADAAAAAAAPAAIAAwADAAAAAAAQAAIAAwADAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAEAAwACAAAAAAAAAAAAAwACAAAAAAABAAAAAwACAAAAAAACAAAAAwACAAAAAAADAAAAAwACAAAAAAAEAAAAAwACAAAAAAAKAAIAAwADAAAAAAALAAIAAwADAAAAAAAMAAIAAwADAAAAAAANAAIAAwADAAAAAAAOAAIAAwADAAAAAAAPAAIAAwADAAAAAAAQAAIAAwADAAAAAAAFAAAAAwACAAAAAAAJAAAAAwACAAAAAAAJAAEAAwACAAAAAAAAAAIAAwACAAAAAAAJAAIAAwACAAAAAAAIAAAAAwACAAAAAAAHAAAAAwACAAAAAAAGAAAAAwACAAAAAAA=")
 
 [node name="Player" parent="." instance=ExtResource("5_iihho")]
 position = Vector2(80, 800)
@@ -70,6 +70,43 @@ shape = SubResource("RectangleShape2D_1rc8w")
 
 [node name="TileMapLayer" parent="Door2" index="1"]
 tile_map_data = PackedByteArray("AAAAAAAAAwACAAAAAAAAAAEAAwACAAAAAAAAAAIAAwACAAAAAAAAAAMAAwACAAAAAAA=")
+
+[connection signal="body_entered" from="TileMapLayer/SpikeL" to="TileMapLayer/SpikeL" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91417" to="TileMapLayer/@Area2D@91417" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/SpikeD" to="TileMapLayer/SpikeD" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91840" to="TileMapLayer/@Area2D@91840" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91841" to="TileMapLayer/@Area2D@91841" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91842" to="TileMapLayer/@Area2D@91842" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91843" to="TileMapLayer/@Area2D@91843" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91844" to="TileMapLayer/@Area2D@91844" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91845" to="TileMapLayer/@Area2D@91845" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91846" to="TileMapLayer/@Area2D@91846" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91847" to="TileMapLayer/@Area2D@91847" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91848" to="TileMapLayer/@Area2D@91848" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91849" to="TileMapLayer/@Area2D@91849" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91850" to="TileMapLayer/@Area2D@91850" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91851" to="TileMapLayer/@Area2D@91851" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91852" to="TileMapLayer/@Area2D@91852" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91853" to="TileMapLayer/@Area2D@91853" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91854" to="TileMapLayer/@Area2D@91854" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91855" to="TileMapLayer/@Area2D@91855" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/SpikeU" to="TileMapLayer/SpikeU" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91856" to="TileMapLayer/@Area2D@91856" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91857" to="TileMapLayer/@Area2D@91857" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91858" to="TileMapLayer/@Area2D@91858" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91859" to="TileMapLayer/@Area2D@91859" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91860" to="TileMapLayer/@Area2D@91860" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91863" to="TileMapLayer/@Area2D@91863" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91864" to="TileMapLayer/@Area2D@91864" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91947" to="TileMapLayer/@Area2D@91947" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91948" to="TileMapLayer/@Area2D@91948" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91949" to="TileMapLayer/@Area2D@91949" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91950" to="TileMapLayer/@Area2D@91950" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/SpikeR" to="TileMapLayer/SpikeR" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91954" to="TileMapLayer/@Area2D@91954" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@91956" to="TileMapLayer/@Area2D@91956" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@93007" to="TileMapLayer/@Area2D@93007" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@93017" to="TileMapLayer/@Area2D@93017" method="_on_body_entered"]
 
 [editable path="Door"]
 [editable path="Door2"]
