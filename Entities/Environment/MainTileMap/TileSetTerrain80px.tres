@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cfksjoy5r6p2s" path="res://Entities/Environment/Spike/SpikeL.tscn" id="5_5q2te"]
 [ext_resource type="PackedScene" uid="uid://bu5fwe8v2xvfx" path="res://Entities/Environment/Spike/SpikeR.tscn" id="6_x7dd4"]
 [ext_resource type="PackedScene" uid="uid://8l2skejebalg" path="res://Entities/Environment/Sign/sign.tscn" id="7_8h1oi"]
-[ext_resource type="PackedScene" path="res://Entities/Environment/OneWayPlatform.tscn" id="8_cg22e"]
+[ext_resource type="PackedScene" uid="uid://bo1nwb1rf6tff" path="res://Entities/Environment/OneWayPlatform.tscn" id="8_cg22e"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_bmala"]
 scenes/1/scene = ExtResource("2_byvjn")
@@ -66,6 +66,7 @@ texture_region_size = Vector2i(80, 80)
 5:1/0 = 0
 5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-40, -5.71429, 40, -5.71429, 40, 40, -40, 40)
 5:1/0/physics_layer_0/polygon_0/one_way = true
+2:3/0 = 0
 
 [resource]
 tile_size = Vector2i(80, 80)

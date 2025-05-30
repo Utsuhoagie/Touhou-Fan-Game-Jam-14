@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://bc7lag10c7wgf"]
+[gd_scene load_steps=7 format=4 uid="uid://cflwd4pwrfxa8"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_sqjbb"]
 [ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_7fljl"]
-[ext_resource type="PackedScene" path="res://Levels/Background.tscn" id="2_bcyn4"]
+[ext_resource type="PackedScene" uid="uid://duuslj8cggp2b" path="res://Levels/Background.tscn" id="2_bcyn4"]
 [ext_resource type="Texture2D" uid="uid://cf5bhi6rsvjkb" path="res://Assets/Actual/Reflection_BG_Shinmyoumaru-Adventure_Landscape_3.png" id="3_3hsxg"]
 [ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="3_rwoej"]
 [ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="4_ff77w"]

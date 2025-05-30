@@ -10,7 +10,7 @@
 
 [node name="LevelTemplate2" type="Node2D"]
 script = ExtResource("1_vq7io")
-next_level_path = "res://Levels/Main/10.tscn"
+next_level_path = "res://Levels/Main/11.tscn"
 
 [node name="Background" parent="." instance=ExtResource("2_l2lic")]
 offset_right = 1760.0

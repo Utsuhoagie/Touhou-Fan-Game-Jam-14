@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=4 uid="uid://dvtxkmygo4of4"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_v8xxp"]
-[ext_resource type="PackedScene" path="res://Levels/Background.tscn" id="2_1qayy"]
+[ext_resource type="PackedScene" uid="uid://duuslj8cggp2b" path="res://Levels/Background.tscn" id="2_1qayy"]
 [ext_resource type="Texture2D" uid="uid://cf5bhi6rsvjkb" path="res://Assets/Actual/Reflection_BG_Shinmyoumaru-Adventure_Landscape_3.png" id="3_8hd6h"]
 [ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="4_pfk7j"]
 [ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="5_jnbxt"]
@@ -20,7 +20,7 @@ size = Vector2(96, 80)
 
 [node name="Level8" type="Node2D"]
 script = ExtResource("1_v8xxp")
-next_level_path = "res://Levels/Main/11.tscn"
+next_level_path = "res://Levels/Main/12.tscn"
 
 [node name="Background" parent="." instance=ExtResource("2_1qayy")]
 offset_right = 1760.0

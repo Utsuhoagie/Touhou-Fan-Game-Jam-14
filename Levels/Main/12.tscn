@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://b5yhwmhv48dw2"]
+[gd_scene load_steps=13 format=4 uid="uid://b5yhwmhv48dw2"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_rlu55"]
 [ext_resource type="PackedScene" uid="uid://duuslj8cggp2b" path="res://Levels/Background.tscn" id="2_iigcs"]
@@ -16,9 +16,12 @@ size = Vector2(816, 248)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1rc8w"]
 size = Vector2(96, 320)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trnlr"]
+size = Vector2(88, 320)
+
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_rlu55")
-next_level_path = "res://Levels/Main/12.tscn"
+next_level_path = "res://Levels/Main/13.tscn"
 
 [node name="Background" parent="." instance=ExtResource("2_iigcs")]
 offset_right = 1760.0
@@ -26,10 +29,10 @@ offset_bottom = 990.0
 texture = ExtResource("3_s4l1h")
 
 [node name="TileMapLayer" parent="." instance=ExtResource("4_eyedv")]
-tile_map_data = PackedByteArray("AAD//wAAAwAEAAAAAAD//wEAAwAEAAAAAAD//wIAAwAEAAAAAAD//wMAAwAEAAAAAAD//wQAAwAEAAAAAAD//wUAAwAEAAAAAAD//wYAAwAEAAAAAAD//wcAAwAEAAAAAAD//wgAAwAEAAAAAAD//wkAAwAEAAAAAAD//woAAwAEAAAAAAD//wsAAwAEAAAAAAAAAAsAAwAAAAAAAAABAAsAAwAAAAAAAAACAAsAAwAAAAAAAAADAAsAAwAAAAAAAAAAAP//AwAEAAAAAAABAP//AwAEAAAAAAACAP//AwAEAAAAAAADAP//AwAEAAAAAAAEAP//AwAEAAAAAAAFAP//AwAEAAAAAAAEAAQAAwACAAEAAAAAAAIAAwAAAAAAAAABAAIAAwAAAAAAAAAEAAsAAwAAAAAAAAAUAAIAAwAFAAAAAAAVAAIAAwAFAAAAAAAVAAEAAwAFAAAAAAAVAAAAAwAFAAAAAAAVAP//AwAFAAAAAAAUAP//AwAFAAAAAAATAAIAAwAFAAAAAAATAAAAAgAAAAAAAgATAAEAAgAAAAAAAgATAP//AwAFAAAAAAASAAIAAwAFAAAAAAASAAMAAwAFAAAAAAASAAQAAwAFAAAAAAARAAQAAwAFAAAAAAAQAAQAAwAFAAAAAAAPAAQAAwAFAAAAAAAOAAQAAwAFAAAAAAAPAP//AwAFAAAAAAAOAP//AwAFAAAAAAANAP//AwAFAAAAAAAMAP//AwAFAAAAAAALAP//AwAFAAAAAAAKAP//AwAFAAAAAAAJAP//AwAFAAAAAAALAAIAAwAFAAAAAAAKAAAAAwAFAAAAAAAKAAEAAwAFAAAAAAAKAAIAAwAFAAAAAAALAAAAAgAAAAAABQALAAEAAgAAAAAABQAPAAUAAwAFAAAAAAAQAAUAAwAFAAAAAAARAAUAAwAFAAAAAAASAAUAAwAFAAAAAAAOAAUAAwAFAAAAAAAKAAMAAwAFAAAAAAALAAMAAwAFAAAAAAAJAAAAAwAFAAAAAAAJAAEAAwAFAAAAAAAJAAIAAwAFAAAAAAAIAAQAAwAFAAAAAAAIAAMAAwAFAAAAAAAIAAIAAwAFAAAAAAAIAAEAAwAFAAAAAAAIAAAAAwAFAAAAAAAIAP//AwAFAAAAAAAJAAMAAwAFAAAAAAAJAAQAAwAFAAAAAAAKAAQAAwAFAAAAAAALAAQAAwAFAAAAAAAVAAMAAwAFAAAAAAAUAAMAAwAFAAAAAAATAAMAAwAFAAAAAAATAAQAAwAFAAAAAAATAAUAAwAFAAAAAAAFAAwAAgAAAAAAAwAGAAwAAgAAAAAAAwAHAAwAAgAAAAAAAwAIAAwAAgAAAAAAAwAJAAwAAgAAAAAAAwAKAAwAAgAAAAAAAwALAAwAAgAAAAAAAwAMAAwAAgAAAAAAAwANAAwAAgAAAAAAAwAOAAwAAgAAAAAAAwAPAAwAAgAAAAAAAwAQAAwAAgAAAAAAAwARAAwAAgAAAAAAAwASAAwAAgAAAAAAAwATAAwAAgAAAAAAAwAUAAwAAgAAAAAAAwAVAAwAAgAAAAAAAwAOAAYAAgAAAAAABAAPAAYAAgAAAAAABAAQAAYAAgAAAAAABAARAAYAAgAAAAAABAASAAYAAgAAAAAABAATAAYAAgAAAAAABAAUAAQAAgAAAAAABAAVAAQAAgAAAAAABAAAAAgAAwAAAAAAAAABAAgAAwAAAAAAAAABAAcAAwACAAEAAAAEAAoAAwACAAEAAAAEAAUAAwAAAAAAAAAHAAMAAgAAAAAABgAHAAIAAgAAAAAABgAHAAEAAgAAAAAABgAHAAAAAgAAAAAABgAHAAQAAgAAAAAABgALAAUAAgAAAAAABAAJAAUAAwAFAAAAAAAKAAUAAgAAAAAABAAJAAYAAgAAAAAABAAIAAUAAgAAAAAABAANAAcAAwACAAEAAAANAAsAAwACAAEAAAAIAAsAAwACAAEAAAA=")
+tile_map_data = PackedByteArray("AAD//wAAAwAEAAAAAAD//wEAAwAEAAAAAAD//wIAAwAEAAAAAAD//wMAAwAEAAAAAAD//wQAAwAEAAAAAAD//wUAAwAEAAAAAAD//wYAAwAEAAAAAAD//wcAAwAEAAAAAAD//wgAAwAEAAAAAAD//wkAAwAEAAAAAAD//woAAwAEAAAAAAD//wsAAwAEAAAAAAAAAP//AwAEAAAAAAABAP//AwAEAAAAAAACAP//AwAEAAAAAAADAP//AwAEAAAAAAAEAP//AwAEAAAAAAAFAP//AwAEAAAAAAAFAAwAAgAAAAAAAwAGAAwAAgAAAAAAAwAHAAwAAgAAAAAAAwAIAAwAAgAAAAAAAwAJAAwAAgAAAAAAAwAKAAwAAgAAAAAAAwALAAwAAgAAAAAAAwAMAAwAAgAAAAAAAwANAAwAAgAAAAAAAwAOAAwAAgAAAAAAAwAPAAwAAgAAAAAAAwAQAAwAAgAAAAAAAwARAAwAAgAAAAAAAwASAAwAAgAAAAAAAwATAAwAAgAAAAAAAwAUAAwAAgAAAAAAAwAVAAwAAgAAAAAAAwANAAsAAwACAAEAAAABAAgAAwACAAEAAAAEAAsAAwACAAEAAAAHAAAAAwAFAAAAAAAIAAAAAwAFAAAAAAAJAAAAAwAFAAAAAAAKAAAAAwAFAAAAAAALAAAAAwAFAAAAAAANAAcAAgAAAAAABAAOAAUAAwAFAAAAAAAOAAYAAwAFAAAAAAAPAAYAAwAFAAAAAAAQAAYAAwAFAAAAAAARAAQAAwAFAAAAAAARAAUAAwAFAAAAAAATAAAAAwAFAAAAAAAFAAEAAgAAAAAABgAFAAIAAgAAAAAABgAFAAMAAgAAAAAABgAGAAAAAwAFAAAAAAAGAAEAAwAFAAAAAAAGAAIAAwAFAAAAAAAGAAMAAwAFAAAAAAAHAAUAAwAFAAAAAAAMAAAAAwAFAAAAAAAMAAUAAwAFAAAAAAAMAAYAAwAFAAAAAAAMAAcAAgAAAAAABAANAAAAAwAFAAAAAAANAAUAAwAFAAAAAAANAAYAAwAFAAAAAAAOAAcAAgAAAAAABAAPAAcAAgAAAAAABAAQAAcAAwAFAAAAAAARAAAAAwAFAAAAAAARAAMAAwAFAAAAAAASAAAAAwAFAAAAAAAAAAMAAwAAAAAAAAAAAAkAAwAAAAAAAAAAAAwAAwAAAAAAAAABAAMAAwAAAAAAAAABAAkAAwAAAAAAAAABAAwAAwAAAAAAAAACAAwAAwAAAAAAAAADAAwAAwAAAAAAAAAEAAwAAwAAAAAAAAAUAAAAAwAFAAAAAAAVAAAAAwAFAAAAAAAVAAEAAwAFAAAAAAAVAAIAAwAFAAAAAAAVAAMAAwAFAAAAAAAVAAQAAwAFAAAAAAAQAAgAAwAFAAAAAAARAAgAAwAFAAAAAAAUAAgAAwAFAAAAAAAVAAgAAwAFAAAAAAAVAAcAAwAFAAAAAAAVAAYAAwAFAAAAAAAVAAUAAwAFAAAAAAAUAAUAAwAFAAAAAAAQAAkAAwAFAAAAAAARAAoAAwAFAAAAAAASAAoAAwAFAAAAAAATAAoAAwAFAAAAAAAUAAoAAwAFAAAAAAAVAAkAAwAFAAAAAAAVAAoAAwAFAAAAAAAUAAkAAwAFAAAAAAARAAkAAwAFAAAAAAAKAAcAAwACAAEAAAAHAAMAAwAFAAAAAAAHAAQAAwAFAAAAAAAGAAQAAgAAAAAABgAGAAUAAgAAAAAABgAHAAYAAgAAAAAABAAOAAEAAgAAAAAAAgAOAAIAAgAAAAAAAgAOAAMAAgAAAAAAAgAOAAQAAgAAAAAAAgAOAAAAAwAFAAAAAAAPAAAAAwAFAAAAAAAQAAAAAwAFAAAAAAARAAIAAwAFAAAAAAASAAIAAwAFAAAAAAAQAAoAAwAFAAAAAAAQAAUAAwACAAEAAAATAAkAAwACAAEAAAASAAkAAwACAAEAAAATAAUAAwAFAAAAAAATAAMAAwAFAAAAAAASAAMAAwAFAAAAAAADAAUAAwACAAEAAAAHAAsAAwACAAEAAAAJAAsAAwACAAEAAAALAAsAAwACAAEAAAA=")
 
 [node name="Key" parent="." instance=ExtResource("7_56f4y")]
-position = Vector2(40, 120)
+position = Vector2(40, 200)
 
 [node name="Door" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("8_cl5ea")]
 position = Vector2(400, 800)
@@ -43,25 +46,25 @@ shape = SubResource("RectangleShape2D_3pmag")
 tile_map_data = PackedByteArray("AAAAAAEAAwACAAAAAAAAAAAAAwACAAAAAAABAAAAAwACAAAAAAACAAAAAwACAAAAAAADAAAAAwACAAAAAAAEAAAAAwACAAAAAAAKAAIAAwADAAAAAAALAAIAAwADAAAAAAAMAAIAAwADAAAAAAANAAIAAwADAAAAAAAOAAIAAwADAAAAAAAPAAIAAwADAAAAAAAQAAIAAwADAAAAAAAFAAAAAwACAAAAAAAJAAAAAwACAAAAAAAJAAEAAwACAAAAAAAAAAIAAwACAAAAAAAJAAIAAwACAAAAAAAIAAAAAwACAAAAAAAHAAAAAwACAAAAAAAGAAAAAwACAAAAAAA=")
 
 [node name="Player" parent="." instance=ExtResource("5_iihho")]
-position = Vector2(80, 800)
+position = Vector2(40, 912)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("6_435tp")]
 
 [node name="Enemy" parent="." instance=ExtResource("9_dccbj")]
-position = Vector2(120, 112)
+position = Vector2(128, 200)
 SPEED = 50.0
 
 [node name="Player2" parent="." instance=ExtResource("5_iihho")]
-position = Vector2(1640, 120)
+position = Vector2(1248, 424)
 type = 1
 mirror_x = true
 
 [node name="Key2" parent="." instance=ExtResource("7_56f4y")]
 modulate = Color(0.42, 1, 0.565, 1)
-position = Vector2(1000, 40)
+position = Vector2(640, 160)
 
 [node name="Door2" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("8_cl5ea")]
-position = Vector2(1280, 0)
+position = Vector2(1040, 80)
 key_to_unlock = NodePath("../Key2")
 
 [node name="KeyDetect" parent="Door2" index="0"]
@@ -71,42 +74,29 @@ shape = SubResource("RectangleShape2D_1rc8w")
 [node name="TileMapLayer" parent="Door2" index="1"]
 tile_map_data = PackedByteArray("AAAAAAAAAwACAAAAAAAAAAEAAwACAAAAAAAAAAIAAwACAAAAAAAAAAMAAwACAAAAAAA=")
 
-[connection signal="body_entered" from="TileMapLayer/SpikeL" to="TileMapLayer/SpikeL" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91417" to="TileMapLayer/@Area2D@91417" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/SpikeD" to="TileMapLayer/SpikeD" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91840" to="TileMapLayer/@Area2D@91840" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91841" to="TileMapLayer/@Area2D@91841" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91842" to="TileMapLayer/@Area2D@91842" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91843" to="TileMapLayer/@Area2D@91843" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91844" to="TileMapLayer/@Area2D@91844" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91845" to="TileMapLayer/@Area2D@91845" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91846" to="TileMapLayer/@Area2D@91846" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91847" to="TileMapLayer/@Area2D@91847" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91848" to="TileMapLayer/@Area2D@91848" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91849" to="TileMapLayer/@Area2D@91849" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91850" to="TileMapLayer/@Area2D@91850" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91851" to="TileMapLayer/@Area2D@91851" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91852" to="TileMapLayer/@Area2D@91852" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91853" to="TileMapLayer/@Area2D@91853" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91854" to="TileMapLayer/@Area2D@91854" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91855" to="TileMapLayer/@Area2D@91855" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/SpikeU" to="TileMapLayer/SpikeU" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91856" to="TileMapLayer/@Area2D@91856" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91857" to="TileMapLayer/@Area2D@91857" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91858" to="TileMapLayer/@Area2D@91858" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91859" to="TileMapLayer/@Area2D@91859" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91860" to="TileMapLayer/@Area2D@91860" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91863" to="TileMapLayer/@Area2D@91863" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91864" to="TileMapLayer/@Area2D@91864" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91947" to="TileMapLayer/@Area2D@91947" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91948" to="TileMapLayer/@Area2D@91948" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91949" to="TileMapLayer/@Area2D@91949" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91950" to="TileMapLayer/@Area2D@91950" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/SpikeR" to="TileMapLayer/SpikeR" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91954" to="TileMapLayer/@Area2D@91954" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@91956" to="TileMapLayer/@Area2D@91956" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@93007" to="TileMapLayer/@Area2D@93007" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@93017" to="TileMapLayer/@Area2D@93017" method="_on_body_entered"]
+[node name="Enemy2" parent="." instance=ExtResource("9_dccbj")]
+position = Vector2(1632, 584)
+
+[node name="Enemy3" parent="." instance=ExtResource("9_dccbj")]
+position = Vector2(1408, 584)
+initialDirection = 1
+mirror_y = true
+
+[node name="Key3" parent="." instance=ExtResource("7_56f4y")]
+modulate = Color(0.81, 0.4, 1, 1)
+position = Vector2(1512, 696)
+
+[node name="Door3" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("8_cl5ea")]
+position = Vector2(1120, 80)
+key_to_unlock = NodePath("../Key3")
+
+[node name="KeyDetect" parent="Door3" index="0"]
+position = Vector2(44, 160)
+shape = SubResource("RectangleShape2D_trnlr")
+
+[node name="TileMapLayer" parent="Door3" index="1"]
+tile_map_data = PackedByteArray("AAAAAAMAAwACAAAAAAAAAAIAAwACAAAAAAAAAAEAAwACAAAAAAAAAAAAAwACAAAAAAAAAP//AwACAAAAAAD/////AwACAAAAAAD+////AwACAAAAAAD9////AwACAAAAAAD8////AwACAAAAAAD7////AwACAAAAAAD7/wAAAwACAAAAAAD7/wEAAwACAAAAAAD7/wIAAwACAAAAAAD6/wIAAwACAAAAAAA=")
 
 [editable path="Door"]
 [editable path="Door2"]
+[editable path="Door3"]

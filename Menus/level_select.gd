@@ -23,7 +23,7 @@ func _ready() -> void:
 	
 	while level_file_name != "":
 		var new_level_button := level_button_scene.instantiate()
-		new_level_button.text = str(level_counter)
+		new_level_button.text = str(level_counter) if level_counter != 21 else "21"
 		new_level_button.level_path = LEVELS_FOLDER_PATH + level_file_name
 		new_level_button.level_selected.connect(_enter_level)
 		# new_level_button.font_size = 32
@@ -35,9 +35,9 @@ func _ready() -> void:
 			new_level_button.focus_neighbor_left = back_button.get_path()
 			back_button.focus_neighbor_right = new_level_button.get_path()
 			back_button.focus_neighbor_bottom = new_level_button.get_path()
-		if level_counter <= 5:
+		if level_counter <= 7:
 			new_level_button.focus_neighbor_top = back_button.get_path()
-		elif level_counter % 5 == 1:
+		elif level_counter % 7 == 1:
 			prev_level_button.focus_neighbor_right = new_level_button.get_path()
 			new_level_button.focus_neighbor_left = prev_level_button.get_path()
 		

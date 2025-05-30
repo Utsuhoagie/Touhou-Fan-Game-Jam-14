@@ -1,0 +1,159 @@
+[gd_scene load_steps=15 format=4 uid="uid://c0qav41tvgxtp"]
+
+[ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_ci5yb"]
+[ext_resource type="PackedScene" uid="uid://duuslj8cggp2b" path="res://Levels/Background.tscn" id="2_6fjvw"]
+[ext_resource type="Texture2D" uid="uid://b4oxxnktsork2" path="res://Assets/Actual/Reflection_BG_Shinmyoumaru-Adventure_Landscape_5.png" id="3_lqxe0"]
+[ext_resource type="PackedScene" uid="uid://8l2skejebalg" path="res://Entities/Environment/Sign/sign.tscn" id="4_ig1i3"]
+[ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="5_42d0v"]
+[ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="6_ir1uk"]
+[ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="7_gbs5v"]
+[ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="8_on2rs"]
+[ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="9_vwbk1"]
+[ext_resource type="PackedScene" uid="uid://cwvwk5oh8vwjx" path="res://Entities/Environment/Sign/help_popup.tscn" id="10_emooa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3hao2"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pj1xo"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2m0gv"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_voxwt"]
+radius = 32.0
+
+[node name="LevelTemplate2" type="Node2D"]
+script = ExtResource("1_ci5yb")
+next_level_path = "res://Levels/Main/21Boss.tscn"
+
+[node name="Background" parent="." instance=ExtResource("2_6fjvw")]
+texture = ExtResource("3_lqxe0")
+
+[node name="Sign" parent="." node_paths=PackedStringArray("help_popup") instance=ExtResource("4_ig1i3")]
+position = Vector2(800, 520)
+help_popup = NodePath("../CanvasLayer/HelpPopup")
+
+[node name="TileMapLayer" parent="." instance=ExtResource("5_42d0v")]
+tile_map_data = PackedByteArray("AAABAAEAAwAFAAAAAAABAAIAAwAFAAAAAAABAAMAAwAFAAAAAAABAAQAAwAFAAAAAAABAAUAAwAFAAAAAAABAAYAAwAFAAAAAAABAAcAAwAFAAAAAAABAAgAAwAFAAAAAAABAAkAAwAFAAAAAAABAAoAAwAFAAAAAAABAAsAAwAFAAAAAAACAAEAAwAFAAAAAAADAAEAAwAFAAAAAAAEAAEAAwAFAAAAAAAFAAEAAwAFAAAAAAAGAAEAAwAFAAAAAAAHAAEAAwAFAAAAAAAIAAEAAwAFAAAAAAAJAAEAAwAFAAAAAAAKAAEAAwAFAAAAAAALAAEAAwAFAAAAAAAMAAEAAwAFAAAAAAANAAEAAwAFAAAAAAAOAAEAAwAFAAAAAAAPAAEAAwAFAAAAAAAQAAEAAwAFAAAAAAARAAEAAwAFAAAAAAASAAEAAwAFAAAAAAATAAEAAwAFAAAAAAASAAsAAwAFAAAAAAARAAsAAwAFAAAAAAAQAAsAAwAFAAAAAAAPAAsAAwAFAAAAAAAOAAsAAwAFAAAAAAANAAsAAwAFAAAAAAAMAAsAAwAFAAAAAAALAAsAAwAFAAAAAAAKAAsAAwAFAAAAAAAJAAsAAwAFAAAAAAAIAAsAAwAFAAAAAAAHAAsAAwAFAAAAAAAGAAsAAwAFAAAAAAAFAAsAAwAFAAAAAAAEAAsAAwAFAAAAAAADAAsAAwAFAAAAAAACAAsAAwAFAAAAAAATAAsAAwAFAAAAAAAUAAEAAwAFAAAAAAAUAAsAAwAFAAAAAAAUAAIAAwAFAAAAAAAUAAMAAwAFAAAAAAAUAAQAAwAFAAAAAAAUAAUAAwAFAAAAAAAUAAYAAwAFAAAAAAAUAAcAAwAFAAAAAAAUAAgAAwAFAAAAAAAUAAkAAwAFAAAAAAAUAAoAAwAFAAAAAAACAAgAAgAAAAAAAQADAAgAAgAAAAAAAQAEAAgAAgAAAAAAAQAFAAgAAgAAAAAAAQAGAAgAAgAAAAAAAQAIAAgAAgAAAAAAAQAJAAgAAgAAAAAAAQAKAAgAAgAAAAAAAQALAAgAAgAAAAAAAQAMAAgAAgAAAAAAAQANAAgAAgAAAAAAAQAPAAgAAgAAAAAAAQAQAAgAAgAAAAAAAQARAAgAAgAAAAAAAQASAAgAAgAAAAAAAQATAAgAAgAAAAAAAQACAAQAAgAAAAAAAQADAAQAAgAAAAAAAQAEAAQAAgAAAAAAAQAFAAQAAgAAAAAAAQAGAAQAAgAAAAAAAQAIAAQAAgAAAAAAAQAJAAQAAgAAAAAAAQAKAAQAAgAAAAAAAQALAAQAAgAAAAAAAQAMAAQAAgAAAAAAAQANAAQAAgAAAAAAAQAQAAQAAgAAAAAAAQARAAQAAgAAAAAAAQASAAQAAgAAAAAAAQATAAQAAgAAAAAAAQAHAAkAAgAAAAAAAgAHAAoAAgAAAAAAAgAOAAkAAgAAAAAAAgAOAAoAAgAAAAAAAgAHAAcAAgAAAAAAAgAHAAYAAgAAAAAAAgAHAAUAAgAAAAAAAgAHAAIAAgAAAAAAAgAHAAMAAgAAAAAAAgAOAAUAAgAAAAAAAgAOAAYAAgAAAAAAAgAOAAcAAgAAAAAAAgAHAAgAAwAFAAAAAAAHAAQAAwAFAAAAAAAOAAQAAwAFAAAAAAAOAAgAAwAFAAAAAAAOAAIAAgAAAAAAAgAOAAMAAgAAAAAAAgAPAAQAAgAAAAAAAQAJAAcAAwAFAAAAAAAKAAcAAwAFAAAAAAALAAcAAwAFAAAAAAAMAAcAAwAFAAAAAAATAAIAAwADAAIAAAATAAoAAwACAAIAAAACAAoAAwAEAAIAAAACAAIAAwACAAMAAAA=")
+
+[node name="Door" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("6_ir1uk")]
+key_to_unlock = NodePath("../Key")
+
+[node name="KeyDetect" parent="Door" index="0"]
+position = Vector2(680, 440)
+shape = SubResource("CircleShape2D_3hao2")
+
+[node name="TileMapLayer" parent="Door" index="1"]
+tile_map_data = PackedByteArray("AAAJAAoAAwACAAAAAAAJAAkAAwACAAAAAAAKAAkAAwACAAAAAAALAAkAAwACAAAAAAAMAAkAAwACAAAAAAAMAAoAAwACAAAAAAA=")
+
+[node name="Door2" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("6_ir1uk")]
+modulate = Color(0.858946, 0, 0.259149, 1)
+key_to_unlock = NodePath("../Key2")
+
+[node name="KeyDetect" parent="Door2" index="0"]
+position = Vector2(680, 600)
+shape = SubResource("CircleShape2D_pj1xo")
+
+[node name="TileMapLayer" parent="Door2" index="1"]
+tile_map_data = PackedByteArray("AAADAAUAAwACAAAAAAADAAYAAwACAAAAAAADAAcAAwACAAAAAAAEAAcAAwACAAAAAAAFAAcAAwACAAAAAAAFAAYAAwACAAAAAAAFAAUAAwACAAAAAAAEAAUAAwACAAAAAAA=")
+
+[node name="Door3" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("6_ir1uk")]
+modulate = Color(0.159675, 0.424415, 0, 1)
+key_to_unlock = NodePath("../Key3")
+
+[node name="KeyDetect" parent="Door3" index="0"]
+position = Vector2(1080, 440)
+shape = SubResource("CircleShape2D_2m0gv")
+
+[node name="TileMapLayer" parent="Door3" index="1"]
+tile_map_data = PackedByteArray("AAAJAAIAAwACAAAAAAAJAAMAAwACAAAAAAAKAAMAAwACAAAAAAALAAMAAwACAAAAAAAMAAMAAwACAAAAAAAMAAIAAwACAAAAAAA=")
+
+[node name="Door4" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("6_ir1uk")]
+modulate = Color(0.0897183, 0.250745, 1, 1)
+key_to_unlock = NodePath("../Key4")
+
+[node name="KeyDetect" parent="Door4" index="0"]
+position = Vector2(1080, 600)
+scale = Vector2(1.01608, 0.993205)
+shape = SubResource("CircleShape2D_voxwt")
+
+[node name="TileMapLayer" parent="Door4" index="1"]
+tile_map_data = PackedByteArray("AAAQAAUAAwACAAAAAAAQAAYAAwACAAAAAAARAAcAAwACAAAAAAASAAcAAwACAAAAAAASAAYAAwACAAAAAAASAAUAAwACAAAAAAARAAUAAwACAAAAAAAQAAcAAwACAAAAAAA=")
+
+[node name="Key" parent="." instance=ExtResource("7_gbs5v")]
+position = Vector2(680, 440)
+
+[node name="Key2" parent="." instance=ExtResource("7_gbs5v")]
+modulate = Color(0.858946, 0, 0.259149, 1)
+position = Vector2(680, 600)
+
+[node name="Key3" parent="." instance=ExtResource("7_gbs5v")]
+modulate = Color(0.159675, 0.424415, 0, 1)
+position = Vector2(1080, 440)
+
+[node name="Key4" parent="." instance=ExtResource("7_gbs5v")]
+modulate = Color(0.0897183, 0.250745, 1, 1)
+position = Vector2(1080, 600)
+
+[node name="Player" parent="." instance=ExtResource("8_on2rs")]
+position = Vector2(880, 520)
+
+[node name="Player2" parent="." instance=ExtResource("8_on2rs")]
+position = Vector2(360, 840)
+type = 1
+mirror_x = true
+mirror_y = true
+
+[node name="Player5" parent="." instance=ExtResource("8_on2rs")]
+position = Vector2(1400, 200)
+type = 1
+mirror_x = true
+
+[node name="Player6" parent="." instance=ExtResource("8_on2rs")]
+position = Vector2(1400, 520)
+type = 1
+mirror_x = true
+mirror_y = true
+
+[node name="Player7" parent="." instance=ExtResource("8_on2rs")]
+position = Vector2(1400, 840)
+type = 1
+mirror_x = true
+mirror_y = true
+
+[node name="Player8" parent="." instance=ExtResource("8_on2rs")]
+position = Vector2(880, 200)
+type = 1
+mirror_y = true
+
+[node name="Player9" parent="." instance=ExtResource("8_on2rs")]
+position = Vector2(880, 840)
+type = 1
+mirror_y = true
+
+[node name="Player3" parent="." instance=ExtResource("8_on2rs")]
+position = Vector2(360, 520)
+type = 1
+mirror_x = true
+
+[node name="Player4" parent="." instance=ExtResource("8_on2rs")]
+position = Vector2(360, 200)
+type = 1
+mirror_x = true
+mirror_y = true
+
+[node name="CanvasLayer" parent="." instance=ExtResource("9_vwbk1")]
+
+[node name="HelpPopup" parent="CanvasLayer" instance=ExtResource("10_emooa")]
+visible = false
+offset_left = -600.0
+offset_top = -400.0
+offset_right = 600.0
+offset_bottom = 400.0
+help_text = "Hint: Look at the colour of each flower. Don't they match with the colour of the lock blocks?"
+
+[editable path="Door"]
+[editable path="Door2"]
+[editable path="Door3"]
+[editable path="Door4"]
