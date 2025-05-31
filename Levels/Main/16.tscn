@@ -1,15 +1,15 @@
 [gd_scene load_steps=15 format=4 uid="uid://c0qav41tvgxtp"]
 
-[ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_tmnt8"]
-[ext_resource type="PackedScene" uid="uid://8l2skejebalg" path="res://Entities/Environment/Sign/sign.tscn" id="2_felvd"]
-[ext_resource type="PackedScene" path="res://Levels/Background.tscn" id="2_fxc5t"]
-[ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="2_ufm3v"]
-[ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="3_655ka"]
-[ext_resource type="Texture2D" uid="uid://b4oxxnktsork2" path="res://Assets/Actual/Reflection_BG_Shinmyoumaru-Adventure_Landscape_5.png" id="3_oo0qu"]
-[ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="5_w61k7"]
-[ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="6_okfnv"]
-[ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="7_sxn24"]
-[ext_resource type="PackedScene" uid="uid://cwvwk5oh8vwjx" path="res://Entities/Environment/Sign/help_popup.tscn" id="8_k77qd"]
+[ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_nglgg"]
+[ext_resource type="PackedScene" path="res://Levels/Background.tscn" id="2_p4e6w"]
+[ext_resource type="Texture2D" uid="uid://b4oxxnktsork2" path="res://Assets/Actual/Reflection_BG_Shinmyoumaru-Adventure_Landscape_5.png" id="3_v1v2d"]
+[ext_resource type="PackedScene" uid="uid://8l2skejebalg" path="res://Entities/Environment/Sign/sign.tscn" id="4_otjqn"]
+[ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="5_t347h"]
+[ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="6_flh40"]
+[ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="7_afv8r"]
+[ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="8_k5o4p"]
+[ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="9_qx138"]
+[ext_resource type="PackedScene" uid="uid://cwvwk5oh8vwjx" path="res://Entities/Environment/Sign/help_popup.tscn" id="10_ftrry"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3hao2"]
 radius = 32.0
@@ -24,20 +24,20 @@ radius = 32.0
 radius = 32.0
 
 [node name="LevelTemplate2" type="Node2D"]
-script = ExtResource("1_tmnt8")
-next_level_path = "res://Levels/Main/2.tscn"
+script = ExtResource("1_nglgg")
+next_level_path = "res://Levels/Main/17.tscn"
 
-[node name="Background" parent="." instance=ExtResource("2_fxc5t")]
-texture = ExtResource("3_oo0qu")
+[node name="Background" parent="." instance=ExtResource("2_p4e6w")]
+texture = ExtResource("3_v1v2d")
 
-[node name="Sign" parent="." node_paths=PackedStringArray("help_popup") instance=ExtResource("2_felvd")]
+[node name="Sign" parent="." node_paths=PackedStringArray("help_popup") instance=ExtResource("4_otjqn")]
 position = Vector2(800, 520)
 help_popup = NodePath("../CanvasLayer/HelpPopup")
 
-[node name="TileMapLayer" parent="." instance=ExtResource("2_ufm3v")]
+[node name="TileMapLayer" parent="." instance=ExtResource("5_t347h")]
 tile_map_data = PackedByteArray("AAABAAEAAwAFAAAAAAABAAIAAwAFAAAAAAABAAMAAwAFAAAAAAABAAQAAwAFAAAAAAABAAUAAwAFAAAAAAABAAYAAwAFAAAAAAABAAcAAwAFAAAAAAABAAgAAwAFAAAAAAABAAkAAwAFAAAAAAABAAoAAwAFAAAAAAABAAsAAwAFAAAAAAACAAEAAwAFAAAAAAADAAEAAwAFAAAAAAAEAAEAAwAFAAAAAAAFAAEAAwAFAAAAAAAGAAEAAwAFAAAAAAAHAAEAAwAFAAAAAAAIAAEAAwAFAAAAAAAJAAEAAwAFAAAAAAAKAAEAAwAFAAAAAAALAAEAAwAFAAAAAAAMAAEAAwAFAAAAAAANAAEAAwAFAAAAAAAOAAEAAwAFAAAAAAAPAAEAAwAFAAAAAAAQAAEAAwAFAAAAAAARAAEAAwAFAAAAAAASAAEAAwAFAAAAAAATAAEAAwAFAAAAAAASAAsAAwAFAAAAAAARAAsAAwAFAAAAAAAQAAsAAwAFAAAAAAAPAAsAAwAFAAAAAAAOAAsAAwAFAAAAAAANAAsAAwAFAAAAAAAMAAsAAwAFAAAAAAALAAsAAwAFAAAAAAAKAAsAAwAFAAAAAAAJAAsAAwAFAAAAAAAIAAsAAwAFAAAAAAAHAAsAAwAFAAAAAAAGAAsAAwAFAAAAAAAFAAsAAwAFAAAAAAAEAAsAAwAFAAAAAAADAAsAAwAFAAAAAAACAAsAAwAFAAAAAAATAAsAAwAFAAAAAAAUAAEAAwAFAAAAAAAUAAsAAwAFAAAAAAAUAAIAAwAFAAAAAAAUAAMAAwAFAAAAAAAUAAQAAwAFAAAAAAAUAAUAAwAFAAAAAAAUAAYAAwAFAAAAAAAUAAcAAwAFAAAAAAAUAAgAAwAFAAAAAAAUAAkAAwAFAAAAAAAUAAoAAwAFAAAAAAACAAgAAgAAAAAAAQADAAgAAgAAAAAAAQAEAAgAAgAAAAAAAQAFAAgAAgAAAAAAAQAGAAgAAgAAAAAAAQAIAAgAAgAAAAAAAQAJAAgAAgAAAAAAAQAKAAgAAgAAAAAAAQALAAgAAgAAAAAAAQAMAAgAAgAAAAAAAQANAAgAAgAAAAAAAQAPAAgAAgAAAAAAAQAQAAgAAgAAAAAAAQARAAgAAgAAAAAAAQASAAgAAgAAAAAAAQATAAgAAgAAAAAAAQACAAQAAgAAAAAAAQADAAQAAgAAAAAAAQAEAAQAAgAAAAAAAQAFAAQAAgAAAAAAAQAGAAQAAgAAAAAAAQAIAAQAAgAAAAAAAQAJAAQAAgAAAAAAAQAKAAQAAgAAAAAAAQALAAQAAgAAAAAAAQAMAAQAAgAAAAAAAQANAAQAAgAAAAAAAQAQAAQAAgAAAAAAAQARAAQAAgAAAAAAAQASAAQAAgAAAAAAAQATAAQAAgAAAAAAAQAHAAkAAgAAAAAAAgAHAAoAAgAAAAAAAgAOAAkAAgAAAAAAAgAOAAoAAgAAAAAAAgAHAAcAAgAAAAAAAgAHAAYAAgAAAAAAAgAHAAUAAgAAAAAAAgAHAAIAAgAAAAAAAgAHAAMAAgAAAAAAAgAOAAUAAgAAAAAAAgAOAAYAAgAAAAAAAgAOAAcAAgAAAAAAAgAHAAgAAwAFAAAAAAAHAAQAAwAFAAAAAAAOAAQAAwAFAAAAAAAOAAgAAwAFAAAAAAAOAAIAAgAAAAAAAgAOAAMAAgAAAAAAAgAPAAQAAgAAAAAAAQAJAAcAAwAFAAAAAAAKAAcAAwAFAAAAAAALAAcAAwAFAAAAAAAMAAcAAwAFAAAAAAATAAIAAwADAAIAAAATAAoAAwACAAIAAAACAAoAAwAEAAIAAAACAAIAAwABAAIAAAA=")
 
-[node name="Door" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("3_655ka")]
+[node name="Door" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("6_flh40")]
 key_to_unlock = NodePath("../Key")
 
 [node name="KeyDetect" parent="Door" index="0"]
@@ -47,7 +47,7 @@ shape = SubResource("CircleShape2D_3hao2")
 [node name="TileMapLayer" parent="Door" index="1"]
 tile_map_data = PackedByteArray("AAAJAAoAAwACAAAAAAAJAAkAAwACAAAAAAAKAAkAAwACAAAAAAALAAkAAwACAAAAAAAMAAkAAwACAAAAAAAMAAoAAwACAAAAAAA=")
 
-[node name="Door2" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("3_655ka")]
+[node name="Door2" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("6_flh40")]
 modulate = Color(0.858946, 0, 0.259149, 1)
 key_to_unlock = NodePath("../Key2")
 
@@ -58,7 +58,7 @@ shape = SubResource("CircleShape2D_pj1xo")
 [node name="TileMapLayer" parent="Door2" index="1"]
 tile_map_data = PackedByteArray("AAADAAUAAwACAAAAAAADAAYAAwACAAAAAAADAAcAAwACAAAAAAAEAAcAAwACAAAAAAAFAAcAAwACAAAAAAAFAAYAAwACAAAAAAAFAAUAAwACAAAAAAAEAAUAAwACAAAAAAA=")
 
-[node name="Door3" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("3_655ka")]
+[node name="Door3" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("6_flh40")]
 modulate = Color(0.159675, 0.424415, 0, 1)
 key_to_unlock = NodePath("../Key3")
 
@@ -69,7 +69,7 @@ shape = SubResource("CircleShape2D_2m0gv")
 [node name="TileMapLayer" parent="Door3" index="1"]
 tile_map_data = PackedByteArray("AAAJAAIAAwACAAAAAAAJAAMAAwACAAAAAAAKAAMAAwACAAAAAAALAAMAAwACAAAAAAAMAAMAAwACAAAAAAAMAAIAAwACAAAAAAA=")
 
-[node name="Door4" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("3_655ka")]
+[node name="Door4" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("6_flh40")]
 modulate = Color(0.0897183, 0.250745, 1, 1)
 key_to_unlock = NodePath("../Key4")
 
@@ -81,71 +81,71 @@ shape = SubResource("CircleShape2D_voxwt")
 [node name="TileMapLayer" parent="Door4" index="1"]
 tile_map_data = PackedByteArray("AAAQAAUAAwACAAAAAAAQAAYAAwACAAAAAAARAAcAAwACAAAAAAASAAcAAwACAAAAAAASAAYAAwACAAAAAAASAAUAAwACAAAAAAARAAUAAwACAAAAAAAQAAcAAwACAAAAAAA=")
 
-[node name="Key" parent="." instance=ExtResource("5_w61k7")]
+[node name="Key" parent="." instance=ExtResource("7_afv8r")]
 position = Vector2(680, 440)
 
-[node name="Key2" parent="." instance=ExtResource("5_w61k7")]
+[node name="Key2" parent="." instance=ExtResource("7_afv8r")]
 modulate = Color(0.858946, 0, 0.259149, 1)
 position = Vector2(680, 600)
 
-[node name="Key3" parent="." instance=ExtResource("5_w61k7")]
+[node name="Key3" parent="." instance=ExtResource("7_afv8r")]
 modulate = Color(0.159675, 0.424415, 0, 1)
 position = Vector2(1080, 440)
 
-[node name="Key4" parent="." instance=ExtResource("5_w61k7")]
+[node name="Key4" parent="." instance=ExtResource("7_afv8r")]
 modulate = Color(0.0897183, 0.250745, 1, 1)
 position = Vector2(1080, 600)
 
-[node name="Player" parent="." instance=ExtResource("6_okfnv")]
+[node name="Player" parent="." instance=ExtResource("8_k5o4p")]
 position = Vector2(880, 520)
 
-[node name="Player2" parent="." instance=ExtResource("6_okfnv")]
+[node name="Player2" parent="." instance=ExtResource("8_k5o4p")]
 position = Vector2(360, 840)
 type = 1
 mirror_x = true
 mirror_y = true
 
-[node name="Player5" parent="." instance=ExtResource("6_okfnv")]
+[node name="Player5" parent="." instance=ExtResource("8_k5o4p")]
 position = Vector2(1400, 200)
 type = 1
 mirror_x = true
 
-[node name="Player6" parent="." instance=ExtResource("6_okfnv")]
+[node name="Player6" parent="." instance=ExtResource("8_k5o4p")]
 position = Vector2(1400, 520)
 type = 1
 mirror_x = true
 mirror_y = true
 
-[node name="Player7" parent="." instance=ExtResource("6_okfnv")]
+[node name="Player7" parent="." instance=ExtResource("8_k5o4p")]
 position = Vector2(1400, 840)
 type = 1
 mirror_x = true
 mirror_y = true
 
-[node name="Player8" parent="." instance=ExtResource("6_okfnv")]
+[node name="Player8" parent="." instance=ExtResource("8_k5o4p")]
 position = Vector2(880, 200)
 type = 1
 mirror_y = true
 
-[node name="Player9" parent="." instance=ExtResource("6_okfnv")]
+[node name="Player9" parent="." instance=ExtResource("8_k5o4p")]
 position = Vector2(880, 840)
 type = 1
 mirror_y = true
 
-[node name="Player3" parent="." instance=ExtResource("6_okfnv")]
+[node name="Player3" parent="." instance=ExtResource("8_k5o4p")]
 position = Vector2(360, 520)
 type = 1
 mirror_x = true
 
-[node name="Player4" parent="." instance=ExtResource("6_okfnv")]
+[node name="Player4" parent="." instance=ExtResource("8_k5o4p")]
 position = Vector2(360, 200)
 type = 1
 mirror_x = true
 mirror_y = true
 
-[node name="CanvasLayer" parent="." instance=ExtResource("7_sxn24")]
+[node name="CanvasLayer" parent="." instance=ExtResource("9_qx138")]
 
-[node name="HelpPopup" parent="CanvasLayer" instance=ExtResource("8_k77qd")]
+[node name="HelpPopup" parent="CanvasLayer" instance=ExtResource("10_ftrry")]
 visible = false
 offset_left = -600.0
 offset_top = -400.0

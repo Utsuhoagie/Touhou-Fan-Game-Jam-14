@@ -1,24 +1,32 @@
-[gd_scene load_steps=12 format=4 uid="uid://b5dbdr8ljpjt5"]
+[gd_scene load_steps=14 format=4 uid="uid://b5dbdr8ljpjt5"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager.gd" id="1_foc15"]
-[ext_resource type="PackedScene" uid="uid://duuslj8cggp2b" path="res://Levels/Background.tscn" id="2_ig5r5"]
+[ext_resource type="PackedScene" path="res://Levels/Background.tscn" id="2_ig5r5"]
 [ext_resource type="Texture2D" uid="uid://b4oxxnktsork2" path="res://Assets/Actual/Reflection_BG_Shinmyoumaru-Adventure_Landscape_5.png" id="3_nyngy"]
 [ext_resource type="PackedScene" uid="uid://jatj3h6ab7h7" path="res://Entities/Player/Player.tscn" id="4_6ly3o"]
 [ext_resource type="PackedScene" uid="uid://bycpahq1xuc05" path="res://Entities/Environment/MainTileMap/TileMap80px.tscn" id="5_mk0nj"]
-[ext_resource type="PackedScene" uid="uid://swq672klppy0" path="res://Entities/Enemy/Enemy.tscn" id="6_wyn2u"]
 [ext_resource type="PackedScene" uid="uid://cclll8ogo1ul4" path="res://Entities/Environment/DoorKey/Key.tscn" id="7_vwtbo"]
 [ext_resource type="PackedScene" uid="uid://duxhr4b030gyk" path="res://Entities/Environment/DoorKey/Door.tscn" id="8_5pgik"]
-[ext_resource type="PackedScene" uid="uid://b2curoutqhb3c" path="res://Levels/canvas_layer.tscn" id="9_g00lj"]
+[ext_resource type="PackedScene" uid="uid://b52qa8gdinhd6" path="res://Levels/canvas_layer.tscn" id="9_g00lj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt3dl"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gf3yp"]
 size = Vector2(96, 80)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkswd"]
-size = Vector2(96, 160)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxlph"]
+size = Vector2(96, 80)
 
-[node name="Level2" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jymr2"]
+size = Vector2(96, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcr7d"]
+size = Vector2(96, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48nj3"]
+size = Vector2(80, 96)
+
+[node name="LevelRegen1" type="Node2D"]
 script = ExtResource("1_foc15")
-next_level_path = "res://Levels/Main/15Boss.tscn"
+next_level_path = "res://Levels/Main/16.tscn"
 
 [node name="Background" parent="." instance=ExtResource("2_ig5r5")]
 offset_right = 1760.0
@@ -26,76 +34,87 @@ offset_bottom = 990.0
 texture = ExtResource("3_nyngy")
 
 [node name="TileMapLayer" parent="." instance=ExtResource("5_mk0nj")]
-tile_map_data = PackedByteArray("AAABAAEAAwAFAAAAAAABAAIAAwAFAAAAAAABAAMAAwAFAAAAAAABAAQAAwAFAAAAAAABAAUAAwAFAAAAAAABAAYAAwAFAAAAAAABAAcAAwAFAAAAAAABAAgAAwAFAAAAAAABAAkAAwAFAAAAAAABAAoAAwAFAAAAAAABAAsAAwAFAAAAAAACAAsAAwAFAAAAAAADAAsAAwAFAAAAAAAEAAsAAwAFAAAAAAAFAAsAAwAFAAAAAAAGAAsAAwAFAAAAAAAHAAsAAwAFAAAAAAAIAAsAAwAFAAAAAAAJAAsAAwAFAAAAAAAKAAsAAwAFAAAAAAALAAsAAwAFAAAAAAAMAAsAAwAFAAAAAAAUAAsAAwAFAAAAAAATAAsAAwAFAAAAAAASAAsAAwAFAAAAAAAUAAoAAwAFAAAAAAAUAAkAAwAFAAAAAAAUAAgAAwAFAAAAAAAUAAcAAwAFAAAAAAAUAAYAAwAFAAAAAAAUAAUAAwAFAAAAAAAUAAQAAwAFAAAAAAAUAAMAAwAFAAAAAAAUAAIAAwAFAAAAAAAUAAEAAwAFAAAAAAADAAEAAwAFAAAAAAACAAEAAwAFAAAAAAAEAAEAAwAFAAAAAAAFAAEAAwAFAAAAAAAGAAEAAwAFAAAAAAAHAAEAAwAFAAAAAAAIAAEAAwAFAAAAAAAJAAEAAwAFAAAAAAAKAAEAAwAFAAAAAAALAAEAAwAFAAAAAAAMAAEAAwAFAAAAAAANAAEAAwAFAAAAAAAOAAEAAwAFAAAAAAAPAAEAAwAFAAAAAAAQAAEAAwAFAAAAAAARAAEAAwAFAAAAAAASAAEAAwAFAAAAAAATAAEAAwAFAAAAAAAFAAkAAwAFAAAAAAAFAAoAAwAFAAAAAAAGAAkAAwAAAAEAAQAHAAkAAwAAAAEAAQAKAAkAAwABAAEAAwALAAkAAwABAAEAAwAIAAoAAgAAAAAAAwAJAAoAAgAAAAAAAwAMAAkAAwAFAAAAAAAMAAoAAwAFAAAAAAANAAoAAwAAAAEAAQAOAAoAAwAAAAEAAQAPAAsAAgAAAAAAAwAQAAsAAgAAAAAAAwARAAsAAwAFAAAAAAATAAgAAgAAAAAABgATAAcAAgAAAAAABgAIAAYAAwAFAAAAAAAJAAYAAwAFAAAAAAAOAAcAAwAFAAAAAAAPAAcAAwAFAAAAAAAQAAcAAwAFAAAAAAANAAcAAwAFAAAAAAATAAUAAwAFAAAAAAASAAUAAwAFAAAAAAARAAUAAwAFAAAAAAAQAAUAAwAFAAAAAAAPAAQAAwAFAAAAAAAMAAcAAwAFAAAAAAALAAcAAwAFAAAAAAAGAAcAAwAFAAAAAAAFAAcAAwAFAAAAAAAMAAUAAwAFAAAAAAANAAUAAwAFAAAAAAAQAAQAAwAFAAAAAAAKAAQAAwAFAAAAAAAJAAQAAwAFAAAAAAAIAAQAAwAFAAAAAAAHAAQAAwAFAAAAAAAEAAcAAwAFAAAAAAADAAcAAwAFAAAAAAACAAcAAwAFAAAAAAAGAAQAAwAFAAAAAAAFAAQAAwAFAAAAAAAGAAMAAgAAAAAAAgAGAAIAAgAAAAAAAgADAAYAAwACAAEAAAAKAAYAAwAFAAAAAAAHAAYAAwAFAAAAAAAPAAUAAwAFAAAAAAAOAAUAAwAFAAAAAAALAAQAAwAFAAAAAAASAAoAAwAFAAAAAAASAAkAAwACAAEAAAA=")
+tile_map_data = PackedByteArray("AAABAAEAAwAFAAAAAAABAAIAAwAFAAAAAAABAAMAAwAFAAAAAAABAAQAAwAFAAAAAAABAAUAAwAFAAAAAAABAAYAAwAFAAAAAAABAAcAAwAFAAAAAAABAAgAAwAFAAAAAAABAAkAAwAFAAAAAAABAAoAAwAFAAAAAAABAAsAAwAFAAAAAAACAAEAAwAFAAAAAAACAAsAAwAFAAAAAAADAAEAAwAFAAAAAAADAAsAAwAFAAAAAAAEAAEAAwAFAAAAAAAEAAsAAwAFAAAAAAAFAAEAAwAFAAAAAAAFAAsAAwAFAAAAAAAGAAEAAwAFAAAAAAAGAAsAAwAFAAAAAAAHAAEAAwAFAAAAAAAHAAsAAwAFAAAAAAAIAAEAAwAFAAAAAAAIAAsAAwAFAAAAAAAJAAEAAwAFAAAAAAAJAAsAAwAFAAAAAAAKAAEAAwAFAAAAAAAKAAsAAwAFAAAAAAALAAEAAwAFAAAAAAALAAsAAwAFAAAAAAAMAAEAAwAFAAAAAAAMAAsAAwAFAAAAAAANAAEAAwAFAAAAAAANAAsAAwAFAAAAAAAOAAEAAwAFAAAAAAAOAAsAAwAFAAAAAAAPAAEAAwAFAAAAAAAPAAsAAwAFAAAAAAAQAAEAAwAFAAAAAAAQAAsAAwAFAAAAAAARAAEAAwAFAAAAAAARAAsAAwAFAAAAAAASAAEAAwAFAAAAAAASAAsAAwAFAAAAAAATAAEAAwAFAAAAAAATAAsAAwAFAAAAAAATAAIAAwAFAAAAAAATAAMAAwAFAAAAAAATAAQAAwAFAAAAAAATAAUAAwAFAAAAAAATAAYAAwAFAAAAAAATAAcAAwAFAAAAAAATAAgAAwAFAAAAAAATAAkAAwAFAAAAAAATAAoAAwAFAAAAAAALAAYAAgAAAAAAAQANAAYAAwAFAAAAAAAKAAcAAgAAAAAAAgAKAAUAAgAAAAAAAgAKAAMAAwAFAAAAAAAJAAgAAwAFAAAAAAAIAAgAAwAFAAAAAAAIAAkAAwAFAAAAAAAGAAgAAwAFAAAAAAAFAAgAAwAFAAAAAAAFAAcAAwAFAAAAAAAHAAYAAwAFAAAAAAAGAAYAAwAFAAAAAAAFAAYAAwAFAAAAAAAEAAYAAwAFAAAAAAADAAYAAwAFAAAAAAACAAYAAwAFAAAAAAAKAAoAAwAFAAAAAAAKAAkAAwAFAAAAAAAIAAYAAwAFAAAAAAAKAAQAAwAFAAAAAAASAAYAAwAFAAAAAAARAAYAAwAFAAAAAAAQAAYAAwAFAAAAAAAPAAYAAwAFAAAAAAAOAAYAAwAFAAAAAAAMAAYAAwAFAAAAAAAKAAgAAwAFAAAAAAACAAkAAwAFAAAAAAADAAkAAwAFAAAAAAADAAgAAwAFAAAAAAALAAgAAwAFAAAAAAAMAAgAAwAFAAAAAAAPAAgAAwAFAAAAAAAMAAkAAwAFAAAAAAAOAAgAAwAFAAAAAAAPAAcAAwAFAAAAAAASAAkAAwAFAAAAAAARAAkAAwAFAAAAAAARAAgAAwAFAAAAAAARAAQAAwAFAAAAAAARAAMAAwAFAAAAAAASAAMAAwAFAAAAAAALAAQAAwAFAAAAAAAMAAQAAwAFAAAAAAAMAAMAAwAFAAAAAAAPAAUAAwAFAAAAAAAPAAQAAwAFAAAAAAAOAAQAAwAFAAAAAAAJAAQAAwAFAAAAAAAIAAQAAwAFAAAAAAAIAAMAAwAFAAAAAAAGAAQAAwAFAAAAAAAFAAQAAwAFAAAAAAAFAAUAAwAFAAAAAAACAAMAAwAFAAAAAAADAAMAAwAFAAAAAAADAAQAAwAFAAAAAAAFAAoAAwAFAAAAAAAFAAIAAwAFAAAAAAAPAAIAAwAFAAAAAAAPAAoAAwAFAAAAAAAJAAYAAgAAAAAAAQA=")
 
 [node name="Player" parent="." instance=ExtResource("4_6ly3o")]
-position = Vector2(280, 808)
+position = Vector2(760, 448)
 
 [node name="Player2" parent="." instance=ExtResource("4_6ly3o")]
-position = Vector2(1528, 336)
+position = Vector2(1480, 848)
+type = 1
+mirror_x = true
+mirror_y = true
+
+[node name="Player3" parent="." instance=ExtResource("4_6ly3o")]
+position = Vector2(200, 848)
+type = 1
+mirror_y = true
+
+[node name="Player4" parent="." instance=ExtResource("4_6ly3o")]
+position = Vector2(1480, 208)
 type = 1
 mirror_x = true
 
-[node name="Enemy" parent="." instance=ExtResource("6_wyn2u")]
-position = Vector2(1424, 344)
-
-[node name="Enemy2" parent="." instance=ExtResource("6_wyn2u")]
-position = Vector2(1232, 272)
-initialDirection = 1
-
-[node name="Enemy3" parent="." instance=ExtResource("6_wyn2u")]
-position = Vector2(1264, 192)
-SPEED = 20.0
-initialDirection = 1
-mirror_y = true
-
-[node name="Enemy4" parent="." instance=ExtResource("6_wyn2u")]
-position = Vector2(1096, 328)
-SPEED = 40.0
-
-[node name="Enemy5" parent="." instance=ExtResource("6_wyn2u")]
-position = Vector2(808, 184)
-SPEED = 50.0
-initialDirection = 1
-mirror_y = true
-
-[node name="Enemy6" parent="." instance=ExtResource("6_wyn2u")]
-position = Vector2(608, 272)
-SPEED = 10.0
-initialDirection = 1
-
-[node name="Key" parent="." instance=ExtResource("7_vwtbo")]
-position = Vector2(1080, 800)
+[node name="Merged" type="Node2D" parent="."]
+position = Vector2(552, 0)
 
 [node name="Door" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("8_5pgik")]
-position = Vector2(1280, 480)
 key_to_unlock = NodePath("../Key")
 
 [node name="KeyDetect" parent="Door" index="0"]
-position = Vector2(40, 40)
-shape = SubResource("RectangleShape2D_tt3dl")
+position = Vector2(760, 600)
+shape = SubResource("RectangleShape2D_gf3yp")
 
 [node name="TileMapLayer" parent="Door" index="1"]
-tile_map_data = PackedByteArray("AAAAAAAAAwACAAAAAAA=")
+tile_map_data = PackedByteArray("AAAIAAUAAwACAAAAAAAJAAcAAwACAAAAAAA=")
 
-[node name="Key2" parent="." instance=ExtResource("7_vwtbo")]
-modulate = Color(1, 0.53, 0.804166, 1)
-position = Vector2(1560, 520)
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Door"]
+position = Vector2(680, 440)
+shape = SubResource("RectangleShape2D_sxlph")
+
+[node name="Key" parent="." instance=ExtResource("7_vwtbo")]
+position = Vector2(200, 680)
 
 [node name="Door2" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("8_5pgik")]
-modulate = Color(1, 0.529412, 0.803922, 1)
-position = Vector2(400, 400)
+modulate = Color(0.929993, 0, 0.447184, 1)
 key_to_unlock = NodePath("../Key2")
 
 [node name="KeyDetect" parent="Door2" index="0"]
-position = Vector2(40, 80)
-shape = SubResource("RectangleShape2D_pkswd")
+position = Vector2(920, 600)
+shape = SubResource("RectangleShape2D_jymr2")
 
 [node name="TileMapLayer" parent="Door2" index="1"]
-tile_map_data = PackedByteArray("AAAAAAAAAwACAAAAAAAAAAEAAwACAAAAAAA=")
+tile_map_data = PackedByteArray("AAAKAAIAAwACAAAAAAALAAcAAwACAAAAAAA=")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Door2"]
+position = Vector2(840, 200)
+shape = SubResource("RectangleShape2D_sxlph")
+
+[node name="Door3" parent="." node_paths=PackedStringArray("key_to_unlock") instance=ExtResource("8_5pgik")]
+modulate = Color(1.82897e-06, 0.600038, 0.614266, 1)
+key_to_unlock = NodePath("../Key3")
+
+[node name="KeyDetect" parent="Door3" index="0"]
+position = Vector2(920, 440)
+shape = SubResource("RectangleShape2D_lcr7d")
+
+[node name="TileMapLayer" parent="Door3" index="1"]
+tile_map_data = PackedByteArray("AAALAAUAAwACAAAAAAAHAAQAAwACAAAAAAA=")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Door3"]
+position = Vector2(600, 360)
+shape = SubResource("RectangleShape2D_48nj3")
+
+[node name="Key2" parent="." instance=ExtResource("7_vwtbo")]
+modulate = Color(0.929993, 0, 0.447184, 1)
+position = Vector2(208, 200)
+
+[node name="Key3" parent="." instance=ExtResource("7_vwtbo")]
+modulate = Color(1.82897e-06, 0.600038, 0.614266, 1)
+position = Vector2(920, 288)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("9_g00lj")]
 
 [editable path="Door"]
 [editable path="Door2"]
-[editable path="CanvasLayer"]
+[editable path="Door3"]
