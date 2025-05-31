@@ -118,7 +118,7 @@ func restore_volume() -> void:
 func start(level: int) -> void:
 	current_level = level
 	
-	if current_level == 15:
+	if current_level == 21:
 		boss_bgm.play()
 	elif current_level >= 7:
 		level_bgm.play()
@@ -138,7 +138,7 @@ func stop() -> void:
 func inc_level_counter() -> void:
 	current_level += 1
 	
-	if current_level == 15:
+	if current_level == 21:
 		boss_bgm.volume_db = -20
 		boss_bgm.play()
 		
