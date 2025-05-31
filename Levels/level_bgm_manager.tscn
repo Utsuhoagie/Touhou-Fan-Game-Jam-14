@@ -33,7 +33,7 @@ stream = ExtResource("3_i86fr")
 stream = ExtResource("4_m1g25")
 
 [node name="DeathSFX" type="AudioStreamPlayer2D" parent="."]
-process_mode = 1
+process_mode = 3
 stream = ExtResource("3_r7odc")
 
 [node name="FootstepSFX" type="AudioStreamPlayer2D" parent="."]

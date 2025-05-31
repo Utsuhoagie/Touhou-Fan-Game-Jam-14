@@ -32,13 +32,13 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_echo(): return
 
 	if event.is_action_pressed("Reset"):
-		reset_level()
+		reset_level(false)
 	elif (event.is_action_pressed("ui_cancel")
 	and not has_node("CanvasLayer/PausePopup")):
 		# pause the game
 		var pause_popup := pause_popup_scene.instantiate()
 		pause_popup.return_to_menu.connect(_return_to_menu)
-		pause_popup.restart_level.connect(reset_level)
+		pause_popup.restart_level.connect(reset_level.bind(false))
 
 		canvas_layer.add_child(pause_popup)
 		LevelBGMManager.dim_volume()
@@ -94,12 +94,25 @@ func _win_after_Seija_die() -> void:
 	get_tree().paused = true
 	
 
-func reset_level() -> void:
+func reset_level(is_dead: bool = true) -> void:
 	if is_resetting_level: return
 	
 	get_tree().paused = false
 	is_resetting_level = true
+	
 	LevelBGMManager.play_death_sfx()
+	
+	if is_dead:
+		get_tree().paused = true
+		await get_tree().create_timer(0.05).timeout
+		
+		var players := get_tree().get_nodes_in_group("players") \
+			.map(func(node: Node): return node as Player)
+		for player in players:
+			player.die()
+		
+		get_tree().paused = false
+	
 	animation_player.play("transition_out")
 	await animation_player.animation_finished
 	

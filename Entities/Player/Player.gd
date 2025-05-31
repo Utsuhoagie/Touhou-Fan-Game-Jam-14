@@ -14,6 +14,7 @@ enum PlayerType {
 	Shadow
 }
 @export var type: PlayerType = PlayerType.Main
+var is_dead: bool = false
 
 @export var mirror_x: bool = false
 @export var mirror_y: bool = false
@@ -70,7 +71,8 @@ func _physics_process(delta: float) -> void:
 	if not was_on_floor or velocity.x == 0 and type == PlayerType.Main:
 		LevelBGMManager.stop_footstep_sfx()
 	
-	move_and_slide()
+	if not is_dead:
+		move_and_slide()
 	
 	if was_on_floor and not is_on_floor():
 		coyote_timer.start()
@@ -120,3 +122,14 @@ func merge_into_main():
 		LevelBGMManager.play_mirror_sfx()
 		queue_free()
 		shadow_merged.emit()
+		
+		
+func die() -> void:
+	is_dead = true
+	var cols := Array(get_children() \
+		.filter(func(child: Node): return child is CollisionShape2D) \
+		.map(func(child: Node): return child as CollisionShape2D))
+	
+	for col in cols:
+		col.disabled = true
+	
